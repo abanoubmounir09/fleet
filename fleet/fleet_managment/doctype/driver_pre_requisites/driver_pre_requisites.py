@@ -59,6 +59,8 @@ class DriverPreRequisites(Document):
 							row.end_date = inspections.end_date
 							row.date_of_inspection = getdate(today())
 					cart_doc.save()
+
+	@frappe.whitelist()
 	def ge_all_driver_pre_requests(self):
 		# frappe.msgprint("hello")
 		result=frappe.db.sql("""select name,aspect_name,aspect_type from `tabPre Request`  where docstatus=1""",as_dict=1)
@@ -68,7 +70,7 @@ class DriverPreRequisites(Document):
 			row.pre_requisites_type=res.aspect_type
 			row.pre_request_name=res.aspect_name
 		return True
-
+	@frappe.whitelist()
 	def check_inspection_period(self,inspection,date):
 		end_date=None
 		pre_request=frappe.get_doc("Pre Request",inspection)

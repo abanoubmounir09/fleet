@@ -1,6 +1,6 @@
 - Create File Config == fleet.py
 - Doctype : 
-        1 - Fleet Supplier Invoice
+        1 - Fleet Supplier Invoice 
         2 - Fleet Sales Order
         3 - Fleet Notification Settings
         4 - Vehicle Inspection Form

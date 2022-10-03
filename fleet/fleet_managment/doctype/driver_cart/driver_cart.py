@@ -11,11 +11,13 @@ from frappe.utils import add_days, getdate, today ,nowdate
 import datetime
 
 class DriverCart(Document):
+	@frappe.whitelist()
 	def update_driver_status(self):
 		doc=frappe.get_doc("Driver",self.driver)
 		doc.status=self.status
 		doc.save()
 		return True
+	@frappe.whitelist()
 	def get_employee_custody(self):
 		total_advance_amount=0
 		total_paid_amount=0

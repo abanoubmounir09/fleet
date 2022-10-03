@@ -11,54 +11,59 @@ from erpnext.controllers.accounts_controller import get_default_taxes_and_charge
 import json
 
 class FleetSupplierInvoice(Document):
-	def get_supplier_vehicles (self):
-		if not getattr(self,'supplier',None):
-			frappe.throw(_("Please Select Supplier To Fetch Vehicles"))
-		if not getattr(self,'company',None):
-			frappe.throw(_("Please Select Company To Fetch Vehicles"))
-		if not getattr(self,'day_count',None):
-			frappe.throw(_("Please Select Day Count To Fetch Vehicles"))
-		self.set('items',[])
+	@frappe.whitelist()
+	def add_new_mwthod(self) :
+			frappe.msgprint("Fucking PEro")
+	@frappe.whitelist()
+	def get_supplier_vehicles(self):
+		frappe.msgprint("Fucking PEro")
+		# if not getattr(self,'supplier',None):
+		# 	frappe.throw(_("Please Select Supplier To Fetch Vehicles"))
+		# if not getattr(self,'company',None):
+		# 	frappe.throw(_("Please Select Company To Fetch Vehicles"))
+		# if not getattr(self,'day_count',None):
+		# 	frappe.throw(_("Please Select Day Count To Fetch Vehicles"))
+		# self.set('items',[])
 
 
 
-		res = frappe.db.sql("""
-			select
-				   (select driver  from `tabVehicle Drivers` drivers where drivers.parent = v.name and drivers.status = 'Active' limit 1) as driver
-				 , (select status  from `tabVehicle Drivers` drivers where drivers.parent = v.name and drivers.status = 'Active' limit 1) as driver_status
-					, v.name as vehicle , v.vehicle_type , v.item , v.vehicle_status , v.payment_method , v.no_hours , v.vehicle_value
-			from tabVehicle v
-			where supplier = '{}' and docstatus < 2
+		# res = frappe.db.sql("""
+		# 	select
+		# 		   (select driver  from `tabVehicle Drivers` drivers where drivers.parent = v.name and drivers.status = 'Active' limit 1) as driver
+		# 		 , (select status  from `tabVehicle Drivers` drivers where drivers.parent = v.name and drivers.status = 'Active' limit 1) as driver_status
+		# 			, v.name as vehicle , v.vehicle_type , v.item , v.vehicle_status , v.payment_method , v.no_hours , v.vehicle_value
+		# 	from tabVehicle v
+		# 	where supplier = '{}' and docstatus < 2
 		
-		""".format(self.supplier),as_dict=1)
-		for i in res :
-			row = self.append('items')
-			row.vehicle = i.vehicle
-			row.vehicle_type = i.vehicle_type
-			row.item = i.item
-			if i.item  and self.company:
-				row.cost_center = frappe.db.get_value('Item Default',
-												  fieldname=['buying_cost_center'],
-												  filters={
-													  'parent': i.item,
-													  'parenttype': 'Item',
-													  'company': self.company
-												  }) or frappe.db.get_value("Company",self.company , "cost_center")
-			row.vehicle_satus = i.vehicle_status
-			row.payment_method = i.payment_method
-			row.driver = i.driver
-			row.driver_status = i.driver_status
-			row.hrs = i.no_hours
-			row.rent_amount = i.vehicle_value or 0
-			row .invoiced = 0
-			status = 'Active'
-			row.from_date = self.from_date
-			row.to_date = self.to_date
-			row.workin_days = self.day_count or 0
-			row.total = row .total_amount =  row.workin_days * (row.rent_amount / 30 )
+		# """.format(self.supplier),as_dict=1)
+		# for i in res :
+		# 	row = self.append('items')
+		# 	row.vehicle = i.vehicle
+		# 	row.vehicle_type = i.vehicle_type
+		# 	row.item = i.item
+		# 	if i.item  and self.company:
+		# 		row.cost_center = frappe.db.get_value('Item Default',
+		# 										  fieldname=['buying_cost_center'],
+		# 										  filters={
+		# 											  'parent': i.item,
+		# 											  'parenttype': 'Item',
+		# 											  'company': self.company
+		# 										  }) or frappe.db.get_value("Company",self.company , "cost_center")
+		# 	row.vehicle_satus = i.vehicle_status
+		# 	row.payment_method = i.payment_method
+		# 	row.driver = i.driver
+		# 	row.driver_status = i.driver_status
+		# 	row.hrs = i.no_hours
+		# 	row.rent_amount = i.vehicle_value or 0
+		# 	row .invoiced = 0
+		# 	status = 'Active'
+		# 	row.from_date = self.from_date
+		# 	row.to_date = self.to_date
+		# 	row.workin_days = self.day_count or 0
+		# 	row.total = row .total_amount =  row.workin_days * (row.rent_amount / 30 )
 
 
-
+	@frappe.whitelist()
 	def make_purchase_invoice (self):
 		self.save()
 
@@ -138,7 +143,7 @@ class FleetSupplierInvoice(Document):
 		self.caculate_total_deduction()
 	
 
-
+	@frappe.whitelist()
 	def validate_days (self):
 		if self.from_date and self.to_date :
 			if self.from_date > self.to_date :

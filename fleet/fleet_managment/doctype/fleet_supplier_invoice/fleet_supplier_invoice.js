@@ -22,8 +22,7 @@ frappe.ui.form.on('Fleet Supplier Invoice', {
 
 		 frappe.call({
 					method: "make_purchase_invoice",
-					doc: frm.doc
-					,
+					"doc": frm.doc,
 					callback(r) {
 						frm.refresh()
 					}
@@ -31,11 +30,10 @@ frappe.ui.form.on('Fleet Supplier Invoice', {
 	}
 	,
 	get_supplier_vehicles:function(frm){
-
+		
 		 frappe.call({
-					method: "get_supplier_vehicles",
-					doc: frm.doc
-					,
+					doc: frm.doc,
+					method: "add_new_mwthod",
 					callback(r) {
 						frm.refresh_field('items')
 						frm.events.set_totals(frm)
