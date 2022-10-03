@@ -1,0 +1,88 @@
+{
+ "autoname": "format:{vehicle}-log",
+ "creation": "2021-03-22 15:31:40.512879",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "current_reading",
+  "column_break_3",
+  "no_litre",
+  "price",
+  "section_break_6",
+  "tank_log",
+  "tank_reading"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "current_reading",
+   "fieldtype": "Float",
+   "label": "Current Reading"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_litre",
+   "fieldtype": "Float",
+   "label": "No Litre "
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tank_log",
+   "fieldtype": "Table",
+   "label": "Tank log ",
+   "options": "Tank log child",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tank_reading",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Tank Reading",
+   "print_hide": 1
+  }
+ ],
+ "modified": "2021-03-30 20:15:28.968836",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Tank log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,35 @@
+{
+ "creation": "2021-06-01 12:51:08.734063",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "reading",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "reading",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Reading"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-06-01 12:51:18.892396",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Reading Log Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

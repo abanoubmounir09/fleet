@@ -1,0 +1,51 @@
+{
+ "creation": "2021-03-28 15:24:21.145800",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "pre_request",
+  "status",
+  "date_of_inspection",
+  "end_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "pre_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Pre Request",
+   "options": "Pre Request"
+  },
+  {
+   "default": "0",
+   "fieldname": "status",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Status"
+  },
+  {
+   "fieldname": "date_of_inspection",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Inspection"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-28 15:30:11.276286",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Driver cart Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,200 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2022-10-03 12:21:06.322728",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Fleet",
+ "links": [],
+ "modified": "2022-10-03 12:30:20.694333",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Fleet Supplier Invoice",
+   "link_to": "Fleet Supplier Invoice",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Fleet Sales Order",
+   "link_to": "Fleet Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Fleet Notification Settings",
+   "link_to": "Fleet Notification Settings",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Inspection Form",
+   "link_to": "Vehicle Inspection Form",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver Pre Requisites",
+   "link_to": "Driver Pre Requisites",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Card",
+   "link_to": "Vehicle Card",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver Cart",
+   "link_to": "Driver Cart",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Tank log",
+   "link_to": "Tank log",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Log",
+   "link_to": "Vehicle Log",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Tire Log",
+   "link_to": "Tire Log",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "GPS Logs",
+   "link_to": "GPS Logs",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver Violation",
+   "link_to": "Driver Violation",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Contract",
+   "link_to": "Vehicle Contract",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Change Plate Number",
+   "link_to": "Change Plate Number",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver",
+   "link_to": "Driver",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Pre Requisites Type",
+   "link_to": "Pre Requisites Type",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver Course",
+   "link_to": "Driver Course",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Pre Request",
+   "link_to": "Pre Request",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle",
+   "link_to": "Vehicle",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "vehichle licence",
+   "link_to": "vehichle licence",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Aspect Type",
+   "link_to": "Aspect Type",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Inspection Aspects",
+   "link_to": "Inspection Aspects",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehichle Model",
+   "link_to": "Vehichle Model",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Brand",
+   "link_to": "Vehicle Brand",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Maintainance",
+   "link_to": "Maintainance",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Color",
+   "link_to": "Color",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Area",
+   "link_to": "Area",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Uplaod Odometer Reading",
+   "link_to": "Uplaod Odometer Reading",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Office",
+   "link_to": "Office",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Fleet Management"
+}

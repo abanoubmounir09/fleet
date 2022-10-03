@@ -1,0 +1,60 @@
+{
+ "creation": "2021-03-28 15:27:51.129072",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "driver_course",
+  "date",
+  "end_date",
+  "price",
+  "required"
+ ],
+ "fields": [
+  {
+   "fieldname": "driver_course",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver Course",
+   "options": "Driver Course",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Price"
+  },
+  {
+   "default": "0",
+   "fieldname": "required",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Required"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-05-05 13:54:05.389206",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Courses",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

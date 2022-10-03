@@ -1,0 +1,268 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-12-29 11:24:48.735247",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "vehicle",
+  "vehicle_type",
+  "vehichle_brand",
+  "mileage_reading",
+  "area",
+  "add_s",
+  "column_break_5",
+  "is_old",
+  "date",
+  "vehichle_model_year",
+  "vehicle_licence_expire_date",
+  "chasis_number",
+  "office",
+  "plate_number_section",
+  "no",
+  "vehichle_plate_number",
+  "column_break_13",
+  "c4",
+  "column_break_15",
+  "c3",
+  "column_break_17",
+  "c2",
+  "column_break_19",
+  "c1",
+  "section_break_4",
+  "inspection_aspect",
+  "add_multiple",
+  "passed",
+  "inspection_team_declaration_section",
+  "other_remarks",
+  "inspection_team_section",
+  "inspection_team",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "Veh-Insp-",
+   "set_only_once": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date Of Inspection"
+  },
+  {
+   "default": "0",
+   "fieldname": "passed",
+   "fieldtype": "Check",
+   "label": "Passed"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Inspection Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "inspection_aspect",
+   "fieldtype": "Table",
+   "label": "Inspection Aspect",
+   "options": "Inspection Grid"
+  },
+  {
+   "fetch_from": "vehicle.km_reading",
+   "fieldname": "mileage_reading",
+   "fieldtype": "Data",
+   "label": "Km reading",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vehicle.vehichle_brand",
+   "fieldname": "vehichle_brand",
+   "fieldtype": "Link",
+   "label": "Vehichle Brand",
+   "options": "Vehicle Brand"
+  },
+  {
+   "fetch_from": "vehicle.model",
+   "fieldname": "vehichle_model_year",
+   "fieldtype": "Select",
+   "label": "Vehichle Model Year"
+  },
+  {
+   "fieldname": "vehicle_licence_expire_date",
+   "fieldtype": "Date",
+   "label": "Vehicle Licence Expire Date"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_team_declaration_section",
+   "fieldtype": "Section Break",
+   "label": "Inspection team Declaration "
+  },
+  {
+   "fieldname": "other_remarks",
+   "fieldtype": "Text",
+   "label": "Other Remarks"
+  },
+  {
+   "fieldname": "inspection_team_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "inspection_team",
+   "fieldtype": "Table",
+   "label": "Inspection Team",
+   "options": "Inspection Team"
+  },
+  {
+   "fieldname": "add_multiple",
+   "fieldtype": "Button",
+   "label": "Add Multiple"
+  },
+  {
+   "depends_on": "eval:doc.is_old==1",
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_old",
+   "fieldtype": "Check",
+   "label": "Is Old Car"
+  },
+  {
+   "fieldname": "plate_number_section",
+   "fieldtype": "Section Break",
+   "label": "Plate Number"
+  },
+  {
+   "fetch_from": "vehicle.no",
+   "fieldname": "no",
+   "fieldtype": "Data",
+   "label": "No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle.c4",
+   "fieldname": "c4",
+   "fieldtype": "Data",
+   "label": "C4"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle.c3",
+   "fieldname": "c3",
+   "fieldtype": "Data",
+   "label": "C3"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle.c2",
+   "fieldname": "c2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "C2"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle.c1",
+   "fieldname": "c1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "C1",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vehicle.vehichle_plate_number",
+   "fieldname": "vehichle_plate_number",
+   "fieldtype": "Data",
+   "label": "Plate Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "add_s",
+   "fieldtype": "Button",
+   "label": "ADD"
+  },
+  {
+   "fieldname": "chasis_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Chasis Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "fieldname": "office",
+   "fieldtype": "Link",
+   "label": "Office",
+   "options": "Office"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-04-22 09:48:38.206746",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle Inspection Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

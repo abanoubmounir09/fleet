@@ -1,0 +1,63 @@
+{
+ "creation": "2021-03-29 10:30:10.794478",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "advance_amount",
+  "paid_amount",
+  "pending_amount",
+  "claimed_amount",
+  "returned_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "advance_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Advance Amount"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Paid Amount"
+  },
+  {
+   "fieldname": "pending_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Pending Amount"
+  },
+  {
+   "fieldname": "claimed_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Claimed Amount"
+  },
+  {
+   "fieldname": "returned_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Returned Amount"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-29 10:30:53.258197",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Employee Advance Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

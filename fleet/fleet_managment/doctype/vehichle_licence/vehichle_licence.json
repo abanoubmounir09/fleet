@@ -1,0 +1,121 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-12-22 13:11:16.510671",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "vehicle",
+  "trafficunit",
+  "plate_number",
+  "owner_name",
+  "licence_start_date",
+  "licence_end_date",
+  "column_break_5",
+  "chase_number",
+  "engine_number",
+  "examination_date",
+  "car_type",
+  "color"
+ ],
+ "fields": [
+  {
+   "fieldname": "trafficunit",
+   "fieldtype": "Data",
+   "label": "Traffic Unit"
+  },
+  {
+   "fieldname": "plate_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plate Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Owner Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "licence_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Licence Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "licence_end_date",
+   "fieldtype": "Date",
+   "label": "Licence End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "chase_number",
+   "fieldtype": "Data",
+   "label": "Chase Number"
+  },
+  {
+   "fieldname": "engine_number",
+   "fieldtype": "Data",
+   "label": "Engine Number"
+  },
+  {
+   "fieldname": "examination_date",
+   "fieldtype": "Data",
+   "label": "Examination Date"
+  },
+  {
+   "fieldname": "car_type",
+   "fieldtype": "Data",
+   "label": "Car Type"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "Lic-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  }
+ ],
+ "modified": "2021-03-23 11:21:38.844405",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "vehichle licence",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,70 @@
+{
+ "autoname": "naming_series;",
+ "creation": "2021-01-13 11:58:00.768722",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "day",
+  "day_name",
+  "absent",
+  "present",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "Att-c-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "day_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Day Name",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "absent",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Absent"
+  },
+  {
+   "default": "0",
+   "fieldname": "present",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Present"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remark"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-01-13 14:23:18.625387",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle Attendence Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

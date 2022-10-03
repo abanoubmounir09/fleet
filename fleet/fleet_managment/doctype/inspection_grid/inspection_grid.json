@@ -1,0 +1,80 @@
+{
+ "autoname": "naming_series",
+ "creation": "2020-12-29 14:28:19.144559",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "inspection_aspects",
+  "aspect_name",
+  "yes",
+  "no",
+  "case_failure",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "inpe-N-",
+   "print_hide": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "inspection_aspects",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Inspection Aspects",
+   "options": "Inspection Aspects"
+  },
+  {
+   "default": "0",
+   "fieldname": "yes",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Yes"
+  },
+  {
+   "default": "0",
+   "fieldname": "no",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "No"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fetch_from": "inspection_aspects.cause_failure",
+   "fieldname": "case_failure",
+   "fieldtype": "Read Only",
+   "label": "Case Failure"
+  },
+  {
+   "fetch_from": "inspection_aspects.aspect_name",
+   "fieldname": "aspect_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Aspect Name",
+   "print_hide": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-05-27 15:40:38.331325",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Inspection Grid",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

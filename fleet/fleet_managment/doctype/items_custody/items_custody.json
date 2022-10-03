@@ -1,0 +1,35 @@
+{
+ "creation": "2021-03-29 11:39:52.929670",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "delivery_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code "
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Delivery Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-29 11:40:02.072561",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Items Custody",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

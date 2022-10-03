@@ -1,0 +1,43 @@
+{
+ "creation": "2021-03-24 09:50:28.415254",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "maintainance",
+  "notification_before_km",
+  "period"
+ ],
+ "fields": [
+  {
+   "fieldname": "maintainance",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Maintainance",
+   "options": "Maintainance"
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Period(km)"
+  },
+  {
+   "fieldname": "notification_before_km",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Notification Before (km)"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-30 14:21:04.999444",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Maintainance Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

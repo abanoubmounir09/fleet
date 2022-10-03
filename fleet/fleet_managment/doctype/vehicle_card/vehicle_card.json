@@ -1,0 +1,246 @@
+{
+ "autoname": "format:{vehicle}-odo-reading",
+ "creation": "2021-03-24 10:43:33.442380",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "odometer_reading",
+  "reading_date",
+  "column_break_2",
+  "vehicle",
+  "vehicle_type",
+  "section_break_4",
+  "last_tire_inspection",
+  "column_break_6",
+  "last_tire_change",
+  "column_break_8",
+  "last_tank",
+  "section_break_10",
+  "maintainance",
+  "section_break_12",
+  "add_tank_log",
+  "column_break_14",
+  "add_tire_change",
+  "column_break_18",
+  "add_tire_inspection",
+  "column_break_19",
+  "add_maintainance",
+  "update_vehicle_status_section",
+  "status",
+  "update_status",
+  "column_break_23",
+  "notes",
+  "update_gbs_status_section",
+  "gps_status",
+  "url",
+  "update_gps_status",
+  "column_break_28",
+  "comment",
+  "date",
+  "las_reading"
+ ],
+ "fields": [
+  {
+   "fetch_from": "vehicle.km_reading",
+   "fieldname": "odometer_reading",
+   "fieldtype": "Float",
+   "label": "Curent Odometer Reading"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "last_tire_inspection",
+   "fieldtype": "Float",
+   "label": "Last Tire Inspection",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_tire_change",
+   "fieldtype": "Float",
+   "label": "Last Tire Change",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_tank",
+   "fieldtype": "Float",
+   "label": "Last Tank ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "maintainance",
+   "fieldtype": "Table",
+   "label": "Maintainance ",
+   "options": "Maintainance Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "add_tank_log",
+   "fieldtype": "Button",
+   "label": "Add Tank Log"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_tire_change",
+   "fieldtype": "Button",
+   "label": "Add Tire Change"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_tire_inspection",
+   "fieldtype": "Button",
+   "label": "Add Tire Inspection"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_maintainance",
+   "fieldtype": "Button",
+   "label": "Add Maintainance"
+  },
+  {
+   "fieldname": "update_vehicle_status_section",
+   "fieldtype": "Section Break",
+   "label": "Update Vehicle Status"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nDraft\nHold\nSuspended\nInactive\nBlacklist"
+  },
+  {
+   "fieldname": "update_status",
+   "fieldtype": "Button",
+   "label": "Update Status"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  },
+  {
+   "fetch_from": "vehicle.vehicle_type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Vehicle Type",
+   "options": "Vehicle Type",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "las_reading",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Last Reading",
+   "options": "las_reading",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "update_gbs_status_section",
+   "fieldtype": "Section Break",
+   "label": "Update GBS Status"
+  },
+  {
+   "fieldname": "gps_status",
+   "fieldtype": "Select",
+   "label": "GPS Status",
+   "options": "Active\nInActive"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "update_gps_status",
+   "fieldtype": "Button",
+   "label": "Update GPS Status"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Data",
+   "label": "Comment"
+  },
+  {
+   "fieldname": "reading_date",
+   "fieldtype": "Date",
+   "label": "Reading Date"
+  }
+ ],
+ "modified": "2021-06-01 16:03:45.229124",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle Card",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
