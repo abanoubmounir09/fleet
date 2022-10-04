@@ -1,5 +1,6 @@
 - Create File Config == fleet.py
 - Doctype : 
+<<<<<<< HEAD
         1 - Fleet Supplier Invoice              --trans
         2 - Fleet Sales Order                   --trans
         3 - Fleet Notification Settings         --trans
@@ -29,6 +30,37 @@
         27-Area                                 --trans
         28-Uplaod Odometer Reading              --trans
         29-Office                               --trans
+=======
+        1 - Fleet Supplier Invoice 
+        2 - Fleet Sales Order
+        3 - Fleet Notification Settings
+        4 - Vehicle Inspection Form
+        5 - Driver Pre Requisites
+        6 - Vehicle Card
+        7 - Driver Cart
+        8 - Tank log
+        9 - Vehicle Log
+        10- Tire Log
+        11- GPS Logs
+        12- Driver Violation
+        13-Vehicle Contract
+        14-Change Plate Number
+        15-Driver
+        16-Pre Requisites Type
+        17-Driver Course
+        18-Pre Request
+        19-Vehicle
+        20-vehichle licence
+        21-Aspect Type 
+        22-Inspection Aspects
+        23-Vehichle Model
+        24-Vehicle Brand
+        25-Maintainance
+        26-Color
+        27-Area  
+        28-Uplaod Odometer Reading
+        29-Office
+>>>>>>> f33bce5d289f2d9b488cd608464232912748bf74
 
 
 Reports : 

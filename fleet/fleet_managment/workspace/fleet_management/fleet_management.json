@@ -1,0 +1,88 @@
+{
+ "cards_label": "Settings",
+ "category": "Modules",
+ "charts": [],
+ "creation": "2022-10-03 16:41:36.719515",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Fleet Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fleet Notification Settings",
+   "link_to": "Fleet Notification Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Inspection Form",
+   "link_to": "Vehicle Inspection Form",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Pre Requisites",
+   "link_to": "Driver Pre Requisites",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Violation",
+   "link_to": "Driver Violation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-10-03 16:45:36.212538",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet Management",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Fleet Supplier Invoice",
+   "link_to": "Fleet Supplier Invoice",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Fleet Sales Order",
+   "link_to": "Fleet Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Vehicle Contract",
+   "link_to": "Vehicle Contract",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Driver Violation",
+   "link_to": "Driver Violation",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Main Data "
+}

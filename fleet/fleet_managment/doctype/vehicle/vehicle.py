@@ -16,7 +16,7 @@ class Vehicle(Document):
 		self.check_vehicle_driver()
 
 	def on_submit(self):
-		frappe.msgprint("hello")
+		# frappe.msgprint("hello")
 		self.create_vechel_item()
 		# if not self.vehichle_model:
 		# 	frappe.throw("Please enter vehicle model")
@@ -26,11 +26,12 @@ class Vehicle(Document):
 			frappe.throw("Please enter vehichle plate number")
 		if not self.chassis_no:
 			frappe.throw("Please enter chassis no")
-
+	@frappe.whitelist()
 	def checkLicenceValidation(self, endDtae):
 		if getdate(endDtae) > getdate(today()):
 			return 'true'
 		return 'false'
+	@frappe.whitelist()
 	def create_vehicle_contract(self,vals):
 		doc=frappe.new_doc("Vehicle Contract",{})
 		doc.start_date=vals["start_date"]
@@ -42,7 +43,7 @@ class Vehicle(Document):
 		doc.no_hours=vals["no_hours"]
 		doc.save()
 		return doc.name
-
+	@frappe.whitelist()
 	def concat_plate_number(self):
 		plate=""
 		if self.no:

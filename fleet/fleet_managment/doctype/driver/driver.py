@@ -37,6 +37,7 @@ class Driver(Document):
 			except:
 				pass
 	# 1 if exist ,2 if not exist
+	@frappe.whitelist()
 	def checkVehicle(self):
 		if self.vehicle:
 			doc=frappe.get_doc("Vehicle",self.vehicle)

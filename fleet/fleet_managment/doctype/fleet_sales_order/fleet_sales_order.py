@@ -10,6 +10,7 @@ from datetime import date
 class FleetSalesOrder(Document):
 	def ppp(self):
 		return"P"
+	@frappe.whitelist()
 	def calculate_all_data(self):
 		self.total_qty = 0
 		self.grand_total =  0

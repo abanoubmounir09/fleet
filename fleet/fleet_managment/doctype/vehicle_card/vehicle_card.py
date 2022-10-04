@@ -36,7 +36,7 @@ class VehicleCard(Document):
                 "update `tabVehicle Log` set odometer='{}' where license_plate='{}'".format(self.odometer_reading,
                                                                                             self.vehicle))
             frappe.db.commit()
-
+    @frappe.whitelist()
     def get_reading(self):
         tire_log = frappe.db.get_list('Tire Log', filters={'vehicle': ['=', self.vehicle]},
                                       fields=['last_tier_inspection_km', 'last_tier_change_km'])
@@ -97,6 +97,7 @@ class VehicleCard(Document):
     # 	doc=frappe.get_doc("Tire Log",tire_log[0].name)
     # 	doc.current_reading=self.odometer_reading
     # 	doc.save()
+    @frappe.whitelist()
     def add_tank_log(self, current_reading, no_litre, price, vehicle):
         tank_log = frappe.db.sql("""select name from `tabTank log` where vehicle='%s'""" % vehicle, as_dict=1)
         if current_reading > self.odometer_reading:
@@ -116,7 +117,7 @@ class VehicleCard(Document):
             doc.price = price
             doc.current_reading = self.odometer_reading
             doc.save()
-
+    @frappe.whitelist()
     def add_tire_change(self, current_reading, required_date, change_date, status, *args, **kwargs):
         tire_log = frappe.db.sql("""select name from `tabTire Log` where vehicle='%s'""" % self.vehicle, as_dict=1)
         if current_reading > self.odometer_reading:
@@ -142,7 +143,7 @@ class VehicleCard(Document):
             row.required_date = required_date
             row.status = status
             doc.save()
-
+    @frappe.whitelist()
     def add_tire_inspection(self, current_reading, required_date, change_date, status, *args, **kwargs):
         tire_log = frappe.db.sql("""select name from `tabTire Log` where vehicle='%s'""" % self.vehicle, as_dict=1)
         if current_reading > self.odometer_reading or 0:
@@ -224,11 +225,12 @@ class VehicleCard(Document):
             frappe.msgprint("Status updated successfully")
             return True
         return False
-
+    @frappe.whitelist()
     def get_maintenance(self, type):
         maintenance = frappe.db.sql("""select maintainance from `tabMaintainance Child` where parent='%s'""" % type,
                                     as_dict=1)
         return maintenance
+    @frappe.whitelist()
     def add_maintenance(self,vehicle,driver,reading,date,maintenance,expense,price,description):
         vehicle_log=frappe.new_doc("Vehicle Log")
         vehicle_log.license_plate=vehicle
@@ -243,6 +245,7 @@ class VehicleCard(Document):
         row.description=description
         vehicle_log.flags.ignore_mandatory = True
         vehicle_log.save()
+    @frappe.whitelist()
     def get_vehicle_driver(self):
         d_list=[]
         vehicle_doc = frappe.get_doc("Vehicle", self.vehicle)

@@ -79,6 +79,7 @@ class VehicleInspectionForm(Document):
 		#self.validate_plate_no()
 		self.validate_plate_no()
 		self.validate_vehicle_status()
+	@frappe.whitelist()
 	def GetAllType(self,type):
 
 		aspects=frappe.db.sql("select * from `tabInspection Aspects` where aspect_type='{}'".format(type),as_dict=1)
@@ -89,13 +90,14 @@ class VehicleInspectionForm(Document):
 		#
 		# self.save()
 		return aspects
-
+	@frappe.whitelist()
 	def getDocStatus(self):
 		existing = frappe.db.get_value("Vehicle Inspection Form", self.name, "name")
 		if existing:
 			return 1
 		else:
 			return 0
+	@frappe.whitelist()
 	def ge_all_car_inspections(self):
 		
 		result = frappe.db.sql("""select name,aspect_name from `tabInspection Aspects` where docstatus=1""", as_dict=1)
@@ -110,6 +112,7 @@ class VehicleInspectionForm(Document):
 			# row.aspect_name = str(res.aspect_name)
 
 		return (self.inspection_aspect )
+	@frappe.whitelist()
 	def concat_plate_number(self):
 		plate=""
 		if self.no:
