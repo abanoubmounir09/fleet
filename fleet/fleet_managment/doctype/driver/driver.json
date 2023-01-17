@@ -693,7 +693,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2022-10-03 13:57:28.585798",
+ "modified": "2023-01-17 12:40:54.040729",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Driver",
@@ -749,7 +749,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "search_fields": "driver_name,national_id",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

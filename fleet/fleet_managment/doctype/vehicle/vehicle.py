@@ -13,6 +13,7 @@ from dateutil.relativedelta import relativedelta
 
 class Vehicle(Document):
 	def validate(self):
+		# frappe.msgprint(str(self.__dict__))
 		self.check_vehicle_driver()
 
 	def on_submit(self):

@@ -1,8 +1,7 @@
 {
- "cards_label": "Settings",
  "category": "Modules",
  "charts": [],
- "creation": "2022-10-03 16:41:36.719515",
+ "creation": "2023-01-17 12:21:35.760407",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -17,8 +16,152 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Fleet Notification Settings",
-   "link_to": "Fleet Notification Settings",
+   "label": "mastar data ",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Type",
+   "link_to": "Vehicle Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Office",
+   "link_to": "Office",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Area",
+   "link_to": "Area",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Color",
+   "link_to": "Color",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintainance",
+   "link_to": "Maintainance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Brand",
+   "link_to": "Vehicle Brand",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehichle Model",
+   "link_to": "Vehichle Model",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Inspection Aspects",
+   "link_to": "Inspection Aspects",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Aspect Type",
+   "link_to": "Aspect Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "vehichle licence",
+   "link_to": "vehichle licence",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Course",
+   "link_to": "Driver Course",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pre Request",
+   "link_to": "Pre Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pre Requisites Type",
+   "link_to": "Pre Requisites Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Contract",
+   "link_to": "Vehicle Contract",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "vehicle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle",
+   "link_to": "Vehicle",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -28,6 +171,78 @@
    "is_query_report": 0,
    "label": "Vehicle Inspection Form",
    "link_to": "Vehicle Inspection Form",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Card",
+   "link_to": "Vehicle Card",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tank log",
+   "link_to": "Tank log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Log",
+   "link_to": "Vehicle Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tire Log",
+   "link_to": "Tire Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Change Plate Number",
+   "link_to": "Change Plate Number",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver",
+   "link_to": "Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Cart",
+   "link_to": "Driver Cart",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -49,40 +264,33 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": " Settings",
+   "link_to": "Fleet Notification Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Uplaod Odometer Reading",
+   "link_to": "Uplaod Odometer Reading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2022-10-03 16:45:36.212538",
+ "modified": "2023-01-17 13:04:09.975974",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Fleet Management",
  "owner": "Administrator",
  "pin_to_bottom": 0,
- "pin_to_top": 1,
- "shortcuts": [
-  {
-   "doc_view": "List",
-   "label": "Fleet Supplier Invoice",
-   "link_to": "Fleet Supplier Invoice",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "Fleet Sales Order",
-   "link_to": "Fleet Sales Order",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "Vehicle Contract",
-   "link_to": "Vehicle Contract",
-   "type": "DocType"
-  },
-  {
-   "doc_view": "List",
-   "label": "Driver Violation",
-   "link_to": "Driver Violation",
-   "type": "DocType"
-  }
- ],
- "shortcuts_label": "Main Data "
+ "pin_to_top": 0,
+ "restrict_to_domain": "Fleet",
+ "shortcuts": []
 }
