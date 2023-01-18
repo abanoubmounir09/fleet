@@ -253,6 +253,7 @@ class VehicleCard(Document):
             if vehicle_doc.get("drivers"):
                 for d in vehicle_doc.drivers:
                     d_list.append(d.driver)
+        # frappe.msgprint(str(d_list))
         return d_list
 
 # def validae_maintenance(self):

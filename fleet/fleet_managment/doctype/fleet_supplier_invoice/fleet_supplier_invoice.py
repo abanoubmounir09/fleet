@@ -13,10 +13,12 @@ import json
 class FleetSupplierInvoice(Document):
 	@frappe.whitelist()
 	def add_new_mwthod(self) :
-			frappe.msgprint("Fucking PEro")
+			pass
+			# frappe.msgprint("Fucking PEro")
 	@frappe.whitelist()
 	def get_supplier_vehicles(self):
-		frappe.msgprint("Fucking PEro")
+		pass
+		# frappe.msgprint("Fucking PEro")
 		# if not getattr(self,'supplier',None):
 		# 	frappe.throw(_("Please Select Supplier To Fetch Vehicles"))
 		# if not getattr(self,'company',None):

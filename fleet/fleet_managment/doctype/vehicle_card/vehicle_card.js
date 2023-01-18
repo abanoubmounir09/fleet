@@ -152,9 +152,10 @@ frappe.ui.form.on('Vehicle Card', {
 
         d.show();
     },
-    add_maintainance: (frm) => {
-         var driver_data=[]
-        frappe.call({
+    add_maintainance: async (frm) => {
+        var driver_data=[]
+
+        await frappe.call({
             method:"get_vehicle_driver",
             doc:frm.doc,
             callback(r){
