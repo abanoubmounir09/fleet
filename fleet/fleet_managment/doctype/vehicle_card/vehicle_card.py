@@ -240,7 +240,7 @@ class VehicleCard(Document):
         vehicle_log.date=date
         row=vehicle_log.append("service_detail",{})
         row.type=maintenance
-        row.odometer_reading=reading
+        row.odometer=reading
         row.expense_amount=expense
         row.price=price
         row.description=description
