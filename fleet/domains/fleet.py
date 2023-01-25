@@ -19,7 +19,18 @@ data = {
                 "insert_after": "employee_name",
                 "label": "Driver",
                 "options": "Driver"
-            }]
+            }
+            
+            ],
+            'Vehicle Service': [
+            {
+                "fieldname": "description",
+                "fieldtype": "Data",
+                "insert_after": "expense_amount",
+                "label": "Description",
+            }
+            
+            ]
 
 
     },
@@ -67,11 +78,19 @@ data = {
         {
             "doctype": "Vehicle Service",
             "doctype_or_field": "DocField",
-            "fieldname": "type",
-            "property": "fieldtype",
-            "property_type": "Text",
-            "value": "Link"
+            "fieldname": "service_item",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
         },
+        {
+            "doctype": "Vehicle Service",
+            "doctype_or_field": "DocField",
+            "fieldname": "frequency",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
+        }
     ],
     "property_setters": [
 

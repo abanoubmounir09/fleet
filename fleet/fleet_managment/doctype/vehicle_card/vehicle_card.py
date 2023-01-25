@@ -235,7 +235,8 @@ class VehicleCard(Document):
         vehicle_log=frappe.new_doc("Vehicle Log")
         vehicle_log.license_plate=vehicle
         vehicle_log.employee=driver
-        vehicle_log.last_odometer=self.odometer_reading
+        vehicle_log.odometer=reading
+        #vehicle_log.last_odometer=self.odometer_reading
         vehicle_log.date=date
         row=vehicle_log.append("service_detail",{})
         row.type=maintenance
@@ -244,6 +245,8 @@ class VehicleCard(Document):
         row.price=price
         row.description=description
         vehicle_log.flags.ignore_mandatory = True
+        vehicle_log.save()
+        vehicle_log.docstatus=1
         vehicle_log.save()
     @frappe.whitelist()
     def get_vehicle_driver(self):
