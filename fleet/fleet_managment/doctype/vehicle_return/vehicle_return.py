@@ -8,6 +8,7 @@ class VehicleReturn(Document):
 	def on_submit(self):
 		self.update_moving_register_status()
 		self.update_odometer_reading()
+		self.update_vehicle_status()
 
 	def update_moving_register_status(self):
 		moving_register_doc = frappe.get_doc("Moving Register",self.moving_register)
@@ -26,3 +27,9 @@ class VehicleReturn(Document):
 					card.save()
 
 
+	def update_vehicle_status(self):
+		moving_register_doc = frappe.get_doc("Moving Register",self.moving_register)
+		if moving_register_doc.vehicle:
+			doc = frappe.get_doc("Vehicle",moving_register_doc.vehicle)
+			doc.vehicle_status = "Active"
+			doc.save()

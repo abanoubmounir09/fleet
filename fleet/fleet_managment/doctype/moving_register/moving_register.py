@@ -31,7 +31,7 @@ class MovingRegister(Document):
 		if self.request_trip:
 			doc = frappe.get_doc("Request Trip",self.request_trip)
 			remaining =100 - doc.completed_percentage
-			if remaining < self.percent:
+			if float(remaining or 0) < float(self.percent or 0):
 				#self.percent = 0
 				#frappe.msgprint(_("you cant exceed remaing percentage %s"%remaining))
 				return {"res":"False","remaining":remaining}
