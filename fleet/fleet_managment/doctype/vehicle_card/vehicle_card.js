@@ -70,6 +70,15 @@ frappe.ui.form.on('Vehicle Card', {
                     fieldname: 'price',
                     fieldtype: 'Currency',
                     reqd: 1
+                },
+                {
+                    fieldtype: 'Column Break'
+                },
+                {
+                    label: 'Date',
+                    fieldname: 'date',
+                    fieldtype: 'Date',
+                    reqd: 1
                 }
             ],
             primary_action_label: 'Save',
@@ -84,7 +93,8 @@ frappe.ui.form.on('Vehicle Card', {
                             "current_reading": vals.current_reading,
                             "no_litre": vals.no_litre,
                             "price": vals.price,
-                            "vehicle": frm.doc.vehicle
+                            "vehicle": frm.doc.vehicle,
+                            "date":vals.date
                         },
                         callback(r) {
 

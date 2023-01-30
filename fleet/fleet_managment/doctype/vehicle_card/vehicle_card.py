@@ -98,7 +98,7 @@ class VehicleCard(Document):
     # 	doc.current_reading=self.odometer_reading
     # 	doc.save()
     @frappe.whitelist()
-    def add_tank_log(self, current_reading, no_litre, price, vehicle):
+    def add_tank_log(self, current_reading, no_litre, price, vehicle,date):
         tank_log = frappe.db.sql("""select name from `tabTank log` where vehicle='%s'""" % vehicle, as_dict=1)
         if current_reading > self.odometer_reading:
             self.odometer_reading = current_reading
@@ -109,6 +109,7 @@ class VehicleCard(Document):
             doc.no_litre = no_litre
             doc.price = price
             doc.current_reading = self.odometer_reading
+            doc.date = date
             doc.save()
         else:
             doc = frappe.new_doc("Tank log")
@@ -116,6 +117,7 @@ class VehicleCard(Document):
             doc.no_litre = no_litre
             doc.price = price
             doc.current_reading = self.odometer_reading
+            doc.date = date
             doc.save()
     @frappe.whitelist()
     def add_tire_change(self, current_reading, required_date, change_date, status, *args, **kwargs):

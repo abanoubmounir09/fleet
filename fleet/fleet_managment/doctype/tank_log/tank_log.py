@@ -15,9 +15,11 @@ class Tanklog(Document):
 			row.current_reading=self.current_reading
 			row.no_litre=self.no_litre
 			row.price=self.price
+			row.date = self.date
 			self.current_reading=""
 			self.no_litre=""
 			self.price=""
+			#self.date=""
 			card_name=frappe.db.sql("""select name from `tabVehicle Card` where vehicle='%s'"""%self.vehicle,as_dict=1)
 			if card_name:
 				doc=frappe.get_doc("Vehicle Card",card_name[0].name)

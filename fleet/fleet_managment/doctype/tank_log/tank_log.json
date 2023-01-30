@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "format:{vehicle}-log",
  "creation": "2021-03-22 15:31:40.512879",
  "doctype": "DocType",
@@ -7,6 +8,7 @@
  "field_order": [
   "vehicle",
   "current_reading",
+  "date",
   "column_break_3",
   "no_litre",
   "price",
@@ -61,9 +63,16 @@
    "hidden": 1,
    "label": "Tank Reading",
    "print_hide": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date"
   }
  ],
- "modified": "2021-03-30 20:15:28.968836",
+ "links": [],
+ "modified": "2023-01-30 14:05:15.749788",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Tank log",
