@@ -18,9 +18,12 @@
  ],
  "fields": [
   {
+   "default": "__user",
    "fieldname": "applicant_name",
-   "fieldtype": "Data",
-   "label": "Applicant Name"
+   "fieldtype": "Link",
+   "label": "Applicant Name",
+   "options": "User",
+   "reqd": 1
   },
   {
    "fieldname": "notes",
@@ -39,8 +42,10 @@
   {
    "fieldname": "target",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Target",
-   "options": "Target"
+   "options": "Target",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -56,18 +61,22 @@
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "time",
    "fieldtype": "Time",
-   "label": "Time"
+   "in_list_view": 1,
+   "label": "Time",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-17 14:40:33.745112",
+ "modified": "2023-01-29 16:03:13.375382",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Request Trip",

@@ -36,3 +36,25 @@ class MovingRegister(Document):
 				#frappe.msgprint(_("you cant exceed remaing percentage %s"%remaining))
 				return {"res":"False","remaining":remaining}
 		return
+
+	def change_vehicle_status(self):
+		sql = f""" update `tabVehicle` set vehicle_status='In a trip' where name= '{self.vehicle}'"""
+		frappe.db.sql(sql)
+		frappe.db.commit()
+
+	def update_moving_register_status(self):
+		# self.moving_status = "In Progress"
+		sql = f"""update `tabMoving Register` set moving_status = 'In Progress' where name='{self.name}'"""
+		frappe.db.sql(sql)
+		frappe.db.commit()
+	def on_submit(self):
+		self.change_vehicle_status()
+		self.update_moving_register_status()
+
+
+
+@frappe.whitelist()
+def create_vehicle_return(source_name, target_doc=None):
+	doc = frappe.new_doc("Vehicle Return")
+	doc.moving_register = source_name
+	return doc

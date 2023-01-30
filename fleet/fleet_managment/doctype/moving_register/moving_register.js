@@ -11,11 +11,36 @@ frappe.ui.form.on('Moving Register', {
 				}
 			};
 		});
+		if(frm.doc.docstatus ==1 &&    frm.doc.moving_status == "In Progress"){
+				frm.add_custom_button(__("Vehichle Return"), function() {
+					frappe.model.open_mapped_doc({
+						method: "fleet.fleet_managment.doctype.moving_register.moving_register.create_vehicle_return",
+						frm: cur_frm
+					})
+				})
+			}
 		frm.set_query('driver', function(){
 			return {
 				filters: {
 					vehicle: frm.doc.vehicle,
+					type:"Driver",
 					docstatus:1
+				}
+			};
+		});
+		frm.set_query('driver_assistant', function(){
+			return {
+				filters: {
+					vehicle: frm.doc.vehicle,
+					type:"Helper",
+					docstatus:1
+				}
+			};
+		});
+		frm.set_query('vehicle', function(){
+			return {
+				filters: {
+					status:"Active"
 				}
 			};
 		});
