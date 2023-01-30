@@ -11,10 +11,10 @@ class MovingRegister(Document):
 	# 	if len(r)>0:
 	# 		card = frappe.db.get("Vehicle Card",r[0].name)
 	# 		card.odometer_reading = card.odometer_reading + 
-	def on_submit(self):
+	def update_percent(self,factor):
 		doc = frappe.get_doc("Request Trip",self.request_trip)
 		if self.type == "Partial":
-			doc.completed_percentage = float(doc.completed_percentage or 0) + float(self.percent or 0)
+			doc.completed_percentage = float(doc.completed_percentage or 0) + float(self.percent or 0) * factor
 		else:
 			doc.completed_percentage = 100
 		
@@ -37,20 +37,25 @@ class MovingRegister(Document):
 				return {"res":"False","remaining":remaining}
 		return
 
-	def change_vehicle_status(self):
-		sql = f""" update `tabVehicle` set vehicle_status='In a trip' where name= '{self.vehicle}'"""
+	def change_vehicle_status(self,status):
+		sql = f""" update `tabVehicle` set vehicle_status='{status}' where name= '{self.vehicle}'"""
 		frappe.db.sql(sql)
 		frappe.db.commit()
 
-	def update_moving_register_status(self):
+	def update_moving_register_status(self,status):
 		# self.moving_status = "In Progress"
-		sql = f"""update `tabMoving Register` set moving_status = 'In Progress' where name='{self.name}'"""
+		sql = f"""update `tabMoving Register` set moving_status = '{status}' where name='{self.name}'"""
 		frappe.db.sql(sql)
 		frappe.db.commit()
 	def on_submit(self):
-		self.change_vehicle_status()
-		self.update_moving_register_status()
+		self.update_percent(1)
+		self.change_vehicle_status("In a trip")
+		self.update_moving_register_status('In Progress')
 
+	def on_cancel(self):
+		self.update_percent(-1)
+		self.change_vehicle_status("Active")
+		self.update_moving_register_status("")
 
 
 @frappe.whitelist()
