@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "naming_series:",
  "creation": "2020-12-22 13:11:16.510671",
  "doctype": "DocType",
@@ -6,18 +7,25 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "vehicle_details_section",
   "vehicle",
   "trafficunit",
   "plate_number",
-  "owner_name",
   "licence_start_date",
   "licence_end_date",
   "column_break_5",
   "chase_number",
-  "engine_number",
   "examination_date",
-  "car_type",
-  "color"
+  "color",
+  "vehichle_brand",
+  "vehichle_model",
+  "model",
+  "owner_details_section",
+  "owner_name",
+  "column_break_15",
+  "owner_identity",
+  "column_break_17",
+  "user_identity"
  ],
  "fields": [
   {
@@ -62,19 +70,9 @@
    "label": "Chase Number"
   },
   {
-   "fieldname": "engine_number",
-   "fieldtype": "Data",
-   "label": "Engine Number"
-  },
-  {
    "fieldname": "examination_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "Examination Date"
-  },
-  {
-   "fieldname": "car_type",
-   "fieldtype": "Data",
-   "label": "Car Type"
   },
   {
    "fieldname": "color",
@@ -94,9 +92,55 @@
    "fieldtype": "Link",
    "label": "Vehicle",
    "options": "Vehicle"
+  },
+  {
+   "fieldname": "vehicle_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Details"
+  },
+  {
+   "fieldname": "owner_details_section",
+   "fieldtype": "Section Break",
+   "label": "Owner Details"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "owner_identity",
+   "fieldtype": "Data",
+   "label": "Owner Identity"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "user_identity",
+   "fieldtype": "Data",
+   "label": "User Identity"
+  },
+  {
+   "fieldname": "vehichle_brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Vehicle Brand"
+  },
+  {
+   "fieldname": "vehichle_model",
+   "fieldtype": "Link",
+   "label": "Vehichle Model",
+   "options": "Vehichle Model"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Select",
+   "label": "Model Year"
   }
  ],
- "modified": "2021-03-23 11:21:38.844405",
+ "links": [],
+ "modified": "2023-02-20 11:07:14.061537",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "vehichle licence",

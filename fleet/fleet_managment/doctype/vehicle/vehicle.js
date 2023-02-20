@@ -2,19 +2,6 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Vehicle', {
-	refresh: (frm) => {
-		frm.set_query('contract', function () {
-			return {
-				filters: {
-					"vehicle": frm.doc.name
-				}
-			}
-		})
-	},
-	on_cancel: (frm) => {
-		console.log("hello")
-	},
-
 	onload: function (frm) {
 		var max = new Date().getFullYear()
 		var min = max - 20
@@ -43,92 +30,7 @@ frappe.ui.form.on('Vehicle', {
 		});
 
 	},
-	create_contract: function (frm) {
-		if (frm.doc.__islocal) {
-			frappe.throw("Save First")
-		}
-		var d = new frappe.ui.Dialog({
-
-			'fields': [
-				{
-					'label': 'Start Date',
-					'fieldname': 'start_date',
-					'fieldtype': 'Date',
-					// 'default': frappe.datetime.nowdate(),
-					'reqd': 1
-				},
-				{
-					'label': 'Supplier',
-					'fieldname': 'supplier',
-					'fieldtype': 'Link',
-					'options': 'Supplier',
-					'default': frm.doc.supplier,
-					'reqd': 1
-				},
-				{
-					'label': 'Vehicle',
-					'fieldname': 'vehicle',
-					'fieldtype': 'Link',
-					'options': 'Vehicle',
-					'default': frm.doc.name,
-					'reqd': 1
-
-				},
-				{
-					'fieldname': 'asd',
-					'fieldtype': 'Column Break',
-
-
-				},
-				{
-					'label': 'End Date',
-					'fieldname': 'end_date',
-					'fieldtype': 'Date',
-					'reqd': 1
-				},
-				{
-					'label': 'No drivers',
-					'fieldname': 'no_driver',
-					'fieldtype': 'Int',
-					'reqd': 1
-				},
-				{
-					'label': 'Vehicle Rent',
-					'fieldname': 'vehicle_rent',
-					'fieldtype': 'Currency',
-					'reqd': 1,
-					'default': frm.doc.vehicle_value
-				},
-				{
-					'label': 'No Hours',
-					'fieldname': 'no_hours',
-					'fieldtype': 'Int',
-					'reqd': 1,
-					'default': frm.doc.no_hours
-				},
-			],
-			primary_action: function () {
-				d.hide()
-				var args = d.get_values()
-				console.log(args)
-				frappe.call({
-					method: "create_vehicle_contract",
-					doc: frm.doc,
-					args: {
-						"vals": args
-					},
-					callback(r) {
-						if (r.message) {
-							frm.set_value("contract", r.message)
-						}
-					}
-				})
-
-
-			}
-		});
-		d.show();
-	},
+	
 	check_if_charachter(c) {
 		if (isNaN(c) && c.length == 1) {
 			return true

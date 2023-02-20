@@ -23,9 +23,7 @@
   "location",
   "area",
   "office",
-  "account",
   "supplier",
-  "project",
   "company_card",
   "is_insured",
   "insurance",
@@ -560,11 +558,10 @@
    "label": "Licence End Date"
   },
   {
-   "default": "first",
    "fieldname": "licencekind",
    "fieldtype": "Select",
    "label": "Licence Kind",
-   "options": "private\nfirst\nsecond\nthird"
+   "options": "\u0634\u0627\u062d\u0646\u0629 \u0646\u0642\u0644 \u062b\u0642\u064a\u0644\n\u0634\u0627\u062d\u0646\u0629 \u0646\u0642\u0644 \u062e\u0641\u064a\u0641\n\u0633\u064a\u0627\u0631\u0629 \u062e\u0627\u0635\u0629"
   },
   {
    "fieldname": "column_break_25",
@@ -590,10 +587,11 @@
    "print_hide": 1
   },
   {
+   "default": "Driver",
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Driver\nHelper"
+   "options": "Driver"
   },
   {
    "allow_on_submit": 1,
@@ -661,14 +659,6 @@
    "options": "Office"
   },
   {
-   "allow_on_submit": 1,
-   "fetch_from": "vehicle.account",
-   "fieldname": "account",
-   "fieldtype": "Link",
-   "label": "Account",
-   "options": "Fleet Account"
-  },
-  {
    "depends_on": "eval:doc.is_insured==1",
    "fieldname": "insurance_end_date",
    "fieldtype": "Date",
@@ -678,14 +668,6 @@
    "fieldname": "national_id_end_date",
    "fieldtype": "Date",
    "label": "National Id End Date"
-  },
-  {
-   "allow_on_submit": 1,
-   "fetch_from": "vehicle.project",
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project"
   }
  ],
  "icon": "fa fa-user",
@@ -693,7 +675,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-17 12:40:54.040729",
+ "modified": "2023-02-20 11:12:52.626874",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Driver",

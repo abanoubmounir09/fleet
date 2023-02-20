@@ -14,20 +14,13 @@
   "vehichle_model",
   "item",
   "model",
-  "no_hours",
   "payment_method",
-  "project",
   "column_break_3",
-  "contract",
-  "create_contract",
-  "supplier_contract",
-  "supplier",
   "fuel_type",
   "uom",
   "km_reading",
   "area",
   "office",
-  "account",
   "vehicle_status",
   "ownership",
   "gps_status_section",
@@ -56,7 +49,6 @@
   "location",
   "column_break_8",
   "chassis_no",
-  "vehicle_value",
   "insurance_details",
   "insurance_company",
   "policy_no",
@@ -118,12 +110,6 @@
    "label": "Model Year"
   },
   {
-   "fetch_from": "contract.no_hours",
-   "fieldname": "no_hours",
-   "fieldtype": "Data",
-   "label": "Working Hours"
-  },
-  {
    "fetch_from": "contract.payment_method",
    "fieldname": "payment_method",
    "fieldtype": "Select",
@@ -132,33 +118,8 @@
    "read_only": 1
   },
   {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project"
-  },
-  {
    "fieldname": "column_break_3",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "contract",
-   "fieldtype": "Link",
-   "label": "Contract",
-   "options": "Vehicle Contract"
-  },
-  {
-   "fieldname": "create_contract",
-   "fieldtype": "Button",
-   "label": "Create Contract"
-  },
-  {
-   "fetch_from": "contract.supplier",
-   "fieldname": "supplier",
-   "fieldtype": "Link",
-   "label": "Supplier",
-   "options": "Supplier",
-   "read_only": 1
   },
   {
    "fieldname": "fuel_type",
@@ -344,13 +305,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "contract.vehicle_rent",
-   "fieldname": "vehicle_value",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Rent Value"
-  },
-  {
    "fieldname": "insurance_details",
    "fieldtype": "Section Break",
    "hidden": 1,
@@ -480,23 +434,11 @@
    "fieldtype": "Link",
    "label": "Office",
    "options": "Office"
-  },
-  {
-   "fieldname": "account",
-   "fieldtype": "Link",
-   "label": "Account",
-   "options": "Fleet Account"
-  },
-  {
-   "fieldname": "supplier_contract",
-   "fieldtype": "Link",
-   "label": "Supplier Contract",
-   "options": "Supplier Contract"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-30 10:05:27.267101",
+ "modified": "2023-02-20 10:47:47.923455",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Vehicle",

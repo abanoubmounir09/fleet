@@ -120,7 +120,7 @@ class VehicleCard(Document):
             doc.date = date
             doc.save()
     @frappe.whitelist()
-    def add_tire_change(self, current_reading, required_date, change_date, status, *args, **kwargs):
+    def add_tire_change(self, current_reading, required_date, change_date, status,valid_from=None,valid_to=None,description=None,*args, **kwargs):
         tire_log = frappe.db.sql("""select name from `tabTire Log` where vehicle='%s'""" % self.vehicle, as_dict=1)
         if current_reading > self.odometer_reading:
             self.odometer_reading = current_reading
@@ -128,17 +128,26 @@ class VehicleCard(Document):
         self.save()
         if tire_log:
             doc = frappe.get_doc("Tire Log", tire_log[0].name)
+            doc.valid_from = valid_from
+            doc.valid_to = valid_to
+            doc.description = description
             # doc.add_ch_r_km=self.odometer_reading
             row = doc.append("tire_change", {})
             row.counter_reading = current_reading  # self.odometer_reading
             row.date = change_date
             row.required_date = required_date
             row.status = status
+            row.valid_from = valid_from
+            row.valid_to = valid_to
+            row.description = description
             doc.save()
         else:
             doc = frappe.new_doc("Tire Log")
             doc.vehicle = self.vehicle
             doc.last_tier_change_date = change_date
+            doc.valid_from = valid_from
+            doc.valid_to = valid_to
+            doc.description = description
             row = doc.append("tire_change", {})
             row.counter_reading = current_reading  # self.odometer_reading
             row.date = change_date
@@ -146,7 +155,7 @@ class VehicleCard(Document):
             row.status = status
             doc.save()
     @frappe.whitelist()
-    def add_tire_inspection(self, current_reading, required_date, change_date, status, *args, **kwargs):
+    def add_tire_inspection(self, current_reading, required_date, change_date, status,valid_from=None,valid_to=None,description=None, *args, **kwargs):
         tire_log = frappe.db.sql("""select name from `tabTire Log` where vehicle='%s'""" % self.vehicle, as_dict=1)
         if current_reading > self.odometer_reading or 0:
             self.odometer_reading = current_reading
@@ -156,6 +165,9 @@ class VehicleCard(Document):
             doc = frappe.get_doc("Tire Log", tire_log[0].name)
             # doc.add_ch_r_km=self.odometer_reading
             doc.last_tier_inspection_date = change_date
+            doc.valid_from = valid_from
+            doc.valid_to = valid_to
+            doc.description = description
             row = doc.append("tire_inspection_log", {})
             row.counter_reading = current_reading  # self.odometer_reading
             row.date = change_date
@@ -165,11 +177,17 @@ class VehicleCard(Document):
         else:
             doc = frappe.new_doc("Tire Log")
             doc.vehicle = self.vehicle
+            doc.valid_from = valid_from
+            doc.valid_to = valid_to
+            doc.description = description
             row = doc.append("tire_inspection_log", {})
             row.counter_reading = current_reading  # self.odometer_reading
             row.date = change_date
             row.required_date = required_date
             row.status = status
+            row.valid_from = valid_from
+            row.valid_to = valid_to
+            row.description = description
             doc.save()
 
     def update_vehicle_status(self):

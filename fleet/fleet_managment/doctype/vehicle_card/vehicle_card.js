@@ -122,6 +122,18 @@ frappe.ui.form.on('Vehicle Card', {
                     fieldtype: 'Date'
                 },
                 {
+                    label: 'Valid From',
+                    fieldname: 'valid_from',
+                    fieldtype: 'Date',
+                  
+                },
+                {
+                    label: 'Description',
+                    fieldname: 'description',
+                    fieldtype: 'Small Text',
+                  
+                },
+                {
                     fieldtype: 'Column Break'
                 },
                 {
@@ -135,6 +147,12 @@ frappe.ui.form.on('Vehicle Card', {
                     fieldname: 'status',
                     fieldtype: 'Select',
                     options: ['Done', 'Not Done']
+                },
+                {
+                    label: 'Valid To',
+                    fieldname: 'valid_to',
+                    fieldtype: 'Date',
+                   
                 }
             ],
             primary_action_label: 'Save',
@@ -149,7 +167,10 @@ frappe.ui.form.on('Vehicle Card', {
                             "current_reading": vals.current_reading ?? 0,
                             "change_date": vals.change_date ?? "",
                             "required_date": vals.required_date ?? 0,
-                            "status": vals.status ?? "Not Done"
+                            "status": vals.status ?? "Not Done",
+                            "valid_from":vals.valid_from,
+                            "valid_to":vals.valid_to,
+                            "description":vals.description
                         },
                         callback(r) {
 
@@ -284,6 +305,18 @@ frappe.ui.form.on('Vehicle Card', {
                     fieldtype: 'Date'
                 },
                 {
+                    label: 'Valid From',
+                    fieldname: 'valid_from',
+                    fieldtype: 'Date',
+                   
+                },
+                {
+                    label: 'Description',
+                    fieldname: 'description',
+                    fieldtype: 'Small Text'
+                   
+                },
+                {
                     fieldtype: 'Column Break'
                 },
                 {
@@ -296,6 +329,12 @@ frappe.ui.form.on('Vehicle Card', {
                     fieldname: 'status',
                     fieldtype: 'Select',
                     options: ['Done', 'Not Done']
+                },
+                {
+                    label: 'Valid To',
+                    fieldname: 'valid_to',
+                    fieldtype: 'Date',
+                  
                 }
             ],
             primary_action_label: 'Save',
@@ -311,7 +350,10 @@ frappe.ui.form.on('Vehicle Card', {
                             "current_reading": vals.current_reading ?? 0,
                             "change_date": vals.change_date ?? "",
                             "required_date": vals.required_date ?? 0,
-                            "status": vals.status ?? "Not Done"
+                            "status": vals.status ?? "Not Done",
+                            "valid_from":vals.valid_from,
+                            "valid_to":vals.valid_to,
+                            "description":vals.description
                         },
                         callback(r) {
 

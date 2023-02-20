@@ -13,16 +13,10 @@ from dateutil.relativedelta import relativedelta
 
 class Vehicle(Document):
 	def validate(self):
-		# frappe.msgprint(str(self.__dict__))
 		self.check_vehicle_driver()
 
 	def on_submit(self):
-		# frappe.msgprint("hello")
 		self.create_vechel_item()
-		# if not self.vehichle_model:
-		# 	frappe.throw("Please enter vehicle model")
-		# if not self.vehichle_number:
-		# 	frappe.throw("Please enter vehicle number")
 		if not self.vehichle_plate_number:
 			frappe.throw("Please enter vehichle plate number")
 		if not self.chassis_no:
@@ -32,18 +26,7 @@ class Vehicle(Document):
 		if getdate(endDtae) > getdate(today()):
 			return 'true'
 		return 'false'
-	@frappe.whitelist()
-	def create_vehicle_contract(self,vals):
-		doc=frappe.new_doc("Vehicle Contract",{})
-		doc.start_date=vals["start_date"]
-		doc.supplier = vals["supplier"]
-		doc.vehicle = vals["vehicle"]
-		doc.end_date = vals["end_date"]
-		doc.no_drivers = vals["no_driver"]
-		doc.vehicle_rent = vals["vehicle_rent"]
-		doc.no_hours=vals["no_hours"]
-		doc.save()
-		return doc.name
+
 	@frappe.whitelist()
 	def concat_plate_number(self):
 		plate=""
@@ -105,8 +88,6 @@ class Vehicle(Document):
 		frappe.db.sql("""delete from `tabVehicle Log` where license_plate='%s'"""%self.name)
 		frappe.db.commit()
 		frappe.db.sql("""delete from `tabVehicle Card` where vehicle='%s'"""%self.name)
-		frappe.db.commit()
-		frappe.db.sql("""delete from `tabVehicle Contract` where vehicle='%s'"""%self.name)
 		frappe.db.commit()
 		frappe.db.sql("""update `tabDriver Violation` set vehicle='' where vehicle='%s'"""%self.name)
 		frappe.db.commit()
