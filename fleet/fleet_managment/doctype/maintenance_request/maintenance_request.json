@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:M-Re-{#####}",
  "creation": "2023-02-20 12:04:20.255914",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -52,6 +53,7 @@
    "label": "Date"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -83,7 +85,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-20 12:09:35.970511",
+ "modified": "2023-02-20 13:12:45.121980",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Maintenance Request",

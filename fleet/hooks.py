@@ -97,7 +97,8 @@ app_license = "MIT"
 
 doc_events = {
 	"Vehicle Log":{
-		"validate":"fleet.fleet_managment.setup.create_vehicle_log_script"
+		"validate":"fleet.fleet_managment.setup.create_vehicle_log_script",
+		"on_submit":"fleet.fleet_managment.setup.change_request_status"
 	}
 # 	"*": {
 # 		"on_update": "method",
