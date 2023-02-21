@@ -628,7 +628,6 @@
   },
   {
    "allow_on_submit": 1,
-   "fetch_from": "vehicle.supplier",
    "fieldname": "supplier",
    "fieldtype": "Link",
    "label": "Supplier",
@@ -675,7 +674,7 @@
  "image_field": "image",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-20 11:12:52.626874",
+ "modified": "2023-02-21 15:30:02.266504",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Driver",
