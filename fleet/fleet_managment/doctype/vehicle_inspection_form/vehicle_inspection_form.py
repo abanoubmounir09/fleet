@@ -62,13 +62,13 @@ class VehicleInspectionForm(Document):
 		if  self.is_old ==0:
 			#car is new
 			cur_v = frappe.db.get_value("Vehicle",{'vehichle_plate_number':self.vehichle_plate_number},'name')
-			if cur_v :
+			if cur_v and not self.is_old:
 				frappe.throw(_("Plat Number is Exit with Another Vehicle {}".format(str(cur_v))))
 	def validate_vehicle_status(self):
 		if self.is_old :
 			#car is new
-			if not self.vehicle :
-				frappe.throw(_("Vehicle Field is Mandatory"))
+			# if not self.vehicle :
+			# 	frappe.throw(_("Vehicle Field is Mandatory"))
 
 
 			status = frappe.db.get_value("Vehicle",self.vehicle,'vehicle_status') or ''
