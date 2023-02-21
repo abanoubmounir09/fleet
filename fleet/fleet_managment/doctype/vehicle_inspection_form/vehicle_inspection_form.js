@@ -30,7 +30,7 @@ frappe.ui.form.on('Vehicle Inspection Form', {
 	},
 	is_old:(frm)=>{
     	if(frm.doc.is_old==0){
-    		frm.set_value("vehicle","")
+    		// frm.set_value("vehicle","")
 			frm.set_value("vehichle_brand","")
 			 frm.set_df_property("vehichle_brand","read_only",0)
 			frm.set_df_property("c1","read_only",0)
