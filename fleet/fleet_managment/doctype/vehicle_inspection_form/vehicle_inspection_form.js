@@ -46,8 +46,8 @@ frappe.ui.form.on('Vehicle Inspection Form', {
 			frm.set_df_property("no","read_only",0)
 			frm.set_value("no","")
 			frm.set_value("vehichle_plate_number","")
-			frm.set_df_property("mileage_reading","read_only",0)
-			frm.set_value("mileage_reading","")
+			// frm.set_df_property("mileage_reading","read_only",0)
+			// frm.set_value("mileage_reading","")
 			frm.set_df_property("vehichle_model_year","read_only",0)
 			frm.set_value("vehichle_model_year","")
 		}else{
@@ -58,7 +58,7 @@ frappe.ui.form.on('Vehicle Inspection Form', {
 			frm.set_df_property("c3","read_only",1)
 			frm.set_df_property("c4","read_only",1)
 			frm.set_df_property("no","read_only",1)
-			frm.set_df_property("mileage_reading","read_only",1)
+			// frm.set_df_property("mileage_reading","read_only",1)
 			frm.set_df_property("vehichle_model_year","read_only",1)
 
 		}
