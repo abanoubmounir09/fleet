@@ -136,12 +136,12 @@
    "label": "Add Multiple"
   },
   {
-   "depends_on": "eval:doc.is_old==1",
    "fieldname": "vehicle",
    "fieldtype": "Link",
    "label": "Vehicle",
    "mandatory_depends_on": "eval:doc.is_old==1",
-   "options": "Vehicle"
+   "options": "Vehicle",
+   "read_only_depends_on": "eval:doc.is_old==0"
   },
   {
    "default": "0",
@@ -250,7 +250,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-21 17:26:58.922483",
+ "modified": "2023-02-21 17:41:32.253087",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Vehicle Inspection Form",
