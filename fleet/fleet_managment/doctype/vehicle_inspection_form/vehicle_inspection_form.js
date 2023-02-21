@@ -18,11 +18,14 @@ frappe.ui.form.on('Vehicle Inspection Form', {
 		frm.refresh_field("vehichle_model_year")
 	},
     check_if_charachter(c){
-		if(isNaN(c) && c.length==1){
-			return true
-		}else
+		if(c.length >0)
 		{
-			return false
+			if(isNaN(c) && c.length==1){
+				return true
+			}else
+			{
+				return false
+			}
 		}
 	},
 	is_old:(frm)=>{
