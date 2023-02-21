@@ -2,13 +2,13 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Driver', {
-	validate:(frm)=>{
-      if(frm.doc.national_id.length !=14){
-         // console.log(frm.doc.national_id.length)
-          frm.set_value("national_id","")
-          frappe.throw(__("National ID mus be 14 character"))
-      }
-    },
+	// validate:(frm)=>{
+    //   if(frm.doc.national_id.length !=14){
+    //      // console.log(frm.doc.national_id.length)
+    //       frm.set_value("national_id","")
+    //       frappe.throw(__("National ID mus be 14 character"))
+    //   }
+    // },
 	refresh:(frm)=>{
 		if(frm.doc.vehicle) {
 			frappe.call({
