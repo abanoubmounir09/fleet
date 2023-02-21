@@ -13,6 +13,7 @@
   "plate_number",
   "licence_start_date",
   "licence_end_date",
+  "weigth",
   "column_break_5",
   "chase_number",
   "examination_date",
@@ -137,10 +138,15 @@
    "fieldname": "model",
    "fieldtype": "Select",
    "label": "Model Year"
+  },
+  {
+   "fieldname": "weigth",
+   "fieldtype": "Float",
+   "label": "Weigth"
   }
  ],
  "links": [],
- "modified": "2023-02-20 11:07:14.061537",
+ "modified": "2023-02-21 13:32:32.556157",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "vehichle licence",
