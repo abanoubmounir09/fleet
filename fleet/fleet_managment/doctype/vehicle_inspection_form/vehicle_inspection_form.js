@@ -28,41 +28,41 @@ frappe.ui.form.on('Vehicle Inspection Form', {
 			}
 		}
 	},
-	is_old:(frm)=>{
-    	if(frm.doc.is_old==0){
-    		// frm.set_value("vehicle","")
-			frm.set_value("vehichle_brand","")
-			 frm.set_df_property("vehichle_brand","read_only",0)
-			frm.set_df_property("c1","read_only",0)
-			frm.set_value("c1","")
-			frm.refresh_field('c1')
-			frm.set_df_property("c2","read_only",0)
-			frm.set_value("c2","")
-			frm.refresh_field('c1')
-			frm.set_df_property("c3","read_only",0)
-			frm.set_value("c3","")
-			frm.set_df_property("c4","read_only",0)
-			frm.set_value("c4","")
-			frm.set_df_property("no","read_only",0)
-			frm.set_value("no","")
-			frm.set_value("vehichle_plate_number","")
-			// frm.set_df_property("mileage_reading","read_only",0)
-			// frm.set_value("mileage_reading","")
-			frm.set_df_property("vehichle_model_year","read_only",0)
-			frm.set_value("vehichle_model_year","")
-		}else{
+	// is_old:(frm)=>{
+    // 	if(frm.doc.is_old==0){
+    // 		// frm.set_value("vehicle","")
+	// 		frm.set_value("vehichle_brand","")
+	// 		frm.set_df_property("vehichle_brand","read_only",0)
+	// 		frm.set_df_property("c1","read_only",0)
+	// 		frm.set_value("c1","")
+	// 		frm.refresh_field('c1')
+	// 		frm.set_df_property("c2","read_only",0)
+	// 		frm.set_value("c2","")
+	// 		frm.refresh_field('c1')
+	// 		frm.set_df_property("c3","read_only",0)
+	// 		frm.set_value("c3","")
+	// 		frm.set_df_property("c4","read_only",0)
+	// 		frm.set_value("c4","")
+	// 		frm.set_df_property("no","read_only",0)
+	// 		frm.set_value("no","")
+	// 		frm.set_value("vehichle_plate_number","")
+	// 		// frm.set_df_property("mileage_reading","read_only",0)
+	// 		// frm.set_value("mileage_reading","")
+	// 		frm.set_df_property("vehichle_model_year","read_only",0)
+	// 		frm.set_value("vehichle_model_year","")
+	// 	}else{
 
-			frm.set_df_property("vehichle_brand","read_only",1)
-			frm.set_df_property("c1","read_only",1)
-			frm.set_df_property("c2","read_only",1)
-			frm.set_df_property("c3","read_only",1)
-			frm.set_df_property("c4","read_only",1)
-			frm.set_df_property("no","read_only",1)
-			// frm.set_df_property("mileage_reading","read_only",1)
-			frm.set_df_property("vehichle_model_year","read_only",1)
+	// 		frm.set_df_property("vehichle_brand","read_only",1)
+	// 		frm.set_df_property("c1","read_only",1)
+	// 		frm.set_df_property("c2","read_only",1)
+	// 		frm.set_df_property("c3","read_only",1)
+	// 		frm.set_df_property("c4","read_only",1)
+	// 		frm.set_df_property("no","read_only",1)
+	// 		// frm.set_df_property("mileage_reading","read_only",1)
+	// 		frm.set_df_property("vehichle_model_year","read_only",1)
 
-		}
-	},
+	// 	}
+	// },
 	c1:(frm)=>{
 
 			if(!frm.events.check_if_charachter(frm.doc.c1) &&frm.doc.c1 !="" && !frm.doc.vehicle) {
