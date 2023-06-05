@@ -30,8 +30,34 @@ data = {
                 "label": "Description",
             }
             
+            ],
+            "Vehicle Service":[
+                {
+                "label": "Service Item Name",
+                "fieldname": "service_item_name",
+                "fieldtype": "Link",
+                "options":"Service Item",
+                "insert_after": "service_item",
+                "in_list_view":1
+            }
+            ],
+            "Vehicle Log":[
+                 {
+                "label": "Delivery Date",
+                "fieldname": "delivery_date",
+                "fieldtype": "Date",
+                "insert_after": "last_odometer",
+                
+            },
+            {
+                "label": "Applicant Name",
+                "fieldname": "applicant_name",
+                "fieldtype": "Link",
+                "insert_after": "license_plate",
+                "options":"User"
+                
+            },
             ]
-
 
     },
     "properties": [
@@ -90,7 +116,15 @@ data = {
             "property": "reqd",
             "property_type": "Check",
             "value": "0"
-        }
+        },
+        {
+            "doctype": "Vehicle Service",
+            "doctype_or_field": "DocField",
+            "fieldname": "service_item",
+            "property": "in_list_view",
+            "property_type": "Check",
+            "value": "0"
+        },
     ],
     "property_setters": [
 
