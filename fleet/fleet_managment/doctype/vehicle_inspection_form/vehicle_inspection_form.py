@@ -6,8 +6,19 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from fleet.fleet_managment.doctype.maintenance_request.maintenance_request import get_user_by_role
 
 class VehicleInspectionForm(Document):
+	def after_insert(self):
+		get_all_manger = get_user_by_role("System Manager")
+		kwargs={
+			"get_all_manger":get_all_manger,
+			"document_type":self.doctype,
+			"document_name":self.name,
+			"date":self.date,
+		}
+		vechile_inspection_form_alert_manager(**kwargs)
+
 	def on_submit(self):
 		if self.passed==1 and self.is_old==0:
 			doc=frappe.new_doc('Vehicle')
@@ -127,3 +138,17 @@ class VehicleInspectionForm(Document):
 			plate+=self.c4 +" "
 		return plate
 
+
+def vechile_inspection_form_alert_manager(**kwargs):
+	for row in kwargs.get("get_all_manger"):
+		owner_name = row.get("parent")
+		contact_date = kwargs.get('date')
+		notif_doc = frappe.new_doc('Notification Log')
+		notif_doc.subject = f"Vehicle Inspection Form With Name {owner_name} was created at {contact_date}"
+		notif_doc.email_content = f"Vehicle Inspection Form With Name {owner_name} was created at {contact_date}"
+		notif_doc.for_user = owner_name
+		notif_doc.type = "Mention"
+		notif_doc.document_type = kwargs.get('document_type')
+		notif_doc.document_name = kwargs.get('document_name')
+		notif_doc.from_user = frappe.session.user
+		notif_doc.insert(ignore_permissions=True)
