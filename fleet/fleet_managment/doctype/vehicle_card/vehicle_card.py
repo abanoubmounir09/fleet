@@ -251,10 +251,10 @@ class VehicleCard(Document):
                                     as_dict=1)
         return maintenance
     @frappe.whitelist()
-    def add_maintenance(self,vehicle,driver,reading,date,maintenance,expense,price,description):
+    def add_maintenance(self,vehicle,reading,date,maintenance,expense,price,description):
         vehicle_log=frappe.new_doc("Vehicle Log")
         vehicle_log.license_plate=vehicle
-        vehicle_log.employee=driver
+        #vehicle_log.employee=driver
         vehicle_log.odometer=reading
         #vehicle_log.last_odometer=self.odometer_reading
         vehicle_log.date=date

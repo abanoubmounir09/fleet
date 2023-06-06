@@ -196,15 +196,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Vehicle Log",
-   "link_to": "Vehicle Log",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Tire Log",
    "link_to": "Tire Log",
    "link_type": "DocType",
@@ -224,6 +215,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Driver",
+   "link_to": "Fleet Notification Settings",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -282,9 +274,45 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Vehicle Expenses",
+   "link_to": "Vehicle Expenses Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance",
+   "link_to": "About Us Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Log",
+   "link_to": "Vehicle Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance Request",
+   "link_to": "Maintenance Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-01-17 13:04:09.975974",
+ "modified": "2023-05-29 11:03:49.839827",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Fleet Management",

@@ -186,18 +186,18 @@ frappe.ui.form.on('Vehicle Card', {
     add_maintainance: async (frm) => {
         var driver_data=[]
 
-        await frappe.call({
-            method:"get_vehicle_driver",
-            doc:frm.doc,
-            callback(r){
-                if(r.message){
-                    driver_data=r.message
-                    console.log(driver_data)
-                }else {
-                    frappe.throw("vehicle doesnt have any driver")
-                }
-            }
-        })
+        // await frappe.call({
+        //     method:"get_vehicle_driver",
+        //     doc:frm.doc,
+        //     callback(r){
+        //         if(r.message){
+        //             driver_data=r.message
+        //             console.log(driver_data)
+        //         }else {
+        //             frappe.throw("vehicle doesnt have any driver")
+        //         }
+        //     }
+        // })
         frappe.call({
             method: "get_maintenance",
             doc: frm.doc,
@@ -229,7 +229,7 @@ frappe.ui.form.on('Vehicle Card', {
                             fieldname: 'driver',
                             fieldtype: 'Select',
                             options: driver_data,
-                            reqd: 1
+                            reqd: 0
                         },
                         {
                             label: 'Date',

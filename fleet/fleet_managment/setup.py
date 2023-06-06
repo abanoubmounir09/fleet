@@ -21,7 +21,7 @@ def create_vehicle_log_script(doc,*args, **kwargs):
     change_request_status(doc)
 
 def change_request_status(doc,*args, **kwargs):
-    if doc.maintenance_request:
+    if doc.get("maintenance_request"):
         min_req_doc = frappe.get_doc("Maintenance Request",doc.maintenance_request)
-        min_req_doc.status = doc.status
+        min_req_doc.status = "Completed"
         min_req_doc.save()

@@ -28,9 +28,20 @@ data = {
                 "fieldtype": "Data",
                 "insert_after": "expense_amount",
                 "label": "Description",
-            }
+            },
             
+            ],
+            'Vehicle Log':[
+                {
+                "fieldname": "maintenance_request",
+                "fieldtype": "Data",
+                "insert_after": "service_detail",
+                "label": "Maintenance Request",
+                "hidden":1
+                }
             ]
+
+
 
 
     },

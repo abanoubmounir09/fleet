@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "format:{type_name}",
  "creation": "2020-12-28 15:45:15.803745",
  "doctype": "DocType",
@@ -11,7 +12,6 @@
   "item",
   "item_name",
   "period",
-  "period_km",
   "tier_section_section",
   "change_afterkm",
   "inspect_after_km",
@@ -20,7 +20,8 @@
   "notification_afterkm",
   "section_break_8",
   "maintainance",
-  "amended_from"
+  "amended_from",
+  "period_km_mm"
  ],
  "fields": [
   {
@@ -77,6 +78,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "maintainance",
    "fieldtype": "Table",
    "label": "Maintainance ",
@@ -119,7 +121,8 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2021-05-30 21:27:52.287777",
+ "links": [],
+ "modified": "2023-05-22 16:25:35.343626",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Vehicle Type",
