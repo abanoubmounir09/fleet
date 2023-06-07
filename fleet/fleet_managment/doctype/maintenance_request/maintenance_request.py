@@ -20,6 +20,7 @@ class MaintenanceRequest(Document):
 		frappe.db.commit()
 		self.reload()
 		self.create_vehicle_log()
+		send_alert_vechile_driver(self)
 
 	def create_vehicle_log(self):
 		vehicle_log=frappe.new_doc("Vehicle Log")
@@ -48,7 +49,7 @@ class MaintenanceRequest(Document):
 
 @frappe.whitelist()
 def send_alert_vechile_driver(doc):
-	doc= json.loads(doc)
+	# doc= json.loads(doc)
 	owner_name = doc.get("applicant_name")
 	contact_date = doc.get("date")
 	notif_doc = frappe.new_doc('Notification Log')

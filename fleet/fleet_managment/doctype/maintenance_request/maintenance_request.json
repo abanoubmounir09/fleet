@@ -19,12 +19,14 @@
  ],
  "fields": [
   {
+   "fetch_from": "vehicle.area",
    "fieldname": "area",
    "fieldtype": "Link",
    "label": "Area",
    "options": "Area"
   },
   {
+   "fetch_from": "vehicle.office",
    "fieldname": "office",
    "fieldtype": "Link",
    "label": "Office",
@@ -87,7 +89,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-06-07 10:45:27.609384",
+ "modified": "2023-06-07 11:58:03.407982",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Maintenance Request",
