@@ -21,11 +21,12 @@ def create_vehicle_log_script(doc,*args, **kwargs):
                     d.odometer_reading=odoreading
         card_doc.save()
 
-    change_request_status(doc)
+    
 
 
 def hook_on_submit(doc,*args, **kwargs):
     if "Fleet" in DOMAINS:
+        change_request_status(doc)
         kwargs['date'] = doc.creation
         kwargs['owner_name'] = doc.applicant_name
         kwargs['document_type'] = doc.doctype
@@ -50,5 +51,5 @@ def send_alert_vechile_driver(**kwargs):
 def change_request_status(doc,*args, **kwargs):
     if doc.get("maintenance_request"):
         min_req_doc = frappe.get_doc("Maintenance Request",doc.maintenance_request)
-        min_req_doc.status = "Completed"
+        min_req_doc.db_set('status',"Completed")
         min_req_doc.save()
