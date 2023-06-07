@@ -13,13 +13,13 @@ class MaintenanceRequest(Document):
 		alert_vechile_manager(self)
 
 	def on_submit(self):
-		self.create_vehicle_log()
 		sql = f"""
 			UPDATE `tabMaintenance Request` set status = 'Agree' where name = '{self.name}'
 		"""
 		frappe.db.sql(sql)
 		frappe.db.commit()
 		self.reload()
+		self.create_vehicle_log()
 
 	def create_vehicle_log(self):
 		vehicle_log=frappe.new_doc("Vehicle Log")

@@ -29,6 +29,14 @@ data = {
                 "insert_after": "expense_amount",
                 "label": "Description",
             },
+            {
+                "label": "Service Item Name",
+                "fieldname": "service_item_name",
+                "fieldtype": "Link",
+                "options":"Service Item",
+                "insert_after": "service_item",
+                "in_list_view":1
+            }
             
             ],
             'Vehicle Log':[
@@ -40,16 +48,7 @@ data = {
                 "hidden":1
                 }
             ],
-            "Vehicle Service":[
-                {
-                "label": "Service Item Name",
-                "fieldname": "service_item_name",
-                "fieldtype": "Link",
-                "options":"Service Item",
-                "insert_after": "service_item",
-                "in_list_view":1
-            }
-            ],
+
             "Vehicle Log":[
                  {
                 "label": "Delivery Date",
@@ -68,7 +67,6 @@ data = {
             },
             ]
 
->>>>>>> e8420ed60eea75636c85485ff9f1b7b56f5a0abe
     },
     "properties": [
         {
@@ -135,6 +133,7 @@ data = {
             "property_type": "Check",
             "value": "0"
         },
+        
     ],
     "property_setters": [
 

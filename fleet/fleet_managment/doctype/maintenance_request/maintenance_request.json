@@ -19,21 +19,18 @@
  ],
  "fields": [
   {
-   "fetch_from": "vehicle.area",
    "fieldname": "area",
    "fieldtype": "Link",
    "label": "Area",
    "options": "Area"
   },
   {
-   "fetch_from": "vehicle.office",
    "fieldname": "office",
    "fieldtype": "Link",
    "label": "Office",
    "options": "Office"
   },
   {
-   "allow_on_submit": 1,
    "fieldname": "vehicle",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -56,15 +53,6 @@
    "label": "Date"
   },
   {
-   "allow_on_submit": 1,
-   "default": "Pending",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Pending\nAgree\nCompleted",
-   "read_only": 1
-  },
-  {
    "default": "__user",
    "fieldname": "applicant_name",
    "fieldtype": "Link",
@@ -85,12 +73,21 @@
    "options": "Maintenance Request",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nAgree\nCompleted",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-05-23 13:30:50.844125",
+ "modified": "2023-06-07 10:45:27.609384",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Maintenance Request",
