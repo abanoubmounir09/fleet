@@ -65,6 +65,15 @@ data = {
                 "options":"User"
                 
             },
+            {
+                "label": "Status",
+                "fieldname": "status",
+                "fieldtype": "Select",
+                "options":"Agree\nIn Progress\nCompleted",
+                "insert_after": "column_break_7",
+                "in_standard_filter": "1",
+                
+            },
             ]
 
     },
@@ -132,6 +141,14 @@ data = {
             "property": "in_list_view",
             "property_type": "Check",
             "value": "0"
+        },
+         {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "status",
+            "property": "in_list_view",
+            "property_type": "Check",
+            "value": "1"
         },
         
     ],
