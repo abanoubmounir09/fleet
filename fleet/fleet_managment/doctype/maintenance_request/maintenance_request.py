@@ -53,8 +53,8 @@ def send_alert_vechile_driver(doc):
 	owner_name = doc.get("applicant_name")
 	contact_date = doc.get("date")
 	notif_doc = frappe.new_doc('Notification Log')
-	notif_doc.subject = f"{owner_name} Has Maintenance Request at {contact_date} status become agree"
-	notif_doc.email_content = f"{owner_name} Has Maintenance Request at {contact_date} status become agree"
+	notif_doc.subject = _(f"{owner_name} Has Maintenance Request at {contact_date} status become agree")
+	notif_doc.email_content = _(f"{owner_name} Has Maintenance Request at {contact_date} status become agree")
 	notif_doc.for_user = owner_name
 	notif_doc.type = "Mention"
 	notif_doc.document_type = doc.get("doctype")
@@ -90,8 +90,8 @@ def send_alert_vechile_manager(**kwargs):
 		owner_name = row.get("parent")
 		contact_date = kwargs.get('doc').date
 		notif_doc = frappe.new_doc('Notification Log')
-		notif_doc.subject = f"{owner_name} Has Maintenance Request at {contact_date}"
-		notif_doc.email_content = f"{owner_name} Has Maintenance Request at {contact_date}"
+		notif_doc.subject = _(f"{owner_name} Has Maintenance Request at {contact_date}")
+		notif_doc.email_content = _(f"{owner_name} Has Maintenance Request at {contact_date}")
 		notif_doc.for_user = owner_name
 		notif_doc.type = "Mention"
 		notif_doc.document_type = kwargs.get('doc').doctype
