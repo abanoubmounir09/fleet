@@ -162,17 +162,17 @@ def send_alert_all_manager(**kwargs):
 			subject=''
 			mail_msg=''
 			if row.doctype=="Maintenance Request":
-				subject =f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}"
-				mail_msg =  f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}"
+				subject =_(f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}")
+				mail_msg =  _(f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}")
 			elif row.doctype=="Vehicle Contract":
-				subject =f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}"
-				mail_msg =  f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}"
+				subject = _(f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}")
+				mail_msg = _( f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}")
 			elif row.doctype=="Tire Log" and row.child=="Tire":
-				subject =f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}"
-				mail_msg =  f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}"
+				subject = _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}")
+				mail_msg =  _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}")
 			elif row.doctype=="Tire Log" and row.child=="Inspection":
-				subject =f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Inspection Name {row.get('name')}"
-				mail_msg =  f"Vehicle  With name {row.get('vehicle')} will need To Change Inspection Tire Name {row.get('name')}"
+				subject = _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Inspection Name {row.get('name')}")
+				mail_msg =  _(f"Vehicle  With name {row.get('vehicle')} will need To Change Inspection Tire Name {row.get('name')}")
 			notif_doc.subject = subject
 			notif_doc.email_content =mail_msg
 			notif_doc.for_user = owner_name
