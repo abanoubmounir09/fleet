@@ -53,8 +53,8 @@ def send_alert_vechile_driver(doc):
 	owner_name = doc.get("applicant_name")
 	contact_date = doc.get("date")
 	notif_doc = frappe.new_doc('Notification Log')
-	notif_doc.subject = _(f"{owner_name} Has Maintenance Request at {contact_date} status become agree")
-	notif_doc.email_content = _(f"{owner_name} Has Maintenance Request at {contact_date} status become agree")
+	notif_doc.subject = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
+	notif_doc.email_content = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
 	notif_doc.for_user = owner_name
 	notif_doc.type = "Mention"
 	notif_doc.document_type = doc.get("doctype")
@@ -90,8 +90,8 @@ def send_alert_vechile_manager(**kwargs):
 		owner_name = row.get("parent")
 		contact_date = kwargs.get('doc').date
 		notif_doc = frappe.new_doc('Notification Log')
-		notif_doc.subject = _(f"{owner_name} Has Maintenance Request at {contact_date}")
-		notif_doc.email_content = _(f"{owner_name} Has Maintenance Request at {contact_date}")
+		notif_doc.subject = _("{0}Has Maintenance Request at{1}").format(owner_name, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
+		notif_doc.email_content = _("{0}Has Maintenance Request at{1}").format(owner_name, contact_date)
 		notif_doc.for_user = owner_name
 		notif_doc.type = "Mention"
 		notif_doc.document_type = kwargs.get('doc').doctype
@@ -162,17 +162,17 @@ def send_alert_all_manager(**kwargs):
 			subject=''
 			mail_msg=''
 			if row.doctype=="Maintenance Request":
-				subject =_(f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}")
-				mail_msg =  _(f"Maintenance Request With name {row.get('name')} will be end license at {row.get('end_date')}")
+				subject =_("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'), row.get('end_date'))
+				mail_msg =  _("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'),row.get('end_date'))
 			elif row.doctype=="Vehicle Contract":
-				subject = _(f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}")
-				mail_msg = _( f"Vehicle Contract With name {row.get('name')} will be end after 2 months from now {row.get('end_date')}")
+				subject = _("Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
+				mail_msg = _( "Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
 			elif row.doctype=="Tire Log" and row.child=="Tire":
-				subject = _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}")
-				mail_msg =  _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Name {row.get('name')}")
+				subject = _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
+				mail_msg =  _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
 			elif row.doctype=="Tire Log" and row.child=="Inspection":
-				subject = _(f"Vehicle  With name {row.get('vehicle')} will need To Change Tire Inspection Name {row.get('name')}")
-				mail_msg =  _(f"Vehicle  With name {row.get('vehicle')} will need To Change Inspection Tire Name {row.get('name')}")
+				subject = _("Vehicle  With name {0} will need To Change Tire Inspection Name {1}").format(row.get('vehicle'),row.get('name'))
+				mail_msg =  _("Vehicle  With name {0} will need To Change Inspection Tire Name {1}").format(row.get('vehicle'),row.get('name'))
 			notif_doc.subject = subject
 			notif_doc.email_content =mail_msg
 			notif_doc.for_user = owner_name

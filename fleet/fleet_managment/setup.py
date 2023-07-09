@@ -31,8 +31,8 @@ def hook_on_submit(doc,*args, **kwargs):
         kwargs['owner_name'] = doc.applicant_name
         kwargs['document_type'] = doc.doctype
         kwargs['document_name'] = doc.name
-        kwargs['subject'] = f"Vechile Log Is Submitted For Driver {doc.applicant_name}  at {doc.modified} status become Completed"
-        kwargs['email_content'] = f"Vechile Log Is Submitted For Driver {doc.applicant_name}  at {doc.modified} status become Completed"
+        kwargs['subject'] = "Vechile Log Is Submitted For Driver {0}  at {1} status become Completed".foramt(doc.applicant_name, doc.modified)
+        kwargs['email_content'] = "Vechile Log Is Submitted For Driver {0}  at {1} status become Completed".foramt(doc.applicant_name, doc.modified)
         send_alert_vechile_driver(**kwargs)
         
 

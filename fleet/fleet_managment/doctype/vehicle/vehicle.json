@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "format:{vehichle_plate_number}",
  "creation": "2016-09-03 03:33:27.680331",
  "doctype": "DocType",
@@ -522,7 +523,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2023-05-03 16:37:32.536645",
+ "modified": "2023-07-09 14:06:02.524704",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Vehicle",

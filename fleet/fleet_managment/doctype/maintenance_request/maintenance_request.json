@@ -9,12 +9,15 @@
  "field_order": [
   "applicant_name",
   "vehicle",
-  "area",
-  "office",
+  "vehicle_type",
+  "model",
+  "vehichle_brand",
   "data_5",
   "maintainance",
   "date",
   "status",
+  "area",
+  "office",
   "amended_from"
  ],
  "fields": [
@@ -84,12 +87,32 @@
    "label": "Status",
    "options": "Pending\nAgree\nCompleted",
    "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.vehicle_type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type"
+  },
+  {
+   "fetch_from": "vehicle.vehichle_brand",
+   "fieldname": "vehichle_brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Vehicle Brand"
+  },
+  {
+   "fetch_from": "vehicle.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model Year"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-06-07 11:58:03.407982",
+ "modified": "2023-07-09 13:27:31.168567",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Maintenance Request",
