@@ -250,14 +250,16 @@ class VehicleCard(Document):
         maintenance = frappe.db.sql("""select maintainance from `tabMaintainance Child` where parent='%s'""" % type,
                                     as_dict=1)
         return maintenance
+    
     @frappe.whitelist()
-    def add_maintenance(self,vehicle,reading,date,maintenance,expense,price,description):
+    def add_maintenance(self,vehicle,reading,date,maintenance_to_date,maintenance,expense,price,description):
         vehicle_log=frappe.new_doc("Vehicle Log")
         vehicle_log.license_plate=vehicle
         #vehicle_log.employee=driver
         vehicle_log.odometer=reading
         #vehicle_log.last_odometer=self.odometer_reading
         vehicle_log.date=date
+        vehicle_log.maintenance_to_date=maintenance_to_date
         row=vehicle_log.append("service_detail",{})
         row.type=maintenance
         row.odometer=reading

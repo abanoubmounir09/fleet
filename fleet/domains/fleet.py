@@ -58,6 +58,13 @@ data = {
                 
             },
             {
+                "label": "Maintenance To Date",
+                "fieldname": "maintenance_to_date",
+                "fieldtype": "Date",
+                "insert_after": "date",
+                
+            },
+            {
                 "label": "Applicant Name",
                 "fieldname": "applicant_name",
                 "fieldtype": "Link",

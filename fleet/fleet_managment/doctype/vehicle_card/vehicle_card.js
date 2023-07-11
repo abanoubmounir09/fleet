@@ -238,6 +238,12 @@ frappe.ui.form.on('Vehicle Card', {
                              reqd: 1
                         },
                         {
+                            label: 'To Date',
+                            fieldname: 'maintenance_to_date',
+                            fieldtype: 'Date',
+                             reqd: 1
+                        },
+                        {
                             label: 'Description',
                             fieldname: 'description',
                             fieldtype: 'Data',
@@ -275,11 +281,12 @@ frappe.ui.form.on('Vehicle Card', {
                                 "driver":vals.driver,
                                 "reading":vals.maintenance_reading,
                                 "date":vals.maintenance_date,
+                                "maintenance_to_date":vals.maintenance_to_date,
                                 "maintenance":vals.maintenance,
                                 "expense":vals.expense ?? 0,
                                 "price":vals.price ?? 0,
                                 "description":vals.description ?? "",
-                                "driver":vals.driver
+                                "driver":vals.driver,
                             }
                         })
                     }
