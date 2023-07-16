@@ -30,7 +30,7 @@ class UplaodOdometerReading(Document):
 	def after_insert(self):
 		update_vechile_odometer=f"""
 		update `tabVehicle Card` card SET card.odometer_reading='{self.reading}'
-		WHERE card.vehicle='{self.vehicle}'
+		WHERE card.vehicle='{self.vehicle}' and {self.reading} > card.odometer_reading
 		"""
 		frappe.db.sql(update_vechile_odometer)
 		frappe.db.commit()

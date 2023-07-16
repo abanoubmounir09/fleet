@@ -97,9 +97,9 @@ app_license = "MIT"
 
 doc_events = {
 	"Vehicle Log":{
-		"validate":"fleet.fleet_managment.setup.create_vehicle_log_script",
+		# "validate":"fleet.fleet_managment.setup.vehicle_log_validate",
 		"on_submit":["fleet.fleet_managment.setup.change_request_status",
-              "fleet.fleet_managment.setup.hook_on_submit" ]
+              "fleet.fleet_managment.setup.vehicle_log_on_submit" ]
 	}
 # 	"*": {
 # 		"on_update": "method",
@@ -124,6 +124,7 @@ scheduler_events = {
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_job_licence_end_date",
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_tire_log_alert",
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_inspection_log_alert",
+            "fleet.fleet_managment.setup.vehicle_card_notfication_center",
             # "dynamic.ifi.api.daily_opportunity_notify" 
         ]
     },

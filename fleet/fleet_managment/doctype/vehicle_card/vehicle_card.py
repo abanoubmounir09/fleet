@@ -8,34 +8,42 @@ from frappe.model.document import Document
 from frappe.utils import add_days, getdate, today, nowdate
 import datetime
 
+import inspect
 
 class VehicleCard(Document):
-    def validate(self):
+    def validate(self):       
         # frappe.msgprint(str(self.odometer_reading))
-        if self.last_tire_inspection and float(self.last_tire_inspection or 0) > float(self.odometer_reading or 0):
-            self.odometer_reading = self.last_tire_inspection
-        if self.last_tire_change and float(self.last_tire_change or 0) > float(self.odometer_reading or 0):
-            self.odometer_reading = self.last_tire_change
-        if self.last_tank and float(self.last_tank or 0) > float(self.odometer_reading or 0):
-            self.odometer_reading = self.last_tank
-        for m in self.maintainance:
-            if float(m.odometer_reading or 0) > float(self.odometer_reading or 0):
-                self.odometer_reading = m.odometer_reading
-        if float(self.las_reading or 0) > float(self.odometer_reading or 0):
-            self.odometer_reading = self.las_reading
-        if self.odometer_reading:
-            frappe.db.sql(
-                "update `tabTire Log` set current_reading='{}' where vehicle='{}'".format(self.odometer_reading,
-                                                                                          self.vehicle))
-            frappe.db.commit()
-            frappe.db.sql(
-                "update `tabTank log` set current_reading='{}' where vehicle='{}'".format(self.odometer_reading,
-                                                                                          self.vehicle))
-            frappe.db.commit()
-            frappe.db.sql(
-                "update `tabVehicle Log` set odometer='{}' where license_plate='{}'".format(self.odometer_reading,
-                                                                                            self.vehicle))
-            frappe.db.commit()
+        ...
+        # if self.last_tire_inspection and float(self.last_tire_inspection or 0) > float(self.odometer_reading or 0):
+        #     self.odometer_reading = self.last_tire_inspection
+        #     print('\n\n\n-self.last_tire_inspection->',self.last_tire_inspection,'\n\n\n-->')
+        # if self.last_tire_change and float(self.last_tire_change or 0) > float(self.odometer_reading or 0):
+        #     self.odometer_reading = self.last_tire_change
+        #     print('\n\n\n-self.last_tire_change->',self.last_tire_change,'\n\n\n-->')
+        # if self.last_tank and float(self.last_tank or 0) > float(self.odometer_reading or 0):
+        #     self.odometer_reading = self.last_tank
+        #     print('\n\n\n-self.last_tank->',self.last_tank,'\n\n\n-->')
+        # for m in self.maintainance:
+        #     if float(m.odometer_reading or 0) > float(self.odometer_reading or 0):
+        #         self.odometer_reading = m.odometer_reading
+        #         print('\n\n\n-for 1->',m.odometer_reading,'\n\n\n-->')
+        # if float(self.las_reading or 0) > float(self.odometer_reading or 0):
+        #     self.odometer_reading = self.las_reading
+        #     print('\n\n\n-self.odometer_reading->',self.odometer_reading,'\n\n\n-->')
+        # if self.odometer_reading:
+        #     frappe.db.sql(
+        #         "update `tabTire Log` set current_reading='{}' where vehicle='{}'".format(self.odometer_reading,
+        #                                                                                   self.vehicle))
+        #     frappe.db.commit()
+        #     frappe.db.sql(
+        #         "update `tabTank log` set current_reading='{}' where vehicle='{}'".format(self.odometer_reading,
+        #                                                                                   self.vehicle))
+        #     frappe.db.commit()
+        #     frappe.db.sql(
+        #         "update `tabVehicle Log` set odometer='{}' where license_plate='{}'".format(self.odometer_reading,
+        #                                                                                     self.vehicle))
+        #     frappe.db.commit()
+
     @frappe.whitelist()
     def get_reading(self):
         tire_log = frappe.db.get_list('Tire Log', filters={'vehicle': ['=', self.vehicle]},
@@ -72,10 +80,10 @@ class VehicleCard(Document):
             """update `tabTank log` set current_reading='{}' where vehicle='{}'""".format(self.odometer_reading,
                                                                                           self.vehicle))
         frappe.db.commit()
-        frappe.db.sql(
-            """update `tabVehicle Log` set odometer='{}' where license_plate='{}'""".format(self.odometer_reading,
-                                                                                            self.vehicle))
-        frappe.db.commit()
+        # frappe.db.sql(
+        #     """update `tabVehicle Log` set odometer='{}' where license_plate='{}'""".format(self.odometer_reading,
+        #                                                                                     self.vehicle))
+        # frappe.db.commit()
         frappe.db.sql(
             """update `tabTire Log` set current_reading='{}' where vehicle='{}'""".format(self.odometer_reading,
                                                                                           self.vehicle))

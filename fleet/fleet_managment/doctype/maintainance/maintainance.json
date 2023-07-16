@@ -1,20 +1,34 @@
 {
+ "actions": [],
  "autoname": "format:{type}",
  "creation": "2021-03-24 09:50:01.594910",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "type"
+  "type",
+  "maintinance_after",
+  "maintinance_before"
  ],
  "fields": [
   {
    "fieldname": "type",
    "fieldtype": "Data",
    "label": "Type"
+  },
+  {
+   "fieldname": "maintinance_after",
+   "fieldtype": "Float",
+   "label": "Maintinance After"
+  },
+  {
+   "fieldname": "maintinance_before",
+   "fieldtype": "Float",
+   "label": "Maintinance Before"
   }
  ],
- "modified": "2021-03-24 09:53:45.338038",
+ "links": [],
+ "modified": "2023-07-16 10:57:13.849029",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Maintainance",
