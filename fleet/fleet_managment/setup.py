@@ -103,7 +103,6 @@ def vehicle_card_notfication_center(**kwargs):
 		get_all_manger=get_user_by_role(manager_role)
 		kwargs['cards'] = data_notify
 		kwargs['get_all_manger'] = get_all_manger
-		# alert_vechile_manager__(**kwargs)
 		send_alert_vechile_manager(**kwargs)
 
 		

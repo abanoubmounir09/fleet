@@ -119,7 +119,7 @@ scheduler_events = {
         # "0 13 * * *" :[
 			# - 
         # ],
-        "* 8 * * *":[
+         "0 8 * * *":[
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_vehicle_contract_end_date",
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_job_licence_end_date",
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.cron_tire_log_alert",
