@@ -124,8 +124,8 @@ def send_alert_vechile_manager(**kwargs):
 			for vehicle_car in kwargs.get("cards"):
 				owner_name = row.get("parent")
 				notif_doc = frappe.new_doc('Notification Log')
-				notif_doc.subject = _("Vechile Card Need To Maintenance {0}").format(vehicle_car.get('maintainance'))
-				notif_doc.email_content = _("Vechile Card Need To Maintenance {0}").format(vehicle_car.get('maintainance'))
+				notif_doc.subject = _("Vechile Card {0} Need To Maintenance {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
+				notif_doc.email_content = _("Vechile Card {0} Need To Maintenance {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
 				notif_doc.for_user = owner_name
 				notif_doc.from_user = frappe.session.user
 				notif_doc.type = "Mention"
