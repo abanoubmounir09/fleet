@@ -3,18 +3,18 @@
 
 frappe.ui.form.on('Vehicle Card', {
     refresh:function(frm){
-        frm.add_custom_button(
-            __("test"),
-            function () {
-              frappe.call({
-                method: "fleet.fleet_managment.setup.vehicle_card_notfication_center",
-                callback:function(r){
-                    console.log('return ok')
-                }
-              });
-            },
-            __("Create")
-          );
+        // frm.add_custom_button(
+        //     __("test"),
+        //     function () {
+        //       frappe.call({
+        //         method: "fleet.fleet_managment.setup.vehicle_card_notfication_center",
+        //         callback:function(r){
+        //             console.log('return ok')
+        //         }
+        //       });
+        //     },
+        //     __("Create")
+        //   );
     },
     // refresh:(frm)=>{
     //     if(frm.doc.__islocal && frm.doc.vehicle){
