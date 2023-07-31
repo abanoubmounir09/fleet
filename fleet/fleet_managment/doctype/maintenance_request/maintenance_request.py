@@ -71,6 +71,7 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 	if not manager_role:
 		frappe.throw(_("Please Add Manager Role in"))
 	get_all_manger=get_user_by_role(manager_role)
+	print('\n\n\n===>',get_all_manger)
 	kwargs={
 		"doc":doc,
 		"get_all_manger":get_all_manger
@@ -87,17 +88,18 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 
 def send_alert_vechile_manager(**kwargs):
 	for row in kwargs.get("get_all_manger"):
-		owner_name = row.get("parent")
-		contact_date = kwargs.get('doc').date
-		notif_doc = frappe.new_doc('Notification Log')
-		notif_doc.subject = _("{0}Has Maintenance Request at{1}").format(owner_name, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
-		notif_doc.email_content = _("{0}Has Maintenance Request at{1}").format(owner_name, contact_date)
-		notif_doc.for_user = owner_name
-		notif_doc.type = "Mention"
-		notif_doc.document_type = kwargs.get('doc').doctype
-		notif_doc.document_name = kwargs.get('doc').name
-		notif_doc.from_user = frappe.session.user
-		notif_doc.insert(ignore_permissions=True)
+		if row.parent != 'Administrator':
+			owner_name = row.get("parent")
+			contact_date = kwargs.get('doc').date
+			notif_doc = frappe.new_doc('Notification Log')
+			notif_doc.subject = _("{0} Has Maintenance Request at{1}").format(frappe.session.user, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
+			notif_doc.email_content = _("{0} Has Maintenance Request at{1}").format(frappe.session.user, contact_date)
+			notif_doc.for_user = frappe.session.user
+			notif_doc.type = "Mention"
+			notif_doc.document_type = kwargs.get('doc').doctype
+			notif_doc.document_name = kwargs.get('doc').name
+			notif_doc.from_user = frappe.session.user
+			notif_doc.insert(ignore_permissions=True)
 		
 def get_user_by_role(role):
 	get_all_manger = f"""
@@ -157,30 +159,31 @@ def alert_all_manger(role,data):
 def send_alert_all_manager(**kwargs):
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
-			owner_name = admin
-			notif_doc = frappe.new_doc('Notification Log')
-			subject=''
-			mail_msg=''
-			if row.doctype=="Maintenance Request":
-				subject =_("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'), row.get('end_date'))
-				mail_msg =  _("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'),row.get('end_date'))
-			elif row.doctype=="Vehicle Contract":
-				subject = _("Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
-				mail_msg = _( "Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
-			elif row.doctype=="Tire Log" and row.child=="Tire":
-				subject = _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
-				mail_msg =  _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
-			elif row.doctype=="Tire Log" and row.child=="Inspection":
-				subject = _("Vehicle  With name {0} will need To Change Tire Inspection Name {1}").format(row.get('vehicle'),row.get('name'))
-				mail_msg =  _("Vehicle  With name {0} will need To Change Inspection Tire Name {1}").format(row.get('vehicle'),row.get('name'))
-			notif_doc.subject = subject
-			notif_doc.email_content =mail_msg
-			notif_doc.for_user = owner_name
-			notif_doc.type = "Mention"
-			notif_doc.document_type = row.doctype
-			notif_doc.document_name = row.name
-			notif_doc.from_user = frappe.session.user or ""
-			notif_doc.insert(ignore_permissions=True)
+			if admin.parent != 'Administrator':
+				owner_name = admin
+				notif_doc = frappe.new_doc('Notification Log')
+				subject=''
+				mail_msg=''
+				if row.doctype=="Maintenance Request":
+					subject =_("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'), row.get('end_date'))
+					mail_msg =  _("Maintenance Request With name {0} will be end license at {1}").format(row.get('name'),row.get('end_date'))
+				elif row.doctype=="Vehicle Contract":
+					subject = _("Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
+					mail_msg = _( "Vehicle Contract With name {0} will be end after 2 months from now {1}").format(row.get('name'),row.get('end_date'))
+				elif row.doctype=="Tire Log" and row.child=="Tire":
+					subject = _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
+					mail_msg =  _("Vehicle  With name {0} will need To Change Tire Name {1}").format(row.get('vehicle'),row.get('name'))
+				elif row.doctype=="Tire Log" and row.child=="Inspection":
+					subject = _("Vehicle  With name {0} will need To Change Tire Inspection Name {1}").format(row.get('vehicle'),row.get('name'))
+					mail_msg =  _("Vehicle  With name {0} will need To Change Inspection Tire Name {1}").format(row.get('vehicle'),row.get('name'))
+				notif_doc.subject = subject
+				notif_doc.email_content =mail_msg
+				notif_doc.for_user = owner_name
+				notif_doc.type = "Mention"
+				notif_doc.document_type = row.doctype
+				notif_doc.document_name = row.name
+				notif_doc.from_user = frappe.session.user or ""
+				notif_doc.insert(ignore_permissions=True)
 
 
 @frappe.whitelist()
