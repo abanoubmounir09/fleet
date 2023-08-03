@@ -173,6 +173,22 @@ data = {
             "property_type": "Check",
             "value": "0"
         },
+         {
+            "doctype": "Vehicle",
+            "doctype_or_field": "DocField",
+            "fieldname": "area",
+            "property": "allow_on_submit",
+            "property_type": "Check",
+            "value": "1"
+        },
+         {
+            "doctype": "Vehicle",
+            "doctype_or_field": "DocField",
+            "fieldname": "office",
+            "property": "allow_on_submit",
+            "property_type": "Check",
+            "value": "1"
+        },
         
         
     ],

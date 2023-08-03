@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "manager_role",
-  "driver_role"
+  "driver_role",
+  "edit_vechile_role"
  ],
  "fields": [
   {
@@ -21,12 +22,18 @@
    "fieldtype": "Link",
    "label": "Driver Role",
    "options": "Role"
+  },
+  {
+   "fieldname": "edit_vechile_role",
+   "fieldtype": "Link",
+   "label": "Edit Vechile Role",
+   "options": "Role"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-06-04 11:51:28.703855",
+ "modified": "2023-08-02 16:09:48.911566",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Fleet Vehicle Role",

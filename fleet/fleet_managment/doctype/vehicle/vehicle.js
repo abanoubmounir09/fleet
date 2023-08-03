@@ -12,6 +12,23 @@ frappe.ui.form.on('Vehicle', {
 		}
 		frm.set_df_property('model', 'options', years);
 	},
+	refresh:function(frm){
+		frm.events.set_field_read_only(frm)
+	},
+	set_field_read_only:function(frm){
+		if(frm.doc.docstatus == 1){
+			frm.call({
+				method:"fleet.fleet_managment.doctype.vehicle.vehicle.get_edit_vechile_role",
+				callback:function(r){
+					frm.set_df_property("area", "read_only", !r.message)
+					frm.set_df_property("office", "read_only", !r.message)
+					frm.refresh_field('area','office')
+				}
+			})
+		}
+		
+		
+	},
 	setup: function (frm) {
 
 		frm.set_query("vehichle_model", function () {

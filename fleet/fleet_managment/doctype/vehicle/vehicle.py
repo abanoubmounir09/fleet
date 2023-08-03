@@ -111,4 +111,11 @@ class Vehicle(Document):
 
 
 
-
+@frappe.whitelist()
+def get_edit_vechile_role():
+	role = frappe.db.get_single_value('Fleet Vehicle Role','edit_vechile_role')
+	user_roles = frappe.get_roles(frappe.session.user)
+	if role in user_roles:
+		return True
+	else:
+		return False
