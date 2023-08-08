@@ -71,7 +71,7 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 	if not manager_role:
 		frappe.throw(_("Please Add Manager Role in"))
 	get_all_manger=get_user_by_role(manager_role)
-	print('\n\n\n===>',get_all_manger)
+	print('\n\n\n===>',get_all_manger,'\n\n')
 	kwargs={
 		"doc":doc,
 		"get_all_manger":get_all_manger
@@ -88,22 +88,21 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 
 def send_alert_vechile_manager(**kwargs):
 	for row in kwargs.get("get_all_manger"):
-		if row.parent != 'Administrator':
-			owner_name = row.get("parent")
-			contact_date = kwargs.get('doc').date
-			notif_doc = frappe.new_doc('Notification Log')
-			notif_doc.subject = _("{0} Has Maintenance Request at{1}").format(frappe.session.user, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
-			notif_doc.email_content = _("{0} Has Maintenance Request at{1}").format(frappe.session.user, contact_date)
-			notif_doc.for_user = frappe.session.user
-			notif_doc.type = "Mention"
-			notif_doc.document_type = kwargs.get('doc').doctype
-			notif_doc.document_name = kwargs.get('doc').name
-			notif_doc.from_user = frappe.session.user
-			notif_doc.insert(ignore_permissions=True)
+		to_user = row.get("email")
+		contact_date = kwargs.get('doc').date
+		notif_doc = frappe.new_doc('Notification Log')
+		notif_doc.type = "Alert"
+		notif_doc.document_type = kwargs.get('doc').doctype
+		notif_doc.document_name = kwargs.get('doc').name
+		notif_doc.subject = _("{0} Has Maintenance Request at {1}").format(frappe.session.user, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
+		notif_doc.email_content = _("{0} Has Maintenance Request at {1}").format(frappe.session.user, contact_date)
+		notif_doc.from_user = frappe.session.user
+		notif_doc.for_user = to_user #frappe.session.user
+		notif_doc.insert(ignore_permissions=True)
 		
 def get_user_by_role(role):
 	get_all_manger = f"""
-	SELECT DISTINCT(has_role.parent)
+	SELECT DISTINCT(has_role.parent),user.email
 	FROM
 		`tabHas Role` has_role
 			LEFT JOIN `tabUser` user
