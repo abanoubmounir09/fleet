@@ -189,6 +189,22 @@ data = {
             "property_type": "Check",
             "value": "1"
         },
+         {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "refuelling_details",
+            "property": "hidden",
+            "property_type": "Check",
+            "value": "1"
+        },
+         {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "service_details",
+            "property": "collapsible",
+            "property_type": "Check",
+            "value": "0"
+        },
         
         
     ],

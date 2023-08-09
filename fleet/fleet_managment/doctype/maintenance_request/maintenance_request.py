@@ -71,7 +71,7 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 	if not manager_role:
 		frappe.throw(_("Please Add Manager Role in"))
 	get_all_manger=get_user_by_role(manager_role)
-	print('\n\n\n===>',get_all_manger,'\n\n')
+	# print('\n\n\n===>',get_all_manger,'\n\n')
 	kwargs={
 		"doc":doc,
 		"get_all_manger":get_all_manger
@@ -91,7 +91,7 @@ def send_alert_vechile_manager(**kwargs):
 		to_user = row.get("email")
 		contact_date = kwargs.get('doc').date
 		notif_doc = frappe.new_doc('Notification Log')
-		notif_doc.type = "Alert"
+		notif_doc.type = "Mention" #Alert
 		notif_doc.document_type = kwargs.get('doc').doctype
 		notif_doc.document_name = kwargs.get('doc').name
 		notif_doc.subject = _("{0} Has Maintenance Request at {1}").format(frappe.session.user, contact_date)#_(f"{owner_name} Has Maintenance Request at {contact_date}")
