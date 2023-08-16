@@ -54,11 +54,13 @@ def export_query():
 		ret = append_totals_row(ret)
 
 	data = [["Sr"] + get_labels(db_query.fields, doctype)]
+	print('\n\n\n==data 111=>',data,'\n\n\n')
+	print('\n\n\n==ret 111=>',ret,'\n\n\n')
 	for i, row in enumerate(ret):
 		data.append([i + 1] + list(row))
 
 	data = handle_duration_fieldtype_values(doctype, data, db_query.fields)
-
+	print('\n\n\n===>',data,'\n\n\n')
 	if file_format_type == "CSV":
 
 		# convert to csv
