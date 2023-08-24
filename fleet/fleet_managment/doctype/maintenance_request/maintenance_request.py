@@ -214,3 +214,85 @@ def cron_inspection_log_alert():
 		data = frappe.db.sql(sql,as_dict=1)
 		if data:
 			alert_all_manger('System Manager',data)
+
+
+
+def insurance_and_goverment_alert():
+	if "Fleet" in DOMAINS:
+		# setup_insurance_alert()
+		set_gov_inspection_alert()
+
+
+def setup_insurance_alert():
+	insqurance_sql = """
+	select comment,valid_to ,DATEDIFF(valid_to  ,valid_from) diff
+	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',valid_to) msg 
+	,parent as document_name
+	,'Vehicle' as document_type
+	,parentfield
+	FROM `tabInsurance Table`
+	WHERE  CURDATE() BETWEEN valid_from AND valid_to 
+	"""
+	insqurance_data = frappe.db.sql(insqurance_sql,as_dict=1)
+	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
+	if insqurance_data and notify_role:
+		prepare_insurance_gov_notify(notify_role,insqurance_data,send_insurance_notify)
+
+
+def set_gov_inspection_alert():
+	inspection_sql = """
+	select notes,to_date ,DATEDIFF(to_date ,inspection_date) diff
+	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',to_date) msg 
+	,parent as document_name
+	,'Vehicle' as document_type
+	,parentfield
+	FROM `tabGovernment Inspection`
+	WHERE  CURDATE() BETWEEN inspection_date AND to_date 
+	"""
+	inspection_data = frappe.db.sql(inspection_sql,as_dict=1)
+	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
+	if inspection_data and notify_role:
+		prepare_insurance_gov_notify(notify_role,inspection_data,send_insurance_notify)
+
+def prepare_insurance_gov_notify(role,data,method):
+	get_all_manger = get_user_by_role(role)
+	if (data and get_all_manger):
+		# get_all_manger = [x['parent'] for x in get_all_manger]
+		kwargs={
+			"get_all_manger":get_all_manger,
+			"data":data,
+		}
+		frappe.enqueue(
+		method=method,
+		job_name="send_insurance_notify",
+		queue="default",
+   		timeout=500,
+		is_async=False , #! set true after end if this is True, method is run in worker
+		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
+		at_front=False, # put the job at the front of the queue
+		**kwargs,
+	)
+		
+def send_insurance_notify(**kwargs):
+	# print('\n\n\n',"in send_insurance_notify",'\n\n\n\n')
+	for row in kwargs.get("data"):
+		for admin in kwargs.get("get_all_manger"):
+			if admin.parent=='arfajcars@gmail.com':
+				print('\n\n\n',"admin==",admin,'\n\n\n\n')
+				owner_name = admin.email
+				notif_doc = frappe.new_doc('Notification Log')
+				if row.get('parentfield') == 'insurance_table':
+					subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+					mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				if row.get('parentfield') == 'government_inspection':
+					subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+					mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				notif_doc.subject = subject
+				notif_doc.email_content =mail_msg
+				notif_doc.for_user = owner_name
+				notif_doc.type = "Mention"
+				notif_doc.document_type = row.document_type
+				notif_doc.document_name = row.document_name
+				notif_doc.from_user = frappe.session.user or ""
+				notif_doc.insert(ignore_permissions=True)
+				# print('\n\n\n',"in notif_doc",notif_doc.__dict__,'\n\n\n\n')

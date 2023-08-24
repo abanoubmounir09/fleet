@@ -14,10 +14,8 @@ import json
 @frappe.read_only()
 def export_query():
 	"""export from report builder"""
-	# frappe.throw('heklopnnn')
 	title = frappe.form_dict.title
 	frappe.form_dict.pop("title", None)
-	# print('\n\n\n===>','------xxxx------','\n\n\n\n')
 	form_params = get_form_params()
 	form_params["limit_page_length"] = None
 	form_params["as_list"] = True
@@ -54,13 +52,31 @@ def export_query():
 		ret = append_totals_row(ret)
 
 	data = [["Sr"] + get_labels(db_query.fields, doctype)]
-	print('\n\n\n==data 111=>',data,'\n\n\n')
-	print('\n\n\n==ret 111=>',ret,'\n\n\n')
-	for i, row in enumerate(ret):
+	# print('\n\n\n==data 111=>',data,'\n\n\n')#colmuns
+	# print('\n\n\n==before   ret 111=>',ret,'\n\n\n')
+	# print('\n\n\n==type***=>',type(ret[0]),'\n\n\n')
+	#for loop over lsit of tupples 
+	# 2-then convert each tupple to list 
+	# 3-for loop over list 
+	# 4-then update each word to transleted 
+	updated_data_translated = []
+	for tupple in ret:
+		l1 = list(tupple)
+		for i in range(len(l1)):
+			try:
+				# if(l1[i] =='Agree' or l1[i]=='Completed'):
+				l1[i] = _(l1[i])
+					# print('\n\n\n==translated word ))>*****=>',_(l1[i]),'\n\n\n')
+			except Exception as e :
+				...
+		t1= tuple(l1)
+		updated_data_translated.append(t1)
+	# print('\n\n\n==after   updated_ret *****=>',updated_ret,'\n\n\n')
+	for i, row in enumerate(updated_data_translated):
 		data.append([i + 1] + list(row))
 
 	data = handle_duration_fieldtype_values(doctype, data, db_query.fields)
-	print('\n\n\n===>',data,'\n\n\n')
+	# print('\n\n\n===>',data,'\n\n\n')
 	if file_format_type == "CSV":
 
 		# convert to csv

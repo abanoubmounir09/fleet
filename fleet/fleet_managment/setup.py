@@ -65,6 +65,7 @@ def update_vechile_card_notifaction(vechile_log,*args, **kwargs):
 	maintainance_flage = False
 	if len(vehcile_card.vehicle_notifcation):
 		#**check if maintainnce type exist
+		print('\n\n\n---add exis->\n\n\n')
 		for row in vehcile_card.vehicle_notifcation:
 			if row.maintainance == maintainance_request_type:
 				maintainance_flage = True
@@ -72,6 +73,7 @@ def update_vechile_card_notifaction(vechile_log,*args, **kwargs):
 		# vehcile_card.save()
 	if not len(vehcile_card.vehicle_notifcation) or  (maintainance_flage==False):
 		#**add new row
+		print('\n\n\n---add new--****->\n\n\n')
 		new_row = vehcile_card.append('vehicle_notifcation',{
 			'maintainance': maintainance_request_type,
 			'stop_odometer': vehcile_card.odometer_reading +  maintainance_type__doc.maintinance_after,

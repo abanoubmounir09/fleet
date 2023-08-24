@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from frappe import _
 
 data = {
 
@@ -22,7 +23,7 @@ data = {
             }
             
             ],
-            'Vehicle Service': [
+        'Vehicle Service': [
             {
                 "fieldname": "description",
                 "fieldtype": "Data",
@@ -35,10 +36,27 @@ data = {
                 "fieldtype": "Link",
                 "options":"Service Item",
                 "insert_after": "service_item",
-                "in_list_view":1
+                "in_list_view":1,
+                "hidden":1
+            },
+            {
+                "label": "Service Item Name",
+                "fieldname": "service_item_name_data",
+                "fieldtype": "Data",
+                "insert_after": "service_item_name",
+                "in_list_view":1,
             }
             
             ],
+        "Government Inspection":[
+            {
+                "label": _("To Date"),
+                "fieldname": "to_date",
+                "fieldtype": "Date",
+                "insert_after": "inspection_date",
+                "in_list_view":1,
+            }
+        ],
             'Vehicle Log':[
                 {
                 "fieldname": "maintenance_request",

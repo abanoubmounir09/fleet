@@ -8,7 +8,8 @@
  "field_order": [
   "manager_role",
   "driver_role",
-  "edit_vechile_role"
+  "edit_vechile_role",
+  "insurance_inspection_role"
  ],
  "fields": [
   {
@@ -28,12 +29,18 @@
    "fieldtype": "Link",
    "label": "Edit Vechile Role",
    "options": "Role"
+  },
+  {
+   "fieldname": "insurance_inspection_role",
+   "fieldtype": "Link",
+   "label": "Insurance Inspection Role",
+   "options": "Role"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-08-02 16:09:48.911566",
+ "modified": "2023-08-24 11:01:43.106310",
  "modified_by": "Administrator",
  "module": "fleet_managment",
  "name": "Fleet Vehicle Role",
