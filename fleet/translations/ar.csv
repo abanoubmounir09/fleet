@@ -5,8 +5,8 @@ Vehicle Contract With name {0} will be end after 2 months from now {1},عقد ا
 Vehicle  With name {0} will need To Change Tire Name {1} , سيارة بأسم {1} ستحتاج لتغيير أطارات {1}
 Vehicle  With name {0} will need To Change Tire Inspection Name {1} , سياره بأسم {0} ستحتاج لتفتيش أطارات {1}
 Vechile Log Is Submitted For Driver {0}  at {1} status become Completed,تم ارسال سجل السياره للسائق {0} فى {1} والحاله اصبحت مكتمله
-Vechile Log Is Submitted For Driver {0} at {1} status become Completed,سجل الساره للسائق {0} ف {1} حاله اصبحت مكتمله 
+Vechile Log Is Submitted For Driver {0} at {1} status become Completed,سجل السياره للسائق {0} ف {1} حاله اصبحت مكتمله 
 Vechile Card {0} Need To Maintenance {1}, السياره {0} تحتاج لصيانة {1},
+Vechile {0} Insurance Will End {1}, السياره {0} سينتهى التأمين فى {1},
+Vechile {0} Of Government Inspection Will End {1},الفحص الحكومي الخاص {0} سينتهى في {1}
 In Progress,متقدمه جدا,
-Agree,4لمعرفة المزيد,
-In Progress,5لمعرفة المزيد,
