@@ -219,19 +219,19 @@ def cron_inspection_log_alert():
 
 def insurance_and_goverment_alert():
 	if "Fleet" in DOMAINS:
-		# setup_insurance_alert()
+		setup_insurance_alert()
 		set_gov_inspection_alert()
 
 
 def setup_insurance_alert():
 	insqurance_sql = """
-	select comment,valid_to ,DATEDIFF(valid_to  ,valid_from) diff
+	select comment,valid_to ,DATEDIFF(valid_to  ,CURDATE()) diff
 	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',valid_to) msg 
 	,parent as document_name
 	,'Vehicle' as document_type
 	,parentfield
 	FROM `tabInsurance Table`
-	WHERE  CURDATE() BETWEEN valid_from AND valid_to 
+	WHERE  (DATEDIFF(valid_to  ,CURDATE()) <= 15)
 	"""
 	insqurance_data = frappe.db.sql(insqurance_sql,as_dict=1)
 	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
@@ -241,13 +241,13 @@ def setup_insurance_alert():
 
 def set_gov_inspection_alert():
 	inspection_sql = """
-	select notes,to_date ,DATEDIFF(to_date ,inspection_date) diff
+	select notes,to_date ,DATEDIFF(to_date ,CURDATE()) diff
 	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',to_date) msg 
 	,parent as document_name
 	,'Vehicle' as document_type
 	,parentfield
 	FROM `tabGovernment Inspection`
-	WHERE  CURDATE() BETWEEN inspection_date AND to_date 
+	WHERE  (DATEDIFF(valid_to  ,CURDATE()) <= 15) 
 	"""
 	inspection_data = frappe.db.sql(inspection_sql,as_dict=1)
 	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
@@ -277,22 +277,21 @@ def send_insurance_notify(**kwargs):
 	# print('\n\n\n',"in send_insurance_notify",'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
-			if admin.parent=='arfajcars@gmail.com':
-				print('\n\n\n',"admin==",admin,'\n\n\n\n')
-				owner_name = admin.email
-				notif_doc = frappe.new_doc('Notification Log')
-				if row.get('parentfield') == 'insurance_table':
-					subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-					mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				if row.get('parentfield') == 'government_inspection':
-					subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-					mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				notif_doc.subject = subject
-				notif_doc.email_content =mail_msg
-				notif_doc.for_user = owner_name
-				notif_doc.type = "Mention"
-				notif_doc.document_type = row.document_type
-				notif_doc.document_name = row.document_name
-				notif_doc.from_user = frappe.session.user or ""
-				notif_doc.insert(ignore_permissions=True)
-				# print('\n\n\n',"in notif_doc",notif_doc.__dict__,'\n\n\n\n')
+			# if admin.parent=='arfajcars@gmail.com':
+			# 	print('\n\n\n',"admin==",admin,'\n\n\n\n')
+			owner_name = admin.email
+			notif_doc = frappe.new_doc('Notification Log')
+			if row.get('parentfield') == 'insurance_table':
+				subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+			if row.get('parentfield') == 'government_inspection':
+				subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+			notif_doc.subject = subject
+			notif_doc.email_content =mail_msg
+			notif_doc.for_user = owner_name
+			notif_doc.type = "Mention"
+			notif_doc.document_type = row.document_type
+			notif_doc.document_name = row.document_name
+			notif_doc.from_user = frappe.session.user or ""
+			notif_doc.insert(ignore_permissions=True)
