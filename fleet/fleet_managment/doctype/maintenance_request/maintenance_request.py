@@ -277,7 +277,8 @@ def send_insurance_notify(**kwargs):
 	# print('\n\n\n',"in send_insurance_notify",'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
-			if admin.parent=='arfajcars@gmail.com':
+			#if admin.parent=='arfajcars@gmail.com':
+			
 				print('\n\n\n',"admin==",admin,'\n\n\n\n')
 				owner_name = admin.email
 				notif_doc = frappe.new_doc('Notification Log')
