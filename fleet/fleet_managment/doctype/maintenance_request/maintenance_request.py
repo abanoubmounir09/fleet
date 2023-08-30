@@ -80,9 +80,9 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 	method=send_alert_vechile_manager,
 	queue="default", 
 	timeout=500, 
-	is_async=False, # if this is True, method is run in worker
-	now=True, # if this is True, method is run directly (not in a worker) 
-	at_front=True, # put the job at the front of the queue
+	is_async=True, # if this is True, method is run in worker
+	now=False, # if this is True, method is run directly (not in a worker) 
+	at_front=False, # put the job at the front of the queue
 	**kwargs,
 )
 
@@ -149,9 +149,9 @@ def alert_all_manger(role,data):
 		method=send_alert_all_manager,
 		queue="default", 
 		timeout=500, 
-		is_async=False, #! set true after end if this is True, method is run in worker
-		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=True, # put the job at the front of the queue
+		is_async=True, #! set true after end if this is True, method is run in worker
+		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
+		at_front=False, # put the job at the front of the queue
 		**kwargs,
 	)
 
@@ -216,11 +216,10 @@ def cron_inspection_log_alert():
 			alert_all_manger('System Manager',data)
 
 
-
 def insurance_and_goverment_alert():
 	if "Fleet" in DOMAINS:
 		setup_insurance_alert()
-		set_gov_inspection_alert()
+		# set_gov_inspection_alert()
 
 
 def setup_insurance_alert():
@@ -247,7 +246,7 @@ def set_gov_inspection_alert():
 	,'Vehicle' as document_type
 	,parentfield
 	FROM `tabGovernment Inspection`
-	WHERE  (DATEDIFF(valid_to  ,CURDATE()) <= 15) 
+	WHERE  (DATEDIFF(to_date  ,CURDATE()) <= 15) 
 	"""
 	inspection_data = frappe.db.sql(inspection_sql,as_dict=1)
 	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
@@ -264,22 +263,22 @@ def prepare_insurance_gov_notify(role,data,method):
 		}
 		frappe.enqueue(
 		method=method,
-		job_name="send_insurance_notify",
-		queue="default",
-   		timeout=500,
+		# job_name="send_insurance_notify",
+		queue="default", 
+		timeout=2500, 
 		is_async=False , #! set true after end if this is True, method is run in worker
 		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=False, # put the job at the front of the queue
+		at_front=True, # put the job at the front of the queue
 		**kwargs,
 	)
 		
 def send_insurance_notify(**kwargs):
-	# print('\n\n\n',"in send_insurance_notify",'\n\n\n\n')
+	# print('\n\n\n',"in send_insurance_نnotify",'\n\n\n\n')
+	print('\n\n\n-->data',kwargs.get("data"),'\n\n\n\n')
+	print('\n\n\n-->users',kwargs.get("get_all_manger"),'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
-			# if admin.parent=='arfajcars@gmail.com':
-			# 	print('\n\n\n',"admin==",admin,'\n\n\n\n')
-			owner_name = admin.email
+			owner_name = admin.parent
 			notif_doc = frappe.new_doc('Notification Log')
 			if row.get('parentfield') == 'insurance_table':
 				subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
@@ -295,3 +294,5 @@ def send_insurance_notify(**kwargs):
 			notif_doc.document_name = row.document_name
 			notif_doc.from_user = frappe.session.user or ""
 			notif_doc.insert(ignore_permissions=True)
+			print('\n\n\n-->notif_doc',notif_doc,'\n\n\n\n')
+
