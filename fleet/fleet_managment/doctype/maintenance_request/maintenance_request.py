@@ -264,7 +264,7 @@ def prepare_insurance_gov_notify(role,data,method):
 		}
 		frappe.enqueue(
 		method=method,
-		# job_name="send_insurance_notify",
+		job_name="send_insurance_notify",
 		queue="default", 
 		timeout=500, 
 		is_async=True , #! set true after end if this is True, method is run in worker
