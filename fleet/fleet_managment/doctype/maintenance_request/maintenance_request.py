@@ -156,6 +156,7 @@ def alert_all_manger(role,data):
 	)
 
 def send_alert_all_manager(**kwargs):
+	print('data==>\n\n\n',kwargs.get("data"),'\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			if admin.parent != 'Administrator':
@@ -265,21 +266,23 @@ def prepare_insurance_gov_notify(role,data,method):
 		method=method,
 		# job_name="send_insurance_notify",
 		queue="default", 
-		timeout=2500, 
-		is_async=False , #! set true after end if this is True, method is run in worker
-		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=True, # put the job at the front of the queue
+		timeout=500, 
+		is_async=True , #! set true after end if this is True, method is run in worker
+		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
+		at_front=False, # put the job at the front of the queue
 		**kwargs,
 	)
 		
 def send_insurance_notify(**kwargs):
 	# print('\n\n\n',"in send_insurance_نnotify",'\n\n\n\n')
-	print('\n\n\n-->data',kwargs.get("data"),'\n\n\n\n')
-	print('\n\n\n-->users',kwargs.get("get_all_manger"),'\n\n\n\n')
+	# print('\n\n\n-->data',kwargs.get("data"),'\n\n\n\n')
+	# print('\n\n\n-->users',kwargs.get("get_all_manger"),'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			owner_name = admin.parent
 			notif_doc = frappe.new_doc('Notification Log')
+			mail_msg=''
+			subject=''
 			if row.get('parentfield') == 'insurance_table':
 				subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
 				mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
@@ -294,5 +297,5 @@ def send_insurance_notify(**kwargs):
 			notif_doc.document_name = row.document_name
 			notif_doc.from_user = frappe.session.user or ""
 			notif_doc.insert(ignore_permissions=True)
-			print('\n\n\n-->notif_doc',notif_doc,'\n\n\n\n')
+			# print('\n\n\n-->notif_doc',notif_doc.__dict__,'\n\n\n\n')
 
