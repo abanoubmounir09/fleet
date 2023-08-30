@@ -220,7 +220,7 @@ def cron_inspection_log_alert():
 def insurance_and_goverment_alert():
 	if "Fleet" in DOMAINS:
 		setup_insurance_alert()
-		# set_gov_inspection_alert()
+		set_gov_inspection_alert()
 
 
 def setup_insurance_alert():
