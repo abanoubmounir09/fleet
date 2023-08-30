@@ -265,9 +265,9 @@ def prepare_insurance_gov_notify(role,data,method):
 		frappe.enqueue(
 		method=method,
 		job_name="send_insurance_notify",
-		queue="default", 
-		timeout=500, 
-		is_async=True , #! set true after end if this is True, method is run in worker
+		queue="long", 
+		timeout=1500, 
+		is_async=True  , #! set true after end if this is True, method is run in worker
 		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
 		at_front=False, # put the job at the front of the queue
 		**kwargs,
@@ -297,5 +297,6 @@ def send_insurance_notify(**kwargs):
 			notif_doc.document_name = row.document_name
 			notif_doc.from_user = frappe.session.user or ""
 			notif_doc.insert(ignore_permissions=True)
+			frappe.db.commit()
 			# print('\n\n\n-->notif_doc',notif_doc.__dict__,'\n\n\n\n')
 
