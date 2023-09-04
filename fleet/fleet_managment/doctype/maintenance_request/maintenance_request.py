@@ -80,9 +80,9 @@ def alert_vechile_manager(doc,role=None,*args,**kwargs):
 	method=send_alert_vechile_manager,
 	queue="default", 
 	timeout=500, 
-	is_async=False, # if this is True, method is run in worker
-	now=True, # if this is True, method is run directly (not in a worker) 
-	at_front=True, # put the job at the front of the queue
+	is_async=True, # if this is True, method is run in worker
+	now=False, # if this is True, method is run directly (not in a worker) 
+	at_front=False, # put the job at the front of the queue
 	**kwargs,
 )
 
@@ -149,13 +149,14 @@ def alert_all_manger(role,data):
 		method=send_alert_all_manager,
 		queue="default", 
 		timeout=500, 
-		is_async=False, #! set true after end if this is True, method is run in worker
-		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=True, # put the job at the front of the queue
+		is_async=True, #! set true after end if this is True, method is run in worker
+		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
+		at_front=False, # put the job at the front of the queue
 		**kwargs,
 	)
 
 def send_alert_all_manager(**kwargs):
+	print('data==>\n\n\n',kwargs.get("data"),'\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			if admin.parent != 'Administrator':
@@ -216,22 +217,21 @@ def cron_inspection_log_alert():
 			alert_all_manger('System Manager',data)
 
 
-
 def insurance_and_goverment_alert():
 	if "Fleet" in DOMAINS:
-		# setup_insurance_alert()
+		setup_insurance_alert()
 		set_gov_inspection_alert()
 
 
 def setup_insurance_alert():
 	insqurance_sql = """
-	select comment,valid_to ,DATEDIFF(valid_to  ,valid_from) diff
+	select comment,valid_to ,DATEDIFF(valid_to  ,CURDATE()) diff
 	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',valid_to) msg 
 	,parent as document_name
 	,'Vehicle' as document_type
 	,parentfield
 	FROM `tabInsurance Table`
-	WHERE  CURDATE() BETWEEN valid_from AND valid_to 
+	WHERE  (DATEDIFF(valid_to  ,CURDATE()) <= 15)
 	"""
 	insqurance_data = frappe.db.sql(insqurance_sql,as_dict=1)
 	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
@@ -241,13 +241,13 @@ def setup_insurance_alert():
 
 def set_gov_inspection_alert():
 	inspection_sql = """
-	select notes,to_date ,DATEDIFF(to_date ,inspection_date) diff
+	select notes,to_date ,DATEDIFF(to_date ,CURDATE()) diff
 	,CONCAT('vechile',' "',parent,'"', ' Insurance Will End At ',to_date) msg 
 	,parent as document_name
 	,'Vehicle' as document_type
 	,parentfield
 	FROM `tabGovernment Inspection`
-	WHERE  CURDATE() BETWEEN inspection_date AND to_date 
+	WHERE  (DATEDIFF(to_date  ,CURDATE()) <= 15) 
 	"""
 	inspection_data = frappe.db.sql(inspection_sql,as_dict=1)
 	notify_role= frappe.db.get_single_value('Fleet Vehicle Role', 'insurance_inspection_role')
@@ -264,32 +264,38 @@ def prepare_insurance_gov_notify(role,data,method):
 		frappe.enqueue(
 		method=method,
 		job_name="send_insurance_notify",
-		queue="default",
-   		timeout=500,
-		is_async=True , #! set true after end if this is True, method is run in worker
+		queue="long", 
+		timeout=1500, 
+		is_async=True  , #! set true after end if this is True, method is run in worker
 		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=False, #! put the job at the front of the queue
+		at_front=False, # put the job at the front of the queue
 		**kwargs,
 	)
 		
 def send_insurance_notify(**kwargs):
+	# print('\n\n\n',"in send_insurance_نnotify",'\n\n\n\n')
+	# print('\n\n\n-->data',kwargs.get("data"),'\n\n\n\n')
+	# print('\n\n\n-->users',kwargs.get("get_all_manger"),'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
-			if admin.parent=='arfajcars@gmail.com':
-				# print('\n\n\n',"admin==",admin,'\n\n\n\n')
-				owner_name = admin.email
-				notif_doc = frappe.new_doc('Notification Log')
-				if row.get('parentfield') == 'insurance_table':
-					subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-					mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				if row.get('parentfield') == 'government_inspection':
-					subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-					mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				notif_doc.subject = subject
-				notif_doc.email_content =mail_msg
-				notif_doc.for_user = owner_name
-				notif_doc.type = "Mention"
-				notif_doc.document_type = row.document_type
-				notif_doc.document_name = row.document_name
-				notif_doc.from_user = frappe.session.user or ""
-				notif_doc.insert(ignore_permissions=True)
+			owner_name = admin.parent
+			notif_doc = frappe.new_doc('Notification Log')
+			mail_msg=''
+			subject=''
+			if row.get('parentfield') == 'insurance_table':
+				subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+			if row.get('parentfield') == 'government_inspection':
+				subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+			notif_doc.subject = subject
+			notif_doc.email_content =mail_msg
+			notif_doc.for_user = owner_name
+			notif_doc.type = "Mention"
+			notif_doc.document_type = row.document_type
+			notif_doc.document_name = row.document_name
+			notif_doc.from_user = frappe.session.user or ""
+			notif_doc.insert(ignore_permissions=True)
+			frappe.db.commit()
+			# print('\n\n\n-->notif_doc',notif_doc.__dict__,'\n\n\n\n')
+

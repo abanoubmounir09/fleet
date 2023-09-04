@@ -127,7 +127,10 @@ scheduler_events = {
             "fleet.fleet_managment.setup.vehicle_card_notfication_center",
             "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.insurance_and_goverment_alert",
             # "dynamic.ifi.api.daily_opportunity_notify" 
-        ]
+        ],
+        "0 10 * * *":[
+            "fleet.fleet_managment.doctype.maintenance_request.maintenance_request.insurance_and_goverment_alert",
+        ],
     },
 }
 # Scheduled Tasks
