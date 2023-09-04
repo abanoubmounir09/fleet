@@ -1,0 +1,69 @@
+<style>
+	.print-format table, .print-format tr, 
+	.print-format td, .print-format div, .print-format p {
+		line-height: 150%;
+		vertical-align: middle;
+	}
+	@media screen {
+		.print-format {
+			width: 50mm;
+			padding: 0.25in;
+			min-height: 90mm;
+		}
+	}
+	@media print {
+		.print-format {
+			width: 50mm;
+			padding: 0.25in;
+			min-height: 90mm;
+		}
+	}
+</style>
+
+{% if letter_head %}
+    {{ letter_head }}
+{% endif %}
+
+<p class="text-center" style="margin-bottom: 1rem">
+	{{ doc.company }}<br>
+	<b>{{ doc.select_print_heading or _("Invoice") }}</b><br>
+</p>
+<p>
+	<b>{{ _("Receipt No") }}:</b> {{ doc.name }}<br>
+	<b>{{ _("Customer") }}:</b> {{ doc.customer_name }}<br>
+	<b>{{ _("Date") }}:</b> {{ doc.get_formatted("posting_date") }}<br>
+	<b>{{ _("Time") }}:</b> {{  doc.get_formatted("posting_time") }}<br>
+</p>
+
+<hr>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th width="50%">{{ _("Item") }}</th>
+			<th width="25%" class="text-right">{{ _("Qty") }}</th>
+			<th width="25%" class="text-right">{{ _("Amount") }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%- for item in doc.items -%}
+		<tr>
+			<td>
+				{{ item.item_code }}
+				{%- if item.item_name != item.item_code -%}
+					<br>{{ item.item_name }}
+				{%- endif -%}
+				{%- if item.serial_no -%}
+					<br><b>{{ _("SR.No") }}:</b><br>
+					{{ item.serial_no | replace("\n", ", ") }}
+				{%- endif -%}
+			</td>
+			<td class="text-right">{{ item.qty }}<br>@ {{ item.get_formatted("rate") }}</td>
+			<td class="text-right">{{ item.get_formatted("amount") }}</td>
+		</tr>
+		{%- endfor -%}
+	</tbody>
+</table>
+
+<hr>
+<p>{{ doc.terms or "" }}</p>
+<p class="text-center">{{ _("Thank you, please visit again.") }}</p>

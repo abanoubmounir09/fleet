@@ -257,7 +257,6 @@ def set_gov_inspection_alert():
 def prepare_insurance_gov_notify(role,data,method):
 	get_all_manger = get_user_by_role(role)
 	if (data and get_all_manger):
-		# get_all_manger = [x['parent'] for x in get_all_manger]
 		kwargs={
 			"get_all_manger":get_all_manger,
 			"data":data,
@@ -267,18 +266,17 @@ def prepare_insurance_gov_notify(role,data,method):
 		job_name="send_insurance_notify",
 		queue="default",
    		timeout=500,
-		is_async=False , #! set true after end if this is True, method is run in worker
-		now=True, #! set false after end if this is True, method is run directly (not in a worker) 
-		at_front=False, # put the job at the front of the queue
+		is_async=True , #! set true after end if this is True, method is run in worker
+		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
+		at_front=False, #! put the job at the front of the queue
 		**kwargs,
 	)
 		
 def send_insurance_notify(**kwargs):
-	# print('\n\n\n',"in send_insurance_notify",'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			if admin.parent=='arfajcars@gmail.com':
-				print('\n\n\n',"admin==",admin,'\n\n\n\n')
+				# print('\n\n\n',"admin==",admin,'\n\n\n\n')
 				owner_name = admin.email
 				notif_doc = frappe.new_doc('Notification Log')
 				if row.get('parentfield') == 'insurance_table':
@@ -295,4 +293,3 @@ def send_insurance_notify(**kwargs):
 				notif_doc.document_name = row.document_name
 				notif_doc.from_user = frappe.session.user or ""
 				notif_doc.insert(ignore_permissions=True)
-				# print('\n\n\n',"in notif_doc",notif_doc.__dict__,'\n\n\n\n')
