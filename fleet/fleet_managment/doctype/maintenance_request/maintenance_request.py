@@ -156,7 +156,7 @@ def alert_all_manger(role,data):
 	)
 
 def send_alert_all_manager(**kwargs):
-	print('data==>\n\n\n',kwargs.get("data"),'\n\n')
+	# print('data==>\n\n\n',kwargs.get("data"),'\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			if admin.parent != 'Administrator':
@@ -261,21 +261,19 @@ def prepare_insurance_gov_notify(role,data,method):
 			"get_all_manger":get_all_manger,
 			"data":data,
 		}
-		frappe.enqueue(
+		frappe.enqueue( 
 		method=method,
 		job_name="send_insurance_notify",
-		queue="long", 
-		timeout=1500, 
-		is_async=True  , #! set true after end if this is True, method is run in worker
-		now=False, #! set false after end if this is True, method is run directly (not in a worker) 
+		queue="default", 
+		timeout=500, 
+		is_async=False, # if this is True, method is run in worker
+		now=True, # if this is True, method is run directly (not in a worker) 
 		at_front=False, # put the job at the front of the queue
 		**kwargs,
 	)
-		
+	
 def send_insurance_notify(**kwargs):
-	# print('\n\n\n',"in send_insurance_نnotify",'\n\n\n\n')
-	# print('\n\n\n-->data',kwargs.get("data"),'\n\n\n\n')
-	# print('\n\n\n-->users',kwargs.get("get_all_manger"),'\n\n\n\n')
+	# print('\n\n\n',"in kwargs",kwargs.get('data'),'\n\n\n\n')
 	for row in kwargs.get("data"):
 		for admin in kwargs.get("get_all_manger"):
 			owner_name = admin.parent
@@ -283,11 +281,11 @@ def send_insurance_notify(**kwargs):
 			mail_msg=''
 			subject=''
 			if row.get('parentfield') == 'insurance_table':
-				subject =_("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				mail_msg =  _("Vechile {0} Insurance Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				subject =_("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
+				mail_msg =  _("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
 			if row.get('parentfield') == 'government_inspection':
-				subject =_("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
-				mail_msg =  _("Vechile {0} Of Government Inspection Will End {1}").format( row.get('document_name'), row.get('valid_to'))
+				subject =_("Vechile {0}").format( row.get('document_name'))
+				mail_msg =  _("Vechile {0}").format( row.get('document_name'))
 			notif_doc.subject = subject
 			notif_doc.email_content =mail_msg
 			notif_doc.for_user = owner_name

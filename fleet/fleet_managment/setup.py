@@ -73,7 +73,7 @@ def update_vechile_card_notifaction(vechile_log,*args, **kwargs):
 		# vehcile_card.save()
 	if not len(vehcile_card.vehicle_notifcation) or  (maintainance_flage==False):
 		#**add new row
-		print('\n\n\n---add new--****->\n\n\n')
+		# print('\n\n\n---add new--****->\n\n\n')
 		new_row = vehcile_card.append('vehicle_notifcation',{
 			'maintainance': maintainance_request_type,
 			'stop_odometer': vehcile_card.odometer_reading +  maintainance_type__doc.maintinance_after,
@@ -126,8 +126,8 @@ def send_alert_vechile_manager(**kwargs):
 			for vehicle_car in kwargs.get("cards"):
 				owner_name = row.get("parent")
 				notif_doc = frappe.new_doc('Notification Log')
-				notif_doc.subject = _("Vechile Card {0} Need To Maintenance {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
-				notif_doc.email_content = _("Vechile Card {0} Need To Maintenance {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
+				notif_doc.subject = _("سجل السياره {0} يحتاج الى صيانه {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
+				notif_doc.email_content = _("سجل السياره {0} يحتاج الى صيانه {1}").format(vehicle_car.get('name'), vehicle_car.get('maintainance'))
 				notif_doc.for_user = owner_name
 				notif_doc.from_user = frappe.session.user
 				notif_doc.type = "Mention"
