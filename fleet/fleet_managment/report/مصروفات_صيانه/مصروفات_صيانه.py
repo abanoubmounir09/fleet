@@ -33,7 +33,7 @@ def get_data(filters):
 			FROM `tabVehicle Log`
 			INNER JOIN `tabVehicle Service`
 			ON `tabVehicle Service`.parent=`tabVehicle Log`.name
-			where `tabVehicle Log`.docstatus <> 2 AND {conditions}
+			where `tabVehicle Log`.docstatus = 1 AND {conditions}
 		'''
 	,as_dict=1)
 	return data
