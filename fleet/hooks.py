@@ -107,6 +107,9 @@ doc_events = {
 # 		"on_trash": "method"
 #	}
 }
+
+
+
 scheduler_events = {
     "cron": {
         # "0 */2 * * *": [
