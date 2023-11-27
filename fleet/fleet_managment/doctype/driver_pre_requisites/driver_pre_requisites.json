@@ -1,0 +1,109 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-01-13 17:25:40.605528",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "driver_link",
+  "driver_name",
+  "national_id",
+  "column_break_4",
+  "is_old",
+  "section_break_4",
+  "pre_requests",
+  "passed",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "Pre-req-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pre_requests",
+   "fieldtype": "Table",
+   "label": "Pre Requests",
+   "options": "Pre Request Grid"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Driver Pre Requisites",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "passed",
+   "fieldtype": "Check",
+   "label": "Passed"
+  },
+  {
+   "fetch_from": "driver_link.national_id",
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "National Id",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.is_old==1",
+   "fieldname": "driver_link",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_old",
+   "fieldtype": "Check",
+   "label": "Is Old"
+  },
+  {
+   "fetch_from": "driver_link.driver_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name",
+   "reqd": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-03-30 16:31:07.285683",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Driver Pre Requisites",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,189 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-03-27 10:52:26.633259",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "supplier",
+  "supplier_name",
+  "get_supplier_vehicles",
+  "column_break_3",
+  "company",
+  "date_section_section",
+  "from_date",
+  "to_date",
+  "column_break_8",
+  "day_count",
+  "fleet_section_section",
+  "items",
+  "vehicle_deduction_section",
+  "deductions",
+  "section_break_14",
+  "hoding_items",
+  "total_section_section",
+  "vehicle_qty",
+  "total_amount",
+  "total_deductions",
+  "column_break_14",
+  "grand_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "date_section_section",
+   "fieldtype": "Section Break",
+   "label": "Date Section"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fleet_section_section",
+   "fieldtype": "Section Break",
+   "label": "Fleet Section"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Fleet Supplier Invoice Items"
+  },
+  {
+   "fieldname": "total_section_section",
+   "fieldtype": "Section Break",
+   "label": "Total Section "
+  },
+  {
+   "fieldname": "vehicle_qty",
+   "fieldtype": "Int",
+   "label": "Vehicle Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "label": "Total Deductions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_deduction_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Deduction"
+  },
+  {
+   "fieldname": "deductions",
+   "fieldtype": "Table",
+   "label": "Deductions",
+   "options": "Vehicle Deduction Items"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "30",
+   "fieldname": "day_count",
+   "fieldtype": "Int",
+   "label": "Day Count",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "hoding_items",
+   "fieldtype": "Table",
+   "label": "Hoding Items",
+   "options": "Hoding Items"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FLT-SUP-INV-.####",
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_supplier_vehicles",
+   "fieldtype": "Button",
+   "label": "Get Supplier Vehicles"
+  }
+ ],
+ "modified": "2021-06-01 12:27:15.857947",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet Supplier Invoice",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,89 @@
+{
+ "creation": "2020-12-23 14:30:21.178957",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "provider",
+  "description",
+  "completationdate",
+  "expire",
+  "period",
+  "expiredate",
+  "cost",
+  "deducted"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Request Type"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Provider",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "completationdate",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Completation Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "expire",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Expired "
+  },
+  {
+   "depends_on": "eval:doc.expire==1",
+   "fieldname": "period",
+   "fieldtype": "Data",
+   "label": "Period (month)"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost"
+  },
+  {
+   "default": "0",
+   "fieldname": "deducted",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Deducted"
+  },
+  {
+   "depends_on": "eval:doc.expire==1",
+   "fieldname": "expiredate",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expire date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-12-23 14:38:45.997462",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Services",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,51 @@
+{
+ "creation": "2021-03-23 13:20:33.376597",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "required_date",
+  "counter_reading",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Inspection Date"
+  },
+  {
+   "fieldname": "counter_reading",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Counter Reading"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Done\nNot Done"
+  },
+  {
+   "default": "Today",
+   "fieldname": "required_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Required Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-03-23 15:56:22.497169",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Tire Inspection Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

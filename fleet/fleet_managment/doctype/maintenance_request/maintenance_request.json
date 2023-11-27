@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:M-Re-{#####}",
+ "creation": "2023-02-20 12:04:20.255914",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "applicant_name",
+  "vehicle",
+  "vehicle_type",
+  "model",
+  "vehichle_brand",
+  "data_5",
+  "maintainance",
+  "date",
+  "status",
+  "area",
+  "office",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "vehicle.area",
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "fetch_from": "vehicle.office",
+   "fieldname": "office",
+   "fieldtype": "Link",
+   "label": "Office",
+   "options": "Office"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "maintainance",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Maintainance",
+   "options": "Maintainance",
+   "reqd": 1
+  },
+  {
+   "default": "now",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "default": "__user",
+   "fieldname": "applicant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Applicant Name",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Maintenance Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nAgree\nCompleted",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.vehicle_type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type"
+  },
+  {
+   "fetch_from": "vehicle.vehichle_brand",
+   "fieldname": "vehichle_brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Vehicle Brand"
+  },
+  {
+   "fetch_from": "vehicle.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model Year"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-07-09 13:27:31.168567",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Maintenance Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

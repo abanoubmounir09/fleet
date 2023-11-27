@@ -1,0 +1,91 @@
+{
+ "creation": "2021-03-27 13:33:43.408558",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "driver",
+  "vehicle_deduction",
+  "type",
+  "amout",
+  "deduction_amount",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Driver",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle_deduction",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle Deduction",
+   "options": "Vehicle Deduction",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vehicle_deduction.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amout",
+   "fieldtype": "Float",
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "deduction_amount",
+   "fieldtype": "Float",
+   "label": "Deduction Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "modified": "2021-03-28 16:42:50.274883",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle Deduction Items",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,738 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2013-03-07 09:04:18",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information",
+  "employee",
+  "naming_series",
+  "salutation",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "driver_name",
+  "type",
+  "vehicle",
+  "location",
+  "area",
+  "office",
+  "supplier",
+  "company_card",
+  "is_insured",
+  "insurance",
+  "insurance_end_date",
+  "professional_license",
+  "image",
+  "isemployee",
+  "employeelink",
+  "column_break1",
+  "company",
+  "status",
+  "employee_number",
+  "current_address",
+  "employment_type",
+  "national_id",
+  "national_id_end_date",
+  "gender",
+  "date_of_birth",
+  "date_of_joining",
+  "licence_details_section",
+  "licencenumber",
+  "startdate",
+  "column_break_25",
+  "licencekind",
+  "enddate",
+  "emergency_contact_details",
+  "emergency_phone_number",
+  "person_to_be_contacted",
+  "relation",
+  "erpnext_user",
+  "user_id",
+  "create_user",
+  "create_user_permission",
+  "required_document_section",
+  "required_document",
+  "health_insurance_section",
+  "insured",
+  "medical_insurance_number",
+  "column_break_60",
+  "form_111",
+  "form_date",
+  "medical_examination",
+  "medical_examination_date",
+  "result_of_the_medical_examination",
+  "medical_examination_notes",
+  "section_break_65",
+  "contact_details",
+  "cell_number",
+  "prefered_contact_email",
+  "prefered_email",
+  "company_email",
+  "personal_email",
+  "unsubscribed",
+  "column_break4",
+  "permanent_accommodation_type",
+  "permanent_address",
+  "current_accommodation_type",
+  "medical_insurance_section",
+  "provider",
+  "document",
+  "insurance_start_date",
+  "medication_card_number",
+  "column_break_109",
+  "medication_card_recieving_date",
+  "company_share_ratio",
+  "employee_share_ratio",
+  "medical__insurance_members_section",
+  "get_members",
+  "is_passed",
+  "column_break_131",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information",
+   "fieldtype": "Section Break",
+   "oldfieldtype": "Section Break"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "oldfieldname": "naming_series",
+   "oldfieldtype": "Select",
+   "options": "Driv-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Salutation",
+   "oldfieldname": "salutation",
+   "oldfieldtype": "Select",
+   "options": "Salutation",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Middle Name",
+   "print_hide": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Last Name",
+   "print_hide": 1
+  },
+  {
+   "fetch_from": "user_id.user_image",
+   "fetch_if_empty": 1,
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Image",
+   "no_copy": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1,
+   "remember_last_selected_value": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Flag",
+   "oldfieldname": "status",
+   "oldfieldtype": "Select",
+   "options": "Active\nDraft\nHold\nSuspended\nInactive\nBlacklist\nLeft",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Mobile",
+   "oldfieldname": "employee_number",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "employment_type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "ignore_user_permissions": 1,
+   "label": "Employment Type",
+   "oldfieldname": "employment_type",
+   "oldfieldtype": "Link",
+   "options": "Employment Type",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "label": "National id"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "oldfieldname": "gender",
+   "oldfieldtype": "Select",
+   "options": "Gender"
+  },
+  {
+   "default": "0",
+   "fieldname": "isemployee",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Employee",
+   "print_hide": 1
+  },
+  {
+   "description": "You can enter any date manually",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "oldfieldname": "date_of_birth",
+   "oldfieldtype": "Date"
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "oldfieldname": "date_of_joining",
+   "oldfieldtype": "Date"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "collapsible": 1,
+   "fieldname": "emergency_contact_details",
+   "fieldtype": "Section Break",
+   "label": "Emergency Contact"
+  },
+  {
+   "bold": 1,
+   "fieldname": "emergency_phone_number",
+   "fieldtype": "Data",
+   "label": "Emergency Phone"
+  },
+  {
+   "bold": 1,
+   "fieldname": "person_to_be_contacted",
+   "fieldtype": "Data",
+   "label": "Emergency Contact Name"
+  },
+  {
+   "fieldname": "relation",
+   "fieldtype": "Data",
+   "label": "Relation"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "erpnext_user",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Related User",
+   "print_hide": 1
+  },
+  {
+   "description": "System User (login) ID. If set, it will become default for all HR forms.",
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:(!doc.user_id)",
+   "fieldname": "create_user",
+   "fieldtype": "Button",
+   "label": "Create User"
+  },
+  {
+   "default": "1",
+   "depends_on": "user_id",
+   "description": "This will restrict user access to other employee records",
+   "fieldname": "create_user_permission",
+   "fieldtype": "Check",
+   "label": "Create User Permission"
+  },
+  {
+   "depends_on": "designation",
+   "fieldname": "required_document_section",
+   "fieldtype": "Section Break",
+   "label": "Required Document"
+  },
+  {
+   "fieldname": "required_document",
+   "fieldtype": "Table",
+   "label": "Required Document",
+   "options": "Required Document"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "health_insurance_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Goverment Health Insurance",
+   "print_hide": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "insured",
+   "fieldtype": "Check",
+   "label": "Insured"
+  },
+  {
+   "fieldname": "medical_insurance_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Medical Insurance Number",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_60",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "form_111",
+   "fieldtype": "Check",
+   "label": "FORM (111)"
+  },
+  {
+   "depends_on": "eval:doc.form_111 ;",
+   "fieldname": "form_date",
+   "fieldtype": "Date",
+   "label": "Receved Date"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.form_111;",
+   "fieldname": "medical_examination",
+   "fieldtype": "Check",
+   "label": "Medical Examination"
+  },
+  {
+   "depends_on": "eval:doc.medical_examination;",
+   "fieldname": "medical_examination_date",
+   "fieldtype": "Date",
+   "label": "Medical Examination Date"
+  },
+  {
+   "depends_on": "eval:doc.medical_examination;",
+   "fieldname": "result_of_the_medical_examination",
+   "fieldtype": "Small Text",
+   "label": "result of the medical examination"
+  },
+  {
+   "depends_on": "eval:doc.medical_examination ;",
+   "fieldname": "medical_examination_notes",
+   "fieldtype": "Small Text",
+   "label": " medical examination Notes"
+  },
+  {
+   "fieldname": "section_break_65",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contact_details",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "cell_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Mobile",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "prefered_contact_email",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Prefered Contact Email",
+   "options": "\nCompany Email\nPersonal Email\nUser ID",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "prefered_email",
+   "fieldtype": "Data",
+   "label": "Prefered Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "description": "Provide Email Address registered in company",
+   "fieldname": "company_email",
+   "fieldtype": "Data",
+   "label": "Company Email",
+   "oldfieldname": "company_email",
+   "oldfieldtype": "Data",
+   "options": "Email"
+  },
+  {
+   "fieldname": "personal_email",
+   "fieldtype": "Data",
+   "label": "Personal Email",
+   "options": "Email"
+  },
+  {
+   "default": "0",
+   "fieldname": "unsubscribed",
+   "fieldtype": "Check",
+   "label": "Unsubscribed"
+  },
+  {
+   "fieldname": "column_break4",
+   "fieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "fieldname": "permanent_accommodation_type",
+   "fieldtype": "Select",
+   "label": "Permanent Address Is",
+   "options": "\nRented\nOwned"
+  },
+  {
+   "fieldname": "permanent_address",
+   "fieldtype": "Small Text",
+   "label": "Permanent Address"
+  },
+  {
+   "fieldname": "current_accommodation_type",
+   "fieldtype": "Select",
+   "label": "Current Address Is",
+   "options": "\nRented\nOwned"
+  },
+  {
+   "fieldname": "current_address",
+   "fieldtype": "Data",
+   "label": "Current Address"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "medical_insurance_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Medical Insurance",
+   "print_hide": 1
+  },
+  {
+   "depends_on": "eval:doc.document",
+   "fetch_from": "document.insurance_provider",
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "Provider",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Data",
+   "label": "Document"
+  },
+  {
+   "fieldname": "insurance_start_date",
+   "fieldtype": "Date",
+   "label": "Insurance Start Date"
+  },
+  {
+   "fieldname": "medication_card_number",
+   "fieldtype": "Data",
+   "label": "Medication card number"
+  },
+  {
+   "fieldname": "column_break_109",
+   "fieldtype": "Column Break",
+   "width": "1%"
+  },
+  {
+   "fieldname": "medication_card_recieving_date",
+   "fieldtype": "Date",
+   "label": "Medication card recieving date"
+  },
+  {
+   "fieldname": "company_share_ratio",
+   "fieldtype": "Float",
+   "label": "Company Share Ratio"
+  },
+  {
+   "fieldname": "employee_share_ratio",
+   "fieldtype": "Float",
+   "label": "Employee Share Ratio"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "medical__insurance_members_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Medical  Insurance Members"
+  },
+  {
+   "columns": 2,
+   "fieldname": "get_members",
+   "fieldtype": "Button",
+   "label": "Get Members"
+  },
+  {
+   "fieldname": "column_break_131",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.isemployee==1",
+   "fieldname": "employeelink",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "unique": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "licence_details_section",
+   "fieldtype": "Section Break",
+   "label": "Licence Details"
+  },
+  {
+   "fieldname": "licencenumber",
+   "fieldtype": "Data",
+   "label": "Licence Number"
+  },
+  {
+   "fieldname": "startdate",
+   "fieldtype": "Date",
+   "label": "Licence Start Date"
+  },
+  {
+   "fieldname": "enddate",
+   "fieldtype": "Date",
+   "label": "Licence End Date"
+  },
+  {
+   "fieldname": "licencekind",
+   "fieldtype": "Select",
+   "label": "Licence Kind",
+   "options": "\u0634\u0627\u062d\u0646\u0629 \u0646\u0642\u0644 \u062b\u0642\u064a\u0644\n\u0634\u0627\u062d\u0646\u0629 \u0646\u0642\u0644 \u062e\u0641\u064a\u0641\n\u0633\u064a\u0627\u0631\u0629 \u062e\u0627\u0635\u0629"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "oldfieldname": "employee_name",
+   "oldfieldtype": "Data",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_passed",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Passed",
+   "print_hide": 1
+  },
+  {
+   "default": "Driver",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Driver"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "company_card",
+   "fieldtype": "Check",
+   "label": "Company ID"
+  },
+  {
+   "depends_on": "eval:doc.is_insured==1",
+   "fieldname": "insurance",
+   "fieldtype": "Select",
+   "label": "Insurance",
+   "options": "\nInside Sky\nSupplier"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_insured",
+   "fieldtype": "Check",
+   "label": "Is insured"
+  },
+  {
+   "default": "0",
+   "fieldname": "professional_license",
+   "fieldtype": "Check",
+   "label": "Occupational license"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.location",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Region",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "vehicle.area",
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "vehicle.office",
+   "fieldname": "office",
+   "fieldtype": "Link",
+   "label": "Office",
+   "options": "Office"
+  },
+  {
+   "depends_on": "eval:doc.is_insured==1",
+   "fieldname": "insurance_end_date",
+   "fieldtype": "Date",
+   "label": "Insurance End Date"
+  },
+  {
+   "fieldname": "national_id_end_date",
+   "fieldtype": "Date",
+   "label": "National Id End Date"
+  }
+ ],
+ "icon": "fa fa-user",
+ "idx": 24,
+ "image_field": "image",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-02-21 15:30:02.266504",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Driver",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "set_user_permissions": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "driver_name,national_id",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

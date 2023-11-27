@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "creation": "2021-03-22 15:30:41.699942",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "current_reading",
+  "no_litre",
+  "price",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "current_reading",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Reading"
+  },
+  {
+   "fieldname": "no_litre",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "No Litre"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Price"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2023-01-30 13:52:16.753020",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Tank log child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

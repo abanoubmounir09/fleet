@@ -1,0 +1,550 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "format:{vehichle_plate_number}",
+ "creation": "2016-09-03 03:33:27.680331",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "vehicle_type",
+  "vehichle_brand",
+  "color",
+  "vehichle_model",
+  "item",
+  "model",
+  "no_hours",
+  "payment_method",
+  "project",
+  "column_break_3",
+  "contract",
+  "create_contract",
+  "supplier_contract",
+  "supplier",
+  "fuel_type",
+  "uom",
+  "km_reading",
+  "area",
+  "office",
+  "account",
+  "vehicle_status",
+  "ownership",
+  "gps_status_section",
+  "gps_status",
+  "url",
+  "column_break_23",
+  "comment",
+  "date",
+  "plate_number_section",
+  "no",
+  "vehichle_plate_number",
+  "column_break_14",
+  "c4",
+  "column_break_16",
+  "c3",
+  "column_break_18",
+  "c2",
+  "column_break_20",
+  "c1",
+  "contract_details_section",
+  "c_start_date",
+  "column_break_26",
+  "c_end_date",
+  "vehicle_details",
+  "acquisition_date",
+  "location",
+  "column_break_8",
+  "chassis_no",
+  "vehicle_value",
+  "insurance_details",
+  "insurance_company",
+  "policy_no",
+  "column_break_15",
+  "start_date",
+  "end_date",
+  "additional_details",
+  "wheels",
+  "doors",
+  "column_break_21",
+  "special_characteristics",
+  "is_passed",
+  "vehichle_drivers_section",
+  "drivers",
+  "vehicle_services",
+  "vehichle_photoes",
+  "section_break_15",
+  "licences",
+  "amended_from",
+  "section_break_hnwmx",
+  "insurance_table",
+  "section_break_7wvfw",
+  "government_inspection"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Vehicle code",
+   "no_copy": 1,
+   "options": "veh-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type"
+  },
+  {
+   "fieldname": "vehichle_brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Vehicle Brand"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Color"
+  },
+  {
+   "fieldname": "vehichle_model",
+   "fieldtype": "Link",
+   "label": "Vehichle Model",
+   "options": "Vehichle Model"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model Year"
+  },
+  {
+   "fetch_from": "contract.no_hours",
+   "fieldname": "no_hours",
+   "fieldtype": "Data",
+   "label": "Working Hours"
+  },
+  {
+   "fetch_from": "contract.payment_method",
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Package\nRental",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Vehicle Contract"
+  },
+  {
+   "fieldname": "create_contract",
+   "fieldtype": "Button",
+   "label": "Create Contract"
+  },
+  {
+   "fetch_from": "contract.supplier",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Fuel Type",
+   "options": "Petrol\nDiesel\nNatural Gas\nElectric"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "Fuel UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "km_reading",
+   "fieldtype": "Data",
+   "label": "Odometer Reading",
+   "translatable": 1
+  },
+  {
+   "fieldname": "vehicle_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Flag",
+   "options": "Active\nIn a trip\nDraft\nHold\nSuspended\nInactive\nBlacklist",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ownership",
+   "fieldtype": "Select",
+   "label": "Ownership",
+   "options": "Leased\nOwned",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gps_status_section",
+   "fieldtype": "Section Break",
+   "label": "GPS Status"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "gps_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "GPS Status",
+   "options": "Active\nInActive",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "comment",
+   "fieldtype": "Data",
+   "label": "Comment",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "plate_number_section",
+   "fieldtype": "Section Break",
+   "label": "Plate Number"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "no",
+   "fieldtype": "Data",
+   "label": "No",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "vehichle_plate_number",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Plate Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "c4",
+   "fieldtype": "Data",
+   "label": "C4"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "c3",
+   "fieldtype": "Data",
+   "label": "C3"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "c2",
+   "fieldtype": "Data",
+   "label": "C2"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "c1",
+   "fieldtype": "Data",
+   "label": "C1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Contract Details",
+   "print_hide": 1
+  },
+  {
+   "fetch_from": "contract.start_date",
+   "fieldname": "c_start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "c_end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Chassis No",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.vehicle_rent",
+   "fieldname": "vehicle_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rent Value"
+  },
+  {
+   "fieldname": "insurance_details",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Insurance Details",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Data",
+   "label": "Insurance Company"
+  },
+  {
+   "fieldname": "policy_no",
+   "fieldtype": "Data",
+   "label": "Policy No"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "contract.start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "contract.end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "additional_details",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Additional Details",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "wheels",
+   "fieldtype": "Int",
+   "label": "Wheels"
+  },
+  {
+   "fieldname": "doors",
+   "fieldtype": "Int",
+   "label": "Doors"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "special_characteristics",
+   "fieldtype": "Small Text",
+   "label": "Special Characteristics"
+  },
+  {
+   "fieldname": "is_passed",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "Is Passed",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "vehichle_drivers_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "drivers",
+   "fieldtype": "Table",
+   "label": "Vehicle Drivers",
+   "options": "Vehicle Drivers"
+  },
+  {
+   "fieldname": "vehicle_services",
+   "fieldtype": "Section Break",
+   "options": "Vehicle services"
+  },
+  {
+   "fieldname": "vehichle_photoes",
+   "fieldtype": "Table",
+   "label": "Vehichle photoes",
+   "options": "Vehichle photoes"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "licences",
+   "fieldtype": "Table",
+   "label": "Licences",
+   "options": "Licence Grid"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "vehicle_type.item",
+   "fetch_if_empty": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "label": "Area",
+   "options": "Area"
+  },
+  {
+   "fieldname": "office",
+   "fieldtype": "Link",
+   "label": "Office",
+   "options": "Office"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Fleet Account"
+  },
+  {
+   "fieldname": "supplier_contract",
+   "fieldtype": "Link",
+   "label": "Supplier Contract",
+   "options": "Supplier Contract"
+  },
+  {
+   "fieldname": "section_break_hnwmx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "insurance_table",
+   "fieldtype": "Table",
+   "label": "Insurance Table",
+   "options": "Insurance Table"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "government_inspection",
+   "fieldtype": "Table",
+   "label": "Government Inspection",
+   "options": "Government Inspection"
+  },
+  {
+   "fieldname": "section_break_7wvfw",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-08-07 14:34:28.872009",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "location,model,chassis_no,vehichle_plate_number",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

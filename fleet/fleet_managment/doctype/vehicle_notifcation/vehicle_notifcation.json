@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-07-16 09:30:33.092700",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "maintainance",
+  "stop_odometer",
+  "notifaction_before"
+ ],
+ "fields": [
+  {
+   "fieldname": "maintainance",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Maintainance",
+   "options": "Maintainance"
+  },
+  {
+   "fieldname": "stop_odometer",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Stop Odometer"
+  },
+  {
+   "fieldname": "notifaction_before",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Notifaction Before"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-07-16 09:52:50.980818",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Vehicle Notifcation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
