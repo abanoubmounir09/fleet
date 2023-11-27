@@ -1,0 +1,70 @@
+- Create File Config == fleet.py
+- Doctype : 
+<<<<<<< HEAD
+        1 - Fleet Supplier Invoice              --trans
+        2 - Fleet Sales Order                   --trans
+        3 - Fleet Notification Settings         --trans
+        4 - Vehicle Inspection Form             --trans
+        5 - Driver Pre Requisites               --trans
+        6 - Vehicle Card                        --trans      
+        7 - Driver Cart                         --trans
+        8 - Tank log                            --trans
+        9 - Vehicle Log                         --trans
+        10- Tire Log                            --trans
+        11- GPS Logs                            --trans
+        12- Driver Violation                    --trans
+        13-Vehicle Contract                     --trans
+        14-Change Plate Number                  --trans
+        15-Driver                               --trans
+        16-Pre Requisites Type                  --trans
+        17-Driver Course                        --trans
+        18-Pre Request                          --trans
+        19-Vehicle                              --trans
+        20-vehichle licence                     --trans
+        21-Aspect Type                          --trans
+        22-Inspection Aspects                   --trans
+        23-Vehichle Model                       --trans
+        24-Vehicle Brand                        --trans
+        25-Maintainance                         --trans
+        26-Color                                --trans
+        27-Area                                 --trans
+        28-Uplaod Odometer Reading              --trans
+        29-Office                               --trans
+=======
+        1 - Fleet Supplier Invoice 
+        2 - Fleet Sales Order
+        3 - Fleet Notification Settings
+        4 - Vehicle Inspection Form
+        5 - Driver Pre Requisites
+        6 - Vehicle Card
+        7 - Driver Cart
+        8 - Tank log
+        9 - Vehicle Log
+        10- Tire Log
+        11- GPS Logs
+        12- Driver Violation
+        13-Vehicle Contract
+        14-Change Plate Number
+        15-Driver
+        16-Pre Requisites Type
+        17-Driver Course
+        18-Pre Request
+        19-Vehicle
+        20-vehichle licence
+        21-Aspect Type 
+        22-Inspection Aspects
+        23-Vehichle Model
+        24-Vehicle Brand
+        25-Maintainance
+        26-Color
+        27-Area  
+        28-Uplaod Odometer Reading
+        29-Office
+>>>>>>> f33bce5d289f2d9b488cd608464232912748bf74
+
+
+Reports : 
+1-Drivers Financial Custodies
+2-Car Summary
+3-Driver Summary
+4-D FUP

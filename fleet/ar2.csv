@@ -1,0 +1,353 @@
+Fleet Supplier Invoice
+Fleet Sales Order
+Fleet Notification Settings
+Vehicle Inspection Form
+Driver Pre Requisites
+Vehicle Card
+Driver Cart
+Tank log
+Vehicle Log
+Tire Log
+GPS Logs
+Driver Violation
+Vehicle Contract
+Change Plate Number
+Driver
+Pre Requisites Type
+Driver Course
+Pre Request
+Vehicle
+vehichle licence
+Aspect Type 
+Inspection Aspects
+Vehichle Model
+Vehicle Brand
+Maintainance
+Color
+Area 
+Uplaod Odometer Reading
+Office
+Series
+Supplier
+Supplier Name
+Get Supplier Vehicles
+Company
+Date Section
+From Date
+To Date
+Day Count
+Fleet Section
+Items
+Vehicle Deduction
+Deductions
+Hoding Items
+Total Section 
+Vehicle Qty
+Total Amount
+Total Deductions
+Grand Total
+Customer Details
+Series
+Customer
+Date
+Items Details
+Create Sales Order
+Totals
+Grand Total
+Total Discount
+Total Qty
+Net Total
+Tire Inspection
+Model Valiation For Sedan(Year)
+Tire Change
+Model Valiation For Pickup(Year)
+Vehicle
+Vehicle Type
+Vehichle Brand
+Km reading
+ADD
+Is Old Car
+Date Of Inspection
+Vehichle Model Year
+Vehicle Licence Expire Date
+Chasis Number
+Office
+Plate Number
+No
+C4
+C3
+C2
+C1
+Inspection Aspect
+Add Multiple
+Passed
+Inspection team Declaration 
+Other Remarks
+Inspection Team
+Driver
+Driver Name
+National Id
+Is Old
+Pre Requests
+Passed
+Curent Odometer Reading
+Reading Date
+Vehicle
+Last Tire Inspection
+Last Tire Change
+Last Tank 
+Maintainance 
+Add Tank Log
+Add Tire Change
+Add Tire Inspection
+Add Maintainance
+Update Vehicle Status
+Status
+Update Status
+Notes
+Update GBS Status
+GPS Status
+URL
+Update GPS Status
+Comment
+Last Reading
+Inspections
+Courses
+Driver Violation
+Change Status
+Note
+Asset custody
+Driver Advance 
+Totals
+Total Advance Amount
+Total Paid Amount
+Difference
+Total Pending Amount
+Total Claimed Amount
+Items Custody
+Current Reading
+No Litre 
+Price
+Tank log 
+Tank Reading
+License Plate
+Employee
+Model
+Make
+Odometer Reading
+Current Odometer value 
+Last Odometer Value 
+Refuelling Details
+Fuel Qty
+Fuel Price
+Invoice Ref
+Service Details
+Last Tier Inspection (km)
+Last Tier Change (km)
+Last Tier Inspection Date
+Last Tier Change Date
+Tier Change
+Reading (km)
+Add Change
+Tier Inspection
+Reading (km)
+Add Inspection
+Tire Change Log 
+Tire Inspection Log 
+Status Log
+National id
+Violation Date
+Penality
+Violation Description
+Violation Fee
+Start Date
+End Date
+No Drivers
+Vehicle Rent
+No Hours
+Payment Method
+Old Plate Number
+Salutation
+First Name
+Middle Name
+Last Name
+Full Name
+Type
+Region
+Office
+Account
+Project
+Company ID
+Is insured
+Insurance
+Insurance End Date
+Occupational license
+Image
+Is Employee
+Flag
+Mobile
+Current Address
+Employment Type
+National Id End Date
+Gender
+Date of Birth
+Date of Joining
+Licence Details
+Licence Number
+Licence Start Date
+Licence Kind
+Licence End Date
+Emergency Contact
+Emergency Phone
+Emergency Contact Name
+Relation
+Related User
+User ID
+Create User
+Create User Permission
+Required Document
+Type Name
+Period In Month
+Has Period
+Is Medical
+notification before(Monh)
+Course Name
+Pre Requisites Name
+Pre Requisites Type
+Cause Failure
+Vehicle code
+Brand
+Color
+Item
+Model Year
+Working Hours
+Payment Method
+Project
+Contract
+Create Contract
+Supplier Contract
+Supplier
+Fuel Type
+Fuel UOM
+Odometer Reading
+Office
+Ownership
+GPS Status
+URL
+Contract Details
+Details
+Location
+Chassis No
+Rent Value
+Traffic Unit
+Owner Name
+Chase Number
+Engine Number
+Examination Date
+Car Type
+Color
+Aspect Name
+Cause Failure
+Brand Name
+Model Name
+Color Name
+Area Name
+Reading
+Office Name
+Company of asset {0} and purchase document {1} doesn't matches.
+Purchase Invoice cannot be made against an existing asset {0}
+Item {0} does not exist
+Item {0} has been disabled
+Item {0} must be a Fixed Asset Item
+Item {0} must be a non-stock item
+Available for use date is required
+Gross Purchase Amount is mandatory
+Please create purchase receipt or purchase invoice for the item {0}
+Update stock must be enable for the purchase invoice {0}
+Enter depreciation details
+Available-for-use Date should be after purchase date
+Gross Purchase Amount should be {} to purchase amount of one single Asset. {}Please do not book expense of multiple assets against one single Asset.
+Invalid Gross Purchase Amount
+Asset has multiple Asset Movement Entries which has to be cancelled manually to cancel this asset.
+Row {0}: Expected Value After Useful Life must be less than Gross Purchase Amount
+Row {0}: Depreciation Start Date is required
+Opening Accumulated Depreciation must be less than equal to {0}
+Please set Number of Depreciations Booked
+Number of Depreciations Booked cannot be greater than Total Number of Depreciations
+Depreciation Row {0}: Next Depreciation Date cannot be before Purchase Date
+Depreciation Row {0}: Next Depreciation Date cannot be before Available-for-use Date
+Depreciation Row {0}: Expected value after useful life must be greater than or equal to {1}
+There are active maintenance or repairs against the asset. You must complete all of them before cancelling the asset.
+Asset cannot be cancelled, as it is already {0}
+Set {0} in company {1}
+Set {0} in asset category {1} or company {2}
+Atleast one asset has to be selected.
+Source Location is required for the Asset {0}
+Issuing cannot be done to a location. Please enter employee who has issued Asset {0}
+Employee is required while issuing Asset {0}
+Transferring cannot be done to an Employee. Please enter location where Asset {0} has to be transferred
+Target Location is required while transferring Asset {0}
+Source and Target Location cannot be same
+Target Location or To Employee is required while receiving Asset {0}
+From employee is required while receiving Asset {0} to a target location
+Target Location is required while receiving Asset {0} from an employee
+Asset {0} cannot be received at a location and given to employee in a single movement
+Asset {0} does not belongs to the custodian {1}
+Employee {0} does not belongs to the company {1}
+Asset {0} does not belongs to the Driver {1}
+Driver {0} does not belongs to the company {1}
+Please Set From Driver In Row {}
+Please Set To Driver In Row {}
+Please enter Valid Character
+Please enter valid no
+To Date Must Be Greate Than From Date
+National ID mus be 14 character
+Please enter national id
+Please enter gender
+Please enter date of birth
+Please enter date of joining
+You Must Take A Decision
+You cannot accept as there is cause failure pre-requisites
+National id '%s' already exist
+Driver in black list
+Enter Deliverd To in row '%s'
+Please Select Supplier To Fetch Vehicles
+Please Select Company To Fetch Vehicles
+Please Select Day Count To Fetch Vehicles
+All Items is Invoiced or holded
+From Date is Greater than To Date Please set Valid Dates !
+Please enter Validation Period
+To Date Must Be Greate Than From Date
+Invalid End Date
+Save First
+Please enter Valid Character
+Please enter valid no
+You Cant Select two licence
+Licence Already Exist
+Please enter vehichle plate number
+Please enter chassis no
+vehicle doesnt have any driver
+Please enter status
+Please enter notes
+Please Enter Date
+Please Enter GPS Status
+You moust enter rent value
+Please enter Valid Character
+Please enter valid no
+You Must Take A Decision
+You cannot accept as there is cause failure aspects
+Plat Number is Exit with Another Vehicle {}
+Vehicle Field is Mandatory
+Vehicle {} is in Blacklist
+Depreciation Row {0}: Depreciation Start Date is entered as past date
+All the depreciations has been booked
+Asset Movement record {0} created
+Status updated successfully
+National ID mus be 14 character
+Done...\nPurchase Invoice {} Was Created
+The deffirence Betwen From Date And To Date is: %s But you try to add %s 
+The deffirence Betwen From Date And To Date is: %s But you try to add %s 
+This Licence is expired
+GPS status updated successfully
+Status updated successfully
+

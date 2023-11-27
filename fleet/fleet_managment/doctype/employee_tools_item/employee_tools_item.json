@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "creation": "2021-03-11 13:58:13.971151",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "serial_number",
+  "qty",
+  "delivered_qty",
+  "status",
+  "location",
+  "delivery_date",
+  "return_date",
+  "project",
+  "customer",
+  "delivery_note",
+  "customer_agrement",
+  "delivered",
+  "reference",
+  "stock_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "options": "Serial No"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Delivered\nReturned",
+   "search_index": 1
+  },
+  {
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date"
+  },
+  {
+   "fieldname": "return_date",
+   "fieldtype": "Date",
+   "label": "Return Date"
+  },
+  {
+   "fetch_from": "customer_agrement.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fetch_from": "customer_agrement.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "QTY"
+  },
+  {
+   "fieldname": "delivery_note",
+   "fieldtype": "Link",
+   "label": "Delivery Note",
+   "options": "Delivery Note"
+  },
+  {
+   "fieldname": "customer_agrement",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Customer Agrement",
+   "options": "Customer Agreement"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "reference",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "delivered",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Delivered to Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "delivered_qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Delivered QTY",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Location",
+   "options": "Delivered to Customer\nEmployee Custody\nCustody Warehouse",
+   "translatable": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2023-03-01 12:36:44.757167",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Employee Tools Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

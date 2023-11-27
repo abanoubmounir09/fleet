@@ -1,0 +1,139 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-01-13 11:22:22.987412",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "driver",
+  "vehicle",
+  "driver_name",
+  "national_id",
+  "column_break_3",
+  "date",
+  "violation_date",
+  "penality",
+  "section_break_6",
+  "violation_description",
+  "column_break_8",
+  "violation_fee",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "Vio-",
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "driver.vehicle",
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": " Vehicle",
+   "options": "Vehicle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "violation_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Violation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "violation_description",
+   "fieldtype": "Small Text",
+   "label": "Violation Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "violation_fee",
+   "fieldtype": "Currency",
+   "label": "Violation Fee"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Driver Violation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Driver",
+   "reqd": 1
+  },
+  {
+   "depends_on": "driver",
+   "fetch_from": "driver.driver_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "driver.national_id",
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "label": "National id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "penality",
+   "fieldtype": "Select",
+   "label": "Penality",
+   "options": "Warning\nTermination\nWithout"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-05-18 10:54:43.003423",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Driver Violation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

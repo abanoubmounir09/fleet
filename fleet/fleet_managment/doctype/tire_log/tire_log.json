@@ -1,0 +1,146 @@
+{
+ "autoname": "format:{vehicle}-log",
+ "creation": "2021-03-23 12:55:17.385560",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "current_reading",
+  "column_break_3",
+  "last_tier_inspection_km",
+  "last_tier_change_km",
+  "column_break_6",
+  "last_tier_inspection_date",
+  "last_tier_change_date",
+  "tier_change_section",
+  "add_ch_r_km",
+  "add_change",
+  "tier_inspection_section",
+  "add_ins_r_km",
+  "add_inspection",
+  "section_break_4",
+  "tire_change",
+  "section_break_8",
+  "tire_inspection_log"
+ ],
+ "fields": [
+  {
+   "fieldname": "current_reading",
+   "fieldtype": "Float",
+   "label": "Current Reading"
+  },
+  {
+   "fieldname": "last_tier_inspection_km",
+   "fieldtype": "Float",
+   "label": "Last Tier Inspection (km)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_tier_change_km",
+   "fieldtype": "Float",
+   "label": "Last Tier Change (km)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tire_inspection_log",
+   "fieldtype": "Table",
+   "label": "Tire Inspection Log ",
+   "options": "Tire Inspection Child"
+  },
+  {
+   "fieldname": "tire_change",
+   "fieldtype": "Table",
+   "label": "Tire Change Log ",
+   "options": "Tier Change Child"
+  },
+  {
+   "fieldname": "tier_change_section",
+   "fieldtype": "Section Break",
+   "label": "Tier Change"
+  },
+  {
+   "fieldname": "add_ch_r_km",
+   "fieldtype": "Float",
+   "label": "Reading (km)"
+  },
+  {
+   "fieldname": "add_change",
+   "fieldtype": "Button",
+   "label": "Add Change"
+  },
+  {
+   "fieldname": "tier_inspection_section",
+   "fieldtype": "Section Break",
+   "label": "Tier Inspection"
+  },
+  {
+   "fieldname": "add_ins_r_km",
+   "fieldtype": "Float",
+   "label": "Reading (km)"
+  },
+  {
+   "fieldname": "add_inspection",
+   "fieldtype": "Button",
+   "label": "Add Inspection"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_tier_inspection_date",
+   "fieldtype": "Date",
+   "label": "Last Tier Inspection Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_tier_change_date",
+   "fieldtype": "Date",
+   "label": "Last Tier Change Date",
+   "read_only": 1
+  }
+ ],
+ "modified": "2021-06-01 10:19:29.653424",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Tire Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

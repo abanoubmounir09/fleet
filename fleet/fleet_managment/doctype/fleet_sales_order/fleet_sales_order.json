@@ -1,0 +1,135 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2021-03-25 17:08:29.818526",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_details_section",
+  "naming_series",
+  "customer",
+  "date",
+  "items_details_section",
+  "items",
+  "create_sales_order",
+  "totals_section",
+  "grand_total",
+  "total_discount",
+  "column_break_11",
+  "total_qty",
+  "net_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "create_sales_order",
+   "fieldtype": "Button",
+   "label": "Create Sales Order"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Fleet Sales Order Item",
+   "reqd": 1
+  },
+  {
+   "default": "FLE-ORD-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "FLE-ORD-.YYYY.-",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "items_details_section",
+   "fieldtype": "Section Break",
+   "label": "Items Details"
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "default": "0",
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_discount",
+   "fieldtype": "Currency",
+   "label": "Total Discount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty",
+   "fieldtype": "Currency",
+   "label": "Total Qty",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "net_total",
+   "fieldtype": "Currency",
+   "label": "Net Total",
+   "options": "currency",
+   "read_only": 1
+  }
+ ],
+ "modified": "2021-04-08 11:57:50.863889",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet Sales Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

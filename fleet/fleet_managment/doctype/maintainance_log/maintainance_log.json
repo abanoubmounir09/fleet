@@ -1,0 +1,53 @@
+{
+ "creation": "2021-03-24 10:44:53.197014",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "maintainance",
+  "odometer_reading",
+  "notification_before_km",
+  "period"
+ ],
+ "fields": [
+  {
+   "fieldname": "maintainance",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Maintainance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "odometer_reading",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Odometer Reading",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notification_before_km",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Notification Before (km)",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Period(km)",
+   "print_hide": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-06-01 16:05:07.472892",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Maintainance Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

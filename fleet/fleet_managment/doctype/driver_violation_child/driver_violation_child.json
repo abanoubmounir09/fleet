@@ -1,0 +1,58 @@
+{
+ "creation": "2021-04-22 10:47:26.507412",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "violation",
+  "violation_date",
+  "penality",
+  "violation_fee",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "violation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Violation",
+   "options": "Driver Violation"
+  },
+  {
+   "fieldname": "violation_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Violation Date"
+  },
+  {
+   "fieldname": "penality",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Penality"
+  },
+  {
+   "fieldname": "violation_fee",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Violation Fee"
+  },
+  {
+   "fetch_from": "violation.violation_description",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-05-18 10:58:09.735766",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Driver Violation Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,250 @@
+{
+ "creation": "2021-03-27 10:52:01.649153",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "vehicle_type",
+  "item",
+  "account_dimensions_section",
+  "project",
+  "column_break_6",
+  "cost_center",
+  "section_break_8",
+  "vehicle_satus",
+  "payment_method",
+  "column_break_3",
+  "driver",
+  "driver_status",
+  "price_section_section",
+  "workin_days",
+  "hrs",
+  "rent_amount",
+  "total_amount",
+  "total",
+  "deducted_days",
+  "add_deduction",
+  "total_deductions",
+  "freeze",
+  "section_break_13",
+  "freez_reason",
+  "invoiced",
+  "status",
+  "from_date",
+  "to_date",
+  "purchase_invoice",
+  "purchase_invoice_item"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "vehicle.vehicle_status",
+   "fieldname": "vehicle_satus",
+   "fieldtype": "Data",
+   "label": "Vehicle Satus",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Driver",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "driver.status",
+   "fieldname": "driver_status",
+   "fieldtype": "Data",
+   "label": "Driver Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_section_section",
+   "fieldtype": "Section Break",
+   "label": "Price Section "
+  },
+  {
+   "columns": 1,
+   "fieldname": "workin_days",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Days",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fetch_from": "vehicle.vehicle_value",
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate"
+  },
+  {
+   "fieldname": "deducted_days",
+   "fieldtype": "Int",
+   "label": "Deducted Days"
+  },
+  {
+   "columns": 1,
+   "fieldname": "add_deduction",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Deduction"
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "label": "Total deductions"
+  },
+  {
+   "columns": 1,
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Amount "
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "freeze",
+   "fieldtype": "Button",
+   "label": "Hold"
+  },
+  {
+   "fieldname": "freez_reason",
+   "fieldtype": "Small Text",
+   "label": "Freez Reason"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nHold\nInvoiced",
+   "read_only": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "columns": 1,
+   "fetch_from": "vehicle.no_hours",
+   "fieldname": "hrs",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "HRS"
+  },
+  {
+   "fetch_from": "vehicle.payment_method",
+   "fieldname": "payment_method",
+   "fieldtype": "Data",
+   "label": "Payment Method",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total "
+  },
+  {
+   "fetch_from": "vehicle.vehicle_type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle.item",
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "purchase_invoice_item",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice Item",
+   "options": "Purchase Invoice Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice",
+   "options": "Purchase Invoice",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "account_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Account Dimensions"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2021-06-01 12:38:17.189903",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet Supplier Invoice Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
