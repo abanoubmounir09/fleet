@@ -227,10 +227,19 @@ data = {
             "doctype": "Vehicle Log",
             "doctype_or_field": "DocField",
             "fieldname": "last_odometer",
-            "reqd": 0,
-            "read_only": 0,
-            "no_copy": 1,
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
         },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "last_odometer",
+            "property": "read_only",
+            "property_type": "Check",
+            "value": "0"
+        },
+        
         
         
     ],
