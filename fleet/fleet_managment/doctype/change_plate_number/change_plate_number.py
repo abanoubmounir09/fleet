@@ -18,7 +18,8 @@ class ChangePlateNumber(Document):
 		vehicle.save()
 		#frappe.msgprint(vehicle)
 		#frappe.msgprint(self.vehicle)
-
+	
+	@frappe.whitelist()
 	def concat_plate_number(self):
 		plate=""
 		if self.no:
