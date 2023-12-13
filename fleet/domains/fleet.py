@@ -223,6 +223,39 @@ data = {
             "property_type": "Check",
             "value": "0"
         },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "last_odometer",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "last_odometer",
+            "property": "read_only",
+            "property_type": "Check",
+            "value": "0"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "odometer",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "amended_from",
+            "property": "read_only",
+            "property_type": "Check",
+            "value": "0"
+        },
+
         
         
     ],
