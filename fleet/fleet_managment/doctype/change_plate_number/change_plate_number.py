@@ -14,10 +14,8 @@ class ChangePlateNumber(Document):
 		vehicle.c3 = self.c3
 		vehicle.c4 = self.c4
 		vehicle.no= self.no
-		vehicle.vehichle_plate_number=self.plate_number
-		vehicle.save()
-		#frappe.msgprint(vehicle)
-		#frappe.msgprint(self.vehicle)
+		vehicle.db_set('vehichle_plate_number',self.plate_number)
+		frappe.db.commit()
 	
 	@frappe.whitelist()
 	def concat_plate_number(self):
