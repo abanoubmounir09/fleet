@@ -122,6 +122,22 @@ data = {
         {
             "doctype": "Vehicle Log",
             "doctype_or_field": "DocField",
+            "fieldname": "employee",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "date",
+            "property": "reqd",
+            "property_type": "Check",
+            "value": "0"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
             "fieldname": "employee_name",
             "property": "fetch_from",
             "property_type": "Text",
