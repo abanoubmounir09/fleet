@@ -1,0 +1,328 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2024-02-13 16:29:38.450402",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends": "Users",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Fleet",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0627\u0633\u0627\u0633\u064a\u0629",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0646\u0648\u0639 \u0627\u0644\u0633\u064a\u0627\u0631\u0629 ",
+   "link_to": "Vehicle Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0634\u0631\u0643\u0629",
+   "link_to": "Office",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0645\u0646\u0637\u0642\u0629",
+   "link_to": "Area",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0644\u0648\u0646",
+   "link_to": "Color",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0635\u064a\u0627\u0646\u0629 ",
+   "link_to": "Maintainance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0645\u0627\u0631\u0643\u0629 \u0627\u0644\u0633\u064a\u0627\u0631\u0629",
+   "link_to": "Vehicle Brand",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0645\u0648\u062f\u064a\u0644 \u0627\u0644\u0633\u064a\u0627\u0631\u0629 ",
+   "link_to": "Vehichle Model",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u062c\u0648\u0627\u0646\u0628 \u0627\u0644\u0641\u062d\u0635",
+   "link_to": "Inspection Aspects",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0646\u0648\u0639 \u0627\u0644\u0641\u062d\u0635 ",
+   "link_to": "Aspect Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0631\u062e\u0635\u0629 \u0627\u0644\u0633\u064a\u0627\u0631\u0629 ",
+   "link_to": "vehichle licence",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pre Request",
+   "link_to": "Pre Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0646\u0648\u0639 \u0627\u0644\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u0645\u0633\u0628\u0642\u0629 ",
+   "link_to": "Pre Requisites Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0639\u0642\u062f \u0627\u0644\u0633\u064a\u0627\u0631\u0629",
+   "link_to": "Vehicle Contract",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0633\u064a\u0627\u0631\u0629",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0633\u064a\u0627\u0631\u0629",
+   "link_to": "Vehicle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0646\u0645\u0648\u0630\u062c \u0641\u062d\u0635 \u0627\u0644\u0645\u0631\u0643\u0628\u0629",
+   "link_to": "Vehicle Inspection Form",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0633\u064a\u0627\u0631\u0629 ",
+   "link_to": "Vehicle Card",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0633\u062c\u0644 \u062e\u0632\u0627\u0646 \u0627\u0644\u0648\u0642\u0648\u062f",
+   "link_to": "Tank log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0633\u062c\u0644 \u0627\u0644\u0625\u0637\u0627\u0631\u0627\u062a ",
+   "link_to": "Tire Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u062a\u063a\u064a\u064a\u0631 \u0631\u0642\u0645 \u0644\u0648\u062d\u0629 \u0627\u0644\u0633\u064a\u0627\u0631\u0629 ",
+   "link_to": "Change Plate Number",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0633\u0627\u0626\u0642 ",
+   "link_to": "Fleet Notification Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0633\u0627\u0626\u0642 ",
+   "link_to": "Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0633\u0627\u0626\u0642 ",
+   "link_to": "Driver Cart",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0645\u062a\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0644\u0644\u0633\u0627\u0626\u0642",
+   "link_to": "Driver Pre Requisites",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0645\u062e\u0627\u0644\u0641\u0627\u062a \u0627\u0644\u0633\u0627\u0626\u0642",
+   "link_to": "Driver Violation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0625\u0639\u062f\u0627\u062f\u0627\u062a",
+   "link_to": "Fleet Notification Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0642\u0631\u0623\u0629 \u0639\u062f\u0627\u062f \u0627\u0644\u0645\u0633\u0627\u0641\u0627\u062a ",
+   "link_to": "Uplaod Odometer Reading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0627\u0644\u0635\u064a\u0627\u0646\u0629",
+   "link_to": "About Us Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0633\u062c\u0644 \u0627\u0644\u0633\u064a\u0627\u0631\u0629",
+   "link_to": "Vehicle Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u0637\u0644\u0628 \u0635\u064a\u0627\u0646\u0629",
+   "link_to": "Maintenance Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0635\u064a\u0627\u0646\u0627\u062a",
+   "link_to": "\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0635\u064a\u0627\u0646\u0627\u062a",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-02-13 16:29:38.450402",
+ "modified_by": "Administrator",
+ "module": "fleet_managment",
+ "name": "Fleet",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "restrict_to_domain": "Fleet",
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": " \u062a\u0642\u0631\u064a\u0631 \u0645\u0635\u0631\u0648\u0641\u0627\u062a \u0635\u064a\u0627\u0646\u0629 \u0645\u0639\u062a\u0645\u062f",
+   "link_to": "\u062a\u0642\u0631\u064a\u0631 \u0645\u0635\u0631\u0648\u0641\u0627\u062a \u0635\u064a\u0627\u0646\u0629 \u0645\u0639\u062a\u0645\u062f",
+   "type": "Report"
+  },
+  {
+   "doc_view": "List",
+   "label": " \u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0635\u064a\u0627\u0646\u0627\u062a",
+   "link_to": "\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0635\u064a\u0627\u0646\u0627\u062a",
+   "type": "Report"
+  }
+ ]
+}

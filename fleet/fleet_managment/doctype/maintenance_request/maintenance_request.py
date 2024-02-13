@@ -53,8 +53,11 @@ def send_alert_vechile_driver(doc):
 	owner_name = doc.get("applicant_name")
 	contact_date = doc.get("date")
 	notif_doc = frappe.new_doc('Notification Log')
-	notif_doc.subject = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
-	notif_doc.email_content = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
+	owner , date  = str(owner_name or " "), str(contact_date or " ")
+	notif_doc.subject = _(f"لديه طلب صيانة بتاريخ {date} و الحالة اصبحت مكتملة{owner}")
+	notif_doc.email_content = _(f"لديه طلب صيانة بتاريخ {date} و الحالة اصبحت مكتملة{owner}")
+	# notif_doc.subject = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
+	# notif_doc.email_content = _("{0} Has Maintenance Request at {1} status become agree").format(owner_name,contact_date)
 	notif_doc.for_user = owner_name
 	notif_doc.type = "Mention"
 	notif_doc.document_type = doc.get("doctype")
@@ -280,12 +283,18 @@ def send_insurance_notify(**kwargs):
 			notif_doc = frappe.new_doc('Notification Log')
 			mail_msg=''
 			subject=''
+			document_name = ( row.get('document_name') or " ")
+			date_valid = row.get('valid_to')
 			if row.get('parentfield') == 'insurance_table':
-				subject =_("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
-				mail_msg =  _("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
+				subject =_(f"سينتهي تأمين السيارة {document_name} في {date_valid}")
+				mail_msg = _(f"سينتهي تأمين السيارة {document_name} في {date_valid}")
+				# subject =_("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
+				# mail_msg =  _("Vechile {0} Insurance Will End {1}").format(row.get('document_name'),row.get('valid_to'))
 			if row.get('parentfield') == 'government_inspection':
-				subject =_("Vechile {0}").format( row.get('document_name'))
-				mail_msg =  _("Vechile {0}").format( row.get('document_name'))
+				subject =_(f"سيارة {document_name}")
+				mail_msg = _(f"سيارة {document_name}")
+				# subject =_("Vechile {0}").format( row.get('document_name'))
+				# mail_msg =  _("Vechile {0}").format( row.get('document_name'))
 			notif_doc.subject = subject
 			notif_doc.email_content =mail_msg
 			notif_doc.for_user = owner_name

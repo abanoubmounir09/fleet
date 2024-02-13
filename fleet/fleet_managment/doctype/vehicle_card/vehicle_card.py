@@ -356,7 +356,8 @@ def check_notification(*args, **kwargs):
                                 diff = int(diff)
                                 if 0 <= diff <= 30:
                                     sent_notification(
-                                        subject=" vehicle '{}' licence  is about to end".format(vehicle.name),
+                                        subject="'{}' ترخيص السيارة هينتهي في".format(vehicle.name),
+                                        # subject=" vehicle '{}' licence  is about to end".format(vehicle.name),
                                         document_type="Vehicle Card", document_name=card.name)
                                 if diff > int(selling_setting.stop_period):
                                     # frappe.throw("licence")

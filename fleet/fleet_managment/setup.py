@@ -35,8 +35,11 @@ def vehicle_log_on_submit(doc,*args, **kwargs):
 		kwargs['owner_name'] = doc.applicant_name
 		kwargs['document_type'] = doc.doctype
 		kwargs['document_name'] = doc.name
-		kwargs['subject'] = _("Vechile Log Is Submitted For Driver {0} at {1} status become Completed").format(doc.applicant_name, doc.modified)
-		kwargs['email_content'] = _("Vechile Log Is Submitted For Driver {0} at {1} status become Completed").format(doc.applicant_name, doc.modified)
+		status , driver  = str(doc.applicant_name or " "), str(doc.modified or " ")
+		kwargs['subject'] = _(f"تم إرسال سجل السيارة إلى السائق {status} بالحالة {driver} وهو مكتمل")
+		kwargs['email_content'] = _(f"تم إرسال سجل السيارة إلى السائق {status} بالحالة {driver} وهو مكتمل")
+		# kwargs['subject'] = _("Vechile Log Is Submitted For Driver {0} at {1} status become Completed").format(doc.applicant_name, doc.modified)
+		# kwargs['email_content'] = _("Vechile Log Is Submitted For Driver {0} at {1} status become Completed").format(doc.applicant_name, doc.modified)
 		send_alert_vechile_driver(**kwargs)
 		
 
