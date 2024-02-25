@@ -19,5 +19,14 @@ frappe.ui.form.on("Vehicle Log", {
 			}, __('Create'));
 			frm.page.set_inner_btn_group_as_primary(__('Create'));
 		}
+	
+
+	frm.set_query('maintenance_request', function(){
+		return {
+			filters: {
+				"vehicle" : frm.doc.license_plate
+			}
+		};
+	});
 	},
 });

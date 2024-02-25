@@ -58,26 +58,41 @@ def update_vechile_card_odometer(vechile_log,*args, **kwargs):
 	frappe.db.commit()
 
 def update_vechile_card_notifaction(vechile_log,*args, **kwargs):
-	maintainance_request_type = frappe.db.get_value('Maintenance Request',vechile_log.maintenance_request,'maintainance')
-	maintainance_type__doc = frappe.get_doc('Maintainance',maintainance_request_type)
-	if not maintainance_type__doc.maintinance_after:
-		frappe.throw('Please add Maininace After')
+	maintainance_type__doc = ''
+	if len(vechile_log.service_detail):
+		for maintainace_row in vechile_log.service_detail:
+			maintainance_type = maintainace_row.type
+			maintainance_type__doc = frappe.get_doc('Maintainance',maintainance_type)
+			add_maintenace_type_vechile_notification(vechile_log,maintainance_type__doc)
+
+	elif vechile_log.maintenance_request:
+		maintainance_request = vechile_log.maintenance_request
+		maintainance_request_type = frappe.db.get_value('Maintenance Request',maintainance_request,'maintainance')
+		maintainance_type__doc = frappe.get_doc('Maintainance',maintainance_request_type)
+		add_maintenace_type_vechile_notification(vechile_log,maintainance_type__doc)
+	
+	
+
+
+def add_maintenace_type_vechile_notification(vechile_log,maintainance_type__doc):
+	if maintainance_type__doc:
+		if not maintainance_type__doc.maintinance_after:
+			frappe.throw('Please add Maininace After')
 	vehcile_card_name = frappe.db.get_value('Vehicle Card',{'vehicle':vechile_log.license_plate},'name')
 	vehcile_card = frappe.get_doc('Vehicle Card',vehcile_card_name)
+	maintainance_request_type = maintainance_type__doc.name
 	#**check if maintennce in table:
 	maintainance_flage = False
+	#check service_detail
 	if len(vehcile_card.vehicle_notifcation):
 		#**check if maintainnce type exist
-		print('\n\n\n---add exis->\n\n\n')
 		for row in vehcile_card.vehicle_notifcation:
 			if row.maintainance == maintainance_request_type:
 				maintainance_flage = True
 				row.stop_odometer = vehcile_card.odometer_reading +  maintainance_type__doc.maintinance_after
-		# vehcile_card.save()
 	if not len(vehcile_card.vehicle_notifcation) or  (maintainance_flage==False):
 		#**add new row
-		# print('\n\n\n---add new--****->\n\n\n')
-		new_row = vehcile_card.append('vehicle_notifcation',{
+		vehcile_card.append('vehicle_notifcation',{
 			'maintainance': maintainance_request_type,
 			'stop_odometer': vehcile_card.odometer_reading +  maintainance_type__doc.maintinance_after,
 			'notifaction_before': maintainance_type__doc.maintinance_before,
