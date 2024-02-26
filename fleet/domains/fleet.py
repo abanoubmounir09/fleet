@@ -125,7 +125,7 @@ data = {
                 "fieldtype": "Link",
                 "insert_after": "maintenance_request",
                 "options":"Office",
-                # "fetch_from":"license_plate.vehichle_brand"
+                "fetch_from":"license_plate.office"
             },
             {
             "label": "Delivery Date",
