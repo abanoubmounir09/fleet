@@ -4,6 +4,28 @@ from frappe import _
 data = {
 
     'custom_fields': {
+        "Vehicle":[
+            {
+                "label": "Driver",
+                "fieldname": "employee",
+                "fieldtype": "Link",
+                "insert_after": "vehicle_type",
+                "options": "Driver"
+            },
+            {
+                "label": "Make",
+                "fieldname": "make",
+                "fieldtype": "Data",
+                "insert_after": "office",
+            },
+            {
+                "label": "Last Odometer",
+                "fieldname": "last_odometer",
+                "fieldtype": "Float",
+                "insert_after": "make",
+                "default": "0",
+            }
+        ],
         'Asset': [
             {
                 "fieldname": "driver",
@@ -57,23 +79,59 @@ data = {
                 "in_list_view":1,
             }
         ],
-            'Vehicle Log':[
-                {
-                "fieldname": "maintenance_request",
-                "fieldtype": "Data",
-                "insert_after": "service_detail",
-                "label": "Maintenance Request",
-                "hidden":1
-                },
-            ],
-
-            "Vehicle Log":[
-                 {
-                "label": "Delivery Date",
-                "fieldname": "delivery_date",
+            
+        "Vehicle Log":[
+            {
+                "label": "Posting Date",
+                "fieldname": "posting_date",
                 "fieldtype": "Date",
-                "insert_after": "last_odometer",
-                
+                "insert_after": "status",
+                "reqd": "1",
+            },
+            {
+                "label": "Brand",
+                "fieldname": "brand",
+                "fieldtype": "Link",
+                "insert_after": "model",
+                "options":"Vehicle Brand",
+                "fetch_from":"license_plate.vehichle_brand"
+            },
+            {
+                "label": "Vehicle Type",
+                "fieldname": "vehicle_type",
+                "fieldtype": "Data",
+                "insert_after": "brand",
+                # "options":"User",
+                "fetch_from":"license_plate.model"
+            },
+            {
+                "label": "Area",
+                "fieldname": "area",
+                "fieldtype": "Link",
+                "insert_after": "vehicle_type",
+                "options":"Area",
+                "fetch_from":"license_plate.area"
+            },
+            {
+            "label": "Maintenance Request",
+            "fieldname": "maintenance_request",
+            "fieldtype": "Link",
+            "options":"Maintenance Request",
+            "insert_after": "employee",
+            },
+            {
+                "label": "Office",
+                "fieldname": "office",
+                "fieldtype": "Link",
+                "insert_after": "maintenance_request",
+                "options":"Office",
+                # "fetch_from":"license_plate.vehichle_brand"
+            },
+            {
+            "label": "Delivery Date",
+            "fieldname": "delivery_date",
+            "fieldtype": "Date",
+            "insert_after": "last_odometer",
             },
             {
                 "label": "Maintenance To Date",
@@ -90,6 +148,7 @@ data = {
                 "options":"User"
                 
             },
+           
             {
                 "label": "Status",
                 "fieldname": "status",
@@ -191,22 +250,6 @@ data = {
             "property_type": "Check",
             "value": "1"
         },
-        {
-            "doctype": "Vehicle Log",
-            "doctype_or_field": "DocField",
-            "fieldname": "refuelling_details",
-            "property": "hidden",
-            "property_type": "Check",
-            "value": "1"
-        },
-        {
-            "doctype": "Vehicle Log",
-            "doctype_or_field": "DocField",
-            "fieldname": "service_details",
-            "property": "collapsible",
-            "property_type": "Check",
-            "value": "0"
-        },
          {
             "doctype": "Vehicle",
             "doctype_or_field": "DocField",
@@ -261,7 +304,7 @@ data = {
             "fieldname": "odometer",
             "property": "reqd",
             "property_type": "Check",
-            "value": "0"
+            "value": "1"
         },
         {
             "doctype": "Vehicle Log",
@@ -271,12 +314,25 @@ data = {
             "property_type": "Check",
             "value": "0"
         },
-
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "employee",
+            "property": "hidden",
+            "property_type": "Check",
+            "value": "1"
+        },
+        {
+            "doctype": "Vehicle Log",
+            "doctype_or_field": "DocField",
+            "fieldname": "make",
+            "property": "hidden",
+            "property_type": "Check",
+            "value": "1"
+        },
         
         
     ],
-    "property_setters": [
-
-    ],
+    
     'on_setup': 'fleet.fleet_managment.setup.install'
 }
