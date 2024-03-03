@@ -304,7 +304,7 @@ data = {
             "fieldname": "odometer",
             "property": "reqd",
             "property_type": "Check",
-            "value": "1"
+            "value": "0"
         },
         {
             "doctype": "Vehicle Log",
